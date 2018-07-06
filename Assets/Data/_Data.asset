@@ -1,0 +1,57 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0bed31fe169a0c7429a4a3f2ff6e3978, type: 3}
+  m_Name: _Data
+  m_EditorClassIdentifier: 
+  outlineMaterial: {fileID: 2100000, guid: 36c3bc02ba83db24abcfdd5733e85aae, type: 2}
+  assetPrefab: {fileID: 114176270963652510, guid: 97f6d3b9d8990454684be1b4cc44fc74,
+    type: 2}
+  npcPrefab: {fileID: 114608260288118906, guid: b92ba5862af825c4bae65fb2ea6f3800,
+    type: 2}
+  assetData:
+  - {fileID: 11400000, guid: 0433614e78cfd994692779d346bd8d61, type: 2}
+  - {fileID: 11400000, guid: 4e4d08b270ab079488edb280b98a6d67, type: 2}
+  - {fileID: 11400000, guid: 9e1a168bcf4493342944c8a9d2219b34, type: 2}
+  - {fileID: 11400000, guid: b6a1bcc13ee65db4a82b1642d6d11fd9, type: 2}
+  - {fileID: 11400000, guid: ff97b64f9e22bb14bac457921dae91da, type: 2}
+  - {fileID: 11400000, guid: 9b350dd697e5cd14db8cf457226fd61f, type: 2}
+  npcData:
+  - {fileID: 11400000, guid: 4110c473d373a634a81b6bdc884bfc35, type: 2}
+  - {fileID: 11400000, guid: cf3fc141b6c7d7f4eab98881242bd640, type: 2}
+  - {fileID: 11400000, guid: fb1836f4def44bc4cb57ccd392420658, type: 2}
+  - {fileID: 11400000, guid: f4c32b55395de1847a8cd72b4f934eaf, type: 2}
+  - {fileID: 11400000, guid: 95d69c989f5c70948b01fe2f075b5a17, type: 2}
+  - {fileID: 11400000, guid: 3e60cb39a73a74b45acbd4c4f3483060, type: 2}
+  - {fileID: 11400000, guid: ac737b6a6be1cf648b841f80417a4f38, type: 2}
+  - {fileID: 11400000, guid: 590ed9895f294cf4399858255de4d12d, type: 2}
+  - {fileID: 11400000, guid: 1bc98f7c69706534b84c31a76560f8be, type: 2}
+  prefabs:
+  - {fileID: 1065110964505368, guid: b5012a43c5eabcb4ead9513a42062e59, type: 2}
+  moneyPrefabs:
+  - {fileID: 1215031752953626, guid: e5917ac5abcf1224681195c330be8926, type: 2}
+  - {fileID: 1725893595998566, guid: 325f626ee211aec4b89c07a827ac8350, type: 2}
+  - {fileID: 1820494989951536, guid: 35617dca15018024faeae54df955c603, type: 2}
+  - {fileID: 1353611985460014, guid: 4f37c6336cfb1be428defb17594a5405, type: 2}
+  - {fileID: 1786258640304132, guid: 8fe9452ef22518b42acfad16c0f53bd2, type: 2}
+  colors:
+  - {r: 0, g: 0.6102941, b: 0.20623739, a: 1}
+  - {r: 1, g: 0.3602941, b: 0.3602941, a: 1}
+  npcsAtHome:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  npcsOut:
+  - {fileID: 0}

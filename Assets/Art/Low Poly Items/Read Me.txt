@@ -1,0 +1,6 @@
+Hello and thank you for purchasing Low Poly Items package.
+
+There is 112 fbx files all made to prefabs. All models use one single material with atlas texture.
+Texture is 512*512 png
+
+Tris count range from 56 to 502.

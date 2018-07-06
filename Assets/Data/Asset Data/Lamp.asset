@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a3b6eac396418ab46a1449e0684acf61, type: 3}
+  m_Name: Lamp
+  m_EditorClassIdentifier: 
+  useTag: Lamp
+  assetLevel: 3
+  baseValue: 15
+  currentValue: 24.899231
+  currentPop: 0.45876133
+  physicsAsset: 0
+  modelPrefab: {fileID: 1930749907312052, guid: 794020622ed6a3c4ab7fc6b85d214c36,
+    type: 2}
+  miniModelScaleMultiplier: 0.8
+  useable: 1
+  storageSlots: 0

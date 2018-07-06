@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: decd0c4c31e0ebf42ab5f388719b568f, type: 3}
+  m_Name: Melody
+  m_EditorClassIdentifier: 
+  npcName: Victoria
+  npcModelPrefab: {fileID: 1829739683235422, guid: 1cb3e44f382654e498a39d4b4843c722,
+    type: 2}
+  favoriteAsset: {fileID: 11400000, guid: 0433614e78cfd994692779d346bd8d61, type: 2}
+  isFemale: 1

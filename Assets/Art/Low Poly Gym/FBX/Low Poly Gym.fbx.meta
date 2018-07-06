@@ -1,0 +1,598 @@
+fileFormatVersion: 2
+guid: bf43c361a9ee91849a6124c4f0013f67
+timeCreated: 1489519900
+licenseType: Store
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: Barbell 100
+    100002: Barbell 120
+    100004: Barbell 120.1
+    100006: Barbell 140
+    100008: Barbell 180
+    100010: Barbell 20
+    100012: Barbell 220
+    100014: Barbell 220 Double
+    100016: Barbell 25
+    100018: Barbell 270
+    100020: Barbell 30
+    100022: Barbell 320
+    100024: Barbell 35
+    100026: Barbell 40
+    100028: Barbell 420
+    100030: Barbell 50
+    100032: Barbell 55
+    100034: Barbell 60
+    100036: Barbell 70
+    100038: Bench
+    100040: Bench 2
+    100042: Bench 3
+    100044: Bench Bicep
+    100046: Curl Barbell 10
+    100048: Curl Barbell 110
+    100050: Curl Barbell 15
+    100052: Curl Barbell 20
+    100054: Curl Barbell 210
+    100056: Curl Barbell 25
+    100058: Curl Barbell 30
+    100060: Curl Barbell 40
+    100062: Curl Barbell 50
+    100064: Curl Barbell 90
+    100066: Desk
+    100068: Dip
+    100070: Disk 10
+    100072: Disk 2.5
+    100074: Disk 20
+    100076: Disk 25
+    100078: Disk 5
+    100080: Disk 50
+    100082: Disk Rack
+    100084: Disk Rack Weights
+    100086: Example Enviroment 1
+    100088: Example Enviroment 2
+    100090: Floor
+    100092: Hand Weight
+    100094: Hand Weight 1
+    100096: Hand Weight 10
+    100098: Hand Weight 11
+    100100: Hand Weight 12
+    100102: Hand Weight 13
+    100104: Hand Weight 14
+    100106: Hand Weight 15
+    100108: Hand Weight 16
+    100110: Hand Weight 17
+    100112: Hand Weight 18
+    100114: Hand Weight 19
+    100116: Hand Weight 2
+    100118: Hand Weight 20
+    100120: Hand Weight 21
+    100122: Hand Weight 22
+    100124: Hand Weight 23
+    100126: Hand Weight 24
+    100128: Hand Weight 25
+    100130: Hand Weight 26
+    100132: Hand Weight 3
+    100134: Hand Weight 4
+    100136: Hand Weight 5
+    100138: Hand Weight 6
+    100140: Hand Weight 7
+    100142: Hand Weight 8
+    100144: Hand Weight 9
+    100146: Hand Weight Metal 1
+    100148: Hand Weight Metal 10
+    100150: Hand Weight Metal 2
+    100152: Hand Weight Metal 3
+    100154: Hand Weight Metal 4
+    100156: Hand Weight Metal 5
+    100158: Hand Weight Metal 6
+    100160: Hand Weight Metal 7
+    100162: Hand Weight Metal 8
+    100164: Hand Weight Metal 9
+    100166: Hand Weight Rack
+    100168: Hand Weight Rack metal
+    100170: Hand Weights Metal On Rack
+    100172: Hand Weights On Rack
+    100174: Kettlebell Black
+    100176: Kettlebell Black 2
+    100178: Kettlebell Black 3
+    100180: Kettlebell Black 4
+    100182: Kettlebell Black 5
+    100184: Kettlebell Black 6
+    100186: Kettlebell Green 1
+    100188: Kettlebell Green 2
+    100190: Kettlebell Green 3
+    100192: Kettlebell Green 4
+    100194: Kettlebell Green 5
+    100196: Kettlebell Green 6
+    100198: Leg Rack
+    100200: //RootNode
+    100202: Mat
+    100204: Shelf
+    100206: Wall
+    100208: Wall Element
+    100210: Wall Rack
+    400000: Barbell 100
+    400002: Barbell 120
+    400004: Barbell 120.1
+    400006: Barbell 140
+    400008: Barbell 180
+    400010: Barbell 20
+    400012: Barbell 220
+    400014: Barbell 220 Double
+    400016: Barbell 25
+    400018: Barbell 270
+    400020: Barbell 30
+    400022: Barbell 320
+    400024: Barbell 35
+    400026: Barbell 40
+    400028: Barbell 420
+    400030: Barbell 50
+    400032: Barbell 55
+    400034: Barbell 60
+    400036: Barbell 70
+    400038: Bench
+    400040: Bench 2
+    400042: Bench 3
+    400044: Bench Bicep
+    400046: Curl Barbell 10
+    400048: Curl Barbell 110
+    400050: Curl Barbell 15
+    400052: Curl Barbell 20
+    400054: Curl Barbell 210
+    400056: Curl Barbell 25
+    400058: Curl Barbell 30
+    400060: Curl Barbell 40
+    400062: Curl Barbell 50
+    400064: Curl Barbell 90
+    400066: Desk
+    400068: Dip
+    400070: Disk 10
+    400072: Disk 2.5
+    400074: Disk 20
+    400076: Disk 25
+    400078: Disk 5
+    400080: Disk 50
+    400082: Disk Rack
+    400084: Disk Rack Weights
+    400086: Example Enviroment 1
+    400088: Example Enviroment 2
+    400090: Floor
+    400092: Hand Weight
+    400094: Hand Weight 1
+    400096: Hand Weight 10
+    400098: Hand Weight 11
+    400100: Hand Weight 12
+    400102: Hand Weight 13
+    400104: Hand Weight 14
+    400106: Hand Weight 15
+    400108: Hand Weight 16
+    400110: Hand Weight 17
+    400112: Hand Weight 18
+    400114: Hand Weight 19
+    400116: Hand Weight 2
+    400118: Hand Weight 20
+    400120: Hand Weight 21
+    400122: Hand Weight 22
+    400124: Hand Weight 23
+    400126: Hand Weight 24
+    400128: Hand Weight 25
+    400130: Hand Weight 26
+    400132: Hand Weight 3
+    400134: Hand Weight 4
+    400136: Hand Weight 5
+    400138: Hand Weight 6
+    400140: Hand Weight 7
+    400142: Hand Weight 8
+    400144: Hand Weight 9
+    400146: Hand Weight Metal 1
+    400148: Hand Weight Metal 10
+    400150: Hand Weight Metal 2
+    400152: Hand Weight Metal 3
+    400154: Hand Weight Metal 4
+    400156: Hand Weight Metal 5
+    400158: Hand Weight Metal 6
+    400160: Hand Weight Metal 7
+    400162: Hand Weight Metal 8
+    400164: Hand Weight Metal 9
+    400166: Hand Weight Rack
+    400168: Hand Weight Rack metal
+    400170: Hand Weights Metal On Rack
+    400172: Hand Weights On Rack
+    400174: Kettlebell Black
+    400176: Kettlebell Black 2
+    400178: Kettlebell Black 3
+    400180: Kettlebell Black 4
+    400182: Kettlebell Black 5
+    400184: Kettlebell Black 6
+    400186: Kettlebell Green 1
+    400188: Kettlebell Green 2
+    400190: Kettlebell Green 3
+    400192: Kettlebell Green 4
+    400194: Kettlebell Green 5
+    400196: Kettlebell Green 6
+    400198: Leg Rack
+    400200: //RootNode
+    400202: Mat
+    400204: Shelf
+    400206: Wall
+    400208: Wall Element
+    400210: Wall Rack
+    2300000: Barbell 100
+    2300002: Barbell 120
+    2300004: Barbell 120.1
+    2300006: Barbell 140
+    2300008: Barbell 180
+    2300010: Barbell 20
+    2300012: Barbell 220
+    2300014: Barbell 220 Double
+    2300016: Barbell 25
+    2300018: Barbell 270
+    2300020: Barbell 30
+    2300022: Barbell 320
+    2300024: Barbell 35
+    2300026: Barbell 40
+    2300028: Barbell 420
+    2300030: Barbell 50
+    2300032: Barbell 55
+    2300034: Barbell 60
+    2300036: Barbell 70
+    2300038: Bench
+    2300040: Bench 2
+    2300042: Bench 3
+    2300044: Bench Bicep
+    2300046: Curl Barbell 10
+    2300048: Curl Barbell 110
+    2300050: Curl Barbell 15
+    2300052: Curl Barbell 20
+    2300054: Curl Barbell 210
+    2300056: Curl Barbell 25
+    2300058: Curl Barbell 30
+    2300060: Curl Barbell 40
+    2300062: Curl Barbell 50
+    2300064: Curl Barbell 90
+    2300066: Desk
+    2300068: Dip
+    2300070: Disk 10
+    2300072: Disk 2.5
+    2300074: Disk 20
+    2300076: Disk 25
+    2300078: Disk 5
+    2300080: Disk 50
+    2300082: Disk Rack
+    2300084: Disk Rack Weights
+    2300086: Example Enviroment 1
+    2300088: Example Enviroment 2
+    2300090: Floor
+    2300092: Hand Weight
+    2300094: Hand Weight 1
+    2300096: Hand Weight 10
+    2300098: Hand Weight 11
+    2300100: Hand Weight 12
+    2300102: Hand Weight 13
+    2300104: Hand Weight 14
+    2300106: Hand Weight 15
+    2300108: Hand Weight 16
+    2300110: Hand Weight 17
+    2300112: Hand Weight 18
+    2300114: Hand Weight 19
+    2300116: Hand Weight 2
+    2300118: Hand Weight 20
+    2300120: Hand Weight 21
+    2300122: Hand Weight 22
+    2300124: Hand Weight 23
+    2300126: Hand Weight 24
+    2300128: Hand Weight 25
+    2300130: Hand Weight 26
+    2300132: Hand Weight 3
+    2300134: Hand Weight 4
+    2300136: Hand Weight 5
+    2300138: Hand Weight 6
+    2300140: Hand Weight 7
+    2300142: Hand Weight 8
+    2300144: Hand Weight 9
+    2300146: Hand Weight Metal 1
+    2300148: Hand Weight Metal 10
+    2300150: Hand Weight Metal 2
+    2300152: Hand Weight Metal 3
+    2300154: Hand Weight Metal 4
+    2300156: Hand Weight Metal 5
+    2300158: Hand Weight Metal 6
+    2300160: Hand Weight Metal 7
+    2300162: Hand Weight Metal 8
+    2300164: Hand Weight Metal 9
+    2300166: Hand Weight Rack
+    2300168: Hand Weight Rack metal
+    2300170: Hand Weights Metal On Rack
+    2300172: Hand Weights On Rack
+    2300174: Kettlebell Black
+    2300176: Kettlebell Black 2
+    2300178: Kettlebell Black 3
+    2300180: Kettlebell Black 4
+    2300182: Kettlebell Black 5
+    2300184: Kettlebell Black 6
+    2300186: Kettlebell Green 1
+    2300188: Kettlebell Green 2
+    2300190: Kettlebell Green 3
+    2300192: Kettlebell Green 4
+    2300194: Kettlebell Green 5
+    2300196: Kettlebell Green 6
+    2300198: Leg Rack
+    2300200: Mat
+    2300202: Shelf
+    2300204: Wall
+    2300206: Wall Element
+    2300208: Wall Rack
+    3300000: Barbell 100
+    3300002: Barbell 120
+    3300004: Barbell 120.1
+    3300006: Barbell 140
+    3300008: Barbell 180
+    3300010: Barbell 20
+    3300012: Barbell 220
+    3300014: Barbell 220 Double
+    3300016: Barbell 25
+    3300018: Barbell 270
+    3300020: Barbell 30
+    3300022: Barbell 320
+    3300024: Barbell 35
+    3300026: Barbell 40
+    3300028: Barbell 420
+    3300030: Barbell 50
+    3300032: Barbell 55
+    3300034: Barbell 60
+    3300036: Barbell 70
+    3300038: Bench
+    3300040: Bench 2
+    3300042: Bench 3
+    3300044: Bench Bicep
+    3300046: Curl Barbell 10
+    3300048: Curl Barbell 110
+    3300050: Curl Barbell 15
+    3300052: Curl Barbell 20
+    3300054: Curl Barbell 210
+    3300056: Curl Barbell 25
+    3300058: Curl Barbell 30
+    3300060: Curl Barbell 40
+    3300062: Curl Barbell 50
+    3300064: Curl Barbell 90
+    3300066: Desk
+    3300068: Dip
+    3300070: Disk 10
+    3300072: Disk 2.5
+    3300074: Disk 20
+    3300076: Disk 25
+    3300078: Disk 5
+    3300080: Disk 50
+    3300082: Disk Rack
+    3300084: Disk Rack Weights
+    3300086: Example Enviroment 1
+    3300088: Example Enviroment 2
+    3300090: Floor
+    3300092: Hand Weight
+    3300094: Hand Weight 1
+    3300096: Hand Weight 10
+    3300098: Hand Weight 11
+    3300100: Hand Weight 12
+    3300102: Hand Weight 13
+    3300104: Hand Weight 14
+    3300106: Hand Weight 15
+    3300108: Hand Weight 16
+    3300110: Hand Weight 17
+    3300112: Hand Weight 18
+    3300114: Hand Weight 19
+    3300116: Hand Weight 2
+    3300118: Hand Weight 20
+    3300120: Hand Weight 21
+    3300122: Hand Weight 22
+    3300124: Hand Weight 23
+    3300126: Hand Weight 24
+    3300128: Hand Weight 25
+    3300130: Hand Weight 26
+    3300132: Hand Weight 3
+    3300134: Hand Weight 4
+    3300136: Hand Weight 5
+    3300138: Hand Weight 6
+    3300140: Hand Weight 7
+    3300142: Hand Weight 8
+    3300144: Hand Weight 9
+    3300146: Hand Weight Metal 1
+    3300148: Hand Weight Metal 10
+    3300150: Hand Weight Metal 2
+    3300152: Hand Weight Metal 3
+    3300154: Hand Weight Metal 4
+    3300156: Hand Weight Metal 5
+    3300158: Hand Weight Metal 6
+    3300160: Hand Weight Metal 7
+    3300162: Hand Weight Metal 8
+    3300164: Hand Weight Metal 9
+    3300166: Hand Weight Rack
+    3300168: Hand Weight Rack metal
+    3300170: Hand Weights Metal On Rack
+    3300172: Hand Weights On Rack
+    3300174: Kettlebell Black
+    3300176: Kettlebell Black 2
+    3300178: Kettlebell Black 3
+    3300180: Kettlebell Black 4
+    3300182: Kettlebell Black 5
+    3300184: Kettlebell Black 6
+    3300186: Kettlebell Green 1
+    3300188: Kettlebell Green 2
+    3300190: Kettlebell Green 3
+    3300192: Kettlebell Green 4
+    3300194: Kettlebell Green 5
+    3300196: Kettlebell Green 6
+    3300198: Leg Rack
+    3300200: Mat
+    3300202: Shelf
+    3300204: Wall
+    3300206: Wall Element
+    3300208: Wall Rack
+    4300000: Disk 20
+    4300002: Disk 50
+    4300004: Disk 5
+    4300006: Disk 2.5
+    4300008: Disk 25
+    4300010: Disk 10
+    4300012: Curl Barbell 25
+    4300014: Example Enviroment 2
+    4300016: Example Enviroment 1
+    4300018: Wall Element
+    4300020: Leg Rack
+    4300022: Disk Rack
+    4300024: Disk Rack Weights
+    4300026: Desk
+    4300028: Shelf
+    4300030: Wall
+    4300032: Floor
+    4300034: Mat
+    4300036: Dip
+    4300038: Hand Weights On Rack
+    4300040: Hand Weight Rack
+    4300042: Hand Weights Metal On Rack
+    4300044: Wall Rack
+    4300046: Hand Weight Rack metal
+    4300048: Bench
+    4300050: Bench 3
+    4300052: Bench 2
+    4300054: Bench Bicep
+    4300056: Hand Weight
+    4300058: Barbell 420
+    4300060: Barbell 220
+    4300062: Barbell 180
+    4300064: Barbell 270
+    4300066: Barbell 320
+    4300068: Barbell 220 Double
+    4300070: Barbell 120
+    4300072: Barbell 100
+    4300074: Barbell 120.1
+    4300076: Barbell 70
+    4300078: Barbell 60
+    4300080: Barbell 55
+    4300082: Barbell 50
+    4300084: Barbell 40
+    4300086: Barbell 25
+    4300088: Barbell 35
+    4300090: Barbell 20
+    4300092: Curl Barbell 10
+    4300094: Curl Barbell 15
+    4300096: Barbell 30
+    4300098: Curl Barbell 30
+    4300100: Curl Barbell 20
+    4300102: Curl Barbell 40
+    4300104: Curl Barbell 50
+    4300106: Curl Barbell 90
+    4300108: Curl Barbell 110
+    4300110: Curl Barbell 210
+    4300112: Hand Weight 26
+    4300114: Barbell 140
+    4300116: Kettlebell Black 6
+    4300118: Hand Weight Metal 1
+    4300120: Hand Weight Metal 2
+    4300122: Hand Weight Metal 3
+    4300124: Hand Weight Metal 4
+    4300126: Hand Weight Metal 5
+    4300128: Hand Weight Metal 6
+    4300130: Hand Weight Metal 7
+    4300132: Hand Weight Metal 8
+    4300134: Hand Weight Metal 9
+    4300136: Hand Weight Metal 10
+    4300138: Hand Weight 1
+    4300140: Hand Weight 2
+    4300142: Hand Weight 3
+    4300144: Hand Weight 4
+    4300146: Hand Weight 5
+    4300148: Hand Weight 6
+    4300150: Hand Weight 7
+    4300152: Hand Weight 8
+    4300154: Hand Weight 9
+    4300156: Hand Weight 10
+    4300158: Hand Weight 11
+    4300160: Hand Weight 12
+    4300162: Hand Weight 13
+    4300164: Hand Weight 14
+    4300166: Hand Weight 15
+    4300168: Hand Weight 16
+    4300170: Hand Weight 17
+    4300172: Hand Weight 18
+    4300174: Hand Weight 19
+    4300176: Hand Weight 20
+    4300178: Hand Weight 21
+    4300180: Hand Weight 22
+    4300182: Hand Weight 23
+    4300184: Hand Weight 24
+    4300186: Hand Weight 25
+    4300188: Kettlebell Green 1
+    4300190: Kettlebell Green 2
+    4300192: Kettlebell Green 3
+    4300194: Kettlebell Green 4
+    4300196: Kettlebell Green 5
+    4300198: Kettlebell Green 6
+    4300200: Kettlebell Black
+    4300202: Kettlebell Black 2
+    4300204: Kettlebell Black 3
+    4300206: Kettlebell Black 4
+    4300208: Kettlebell Black 5
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

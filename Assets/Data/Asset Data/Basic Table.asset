@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a3b6eac396418ab46a1449e0684acf61, type: 3}
+  m_Name: Basic Table
+  m_EditorClassIdentifier: 
+  assetLevel: 3
+  baseValue: 25
+  currentValue: 24.899231
+  currentPop: 0.45876133
+  physicsAsset: 0
+  modelPrefab: {fileID: 1226480081883372, guid: 04ce859483d097a45b4956c01e7ef4ac,
+    type: 2}
+  miniModelScaleMultiplier: 0.3
+  useable: 0
+  storageSlots: 0

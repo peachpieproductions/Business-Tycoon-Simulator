@@ -1,0 +1,7 @@
+Hello and thank you for purchasing Low Poly Gym package.
+
+All the 105 meshes are imported in one FBX file and made to prefabs.
+I have separated enviroment and weight models to different texture atlasses and materials.
+Textures are 512*512 png combined to Legassy/Diffuse material.
+
+Tris count range from 92 to 836.
