@@ -10,9 +10,24 @@ public class ShopAssetListing : MonoBehaviour {
     public TextMeshProUGUI assetNametext;
     public TextMeshProUGUI assetBaseValue;
     public TextMeshProUGUI assetCurrentValue;
+    public TextMeshProUGUI assetInCart;
+    public TextMeshProUGUI assetTotalCost;
+    public int inCart;
 
     private void Start() {
         computer = GetComponentInParent<Computer>();
+    }
+
+    public void AddToCart() {
+        inCart++;
+        assetInCart.text = inCart.ToString();
+        computer.UpdateComputer();
+    }
+
+    public void RemoveFromCart() {
+        if (inCart > 0) inCart--;
+        assetInCart.text = inCart.ToString();
+        computer.UpdateComputer();
     }
 
     public void BuyAsset() {

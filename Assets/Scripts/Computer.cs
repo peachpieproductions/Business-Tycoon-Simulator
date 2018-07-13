@@ -13,8 +13,10 @@ public class Computer : MonoBehaviour {
     public bool shopOpen;
     public GameObject shopPanel;
     public List<ShopAssetListing> shopListings = new List<ShopAssetListing>();
+    public float shopCartTotalAmount;
     public ShopAssetListing assetListingPrototype;
     public TextMeshProUGUI timeText;
+    public TextMeshProUGUI shopCartTotalText;
     public Transform assetBeingSoldModel;
     public Transform moneySpawnPoint;
     public Vector2 mousePos;
@@ -56,11 +58,15 @@ public class Computer : MonoBehaviour {
                 }
                 assetListingPrototype.gameObject.SetActive(false);
             } else {
+                shopCartTotalAmount = 0;
                 foreach(ShopAssetListing s in shopListings) {
                     s.assetCurrentValue.text = "$" + s.asset.currentValue.ToString("F0");
+                    s.assetTotalCost.text = "$" + (Mathf.Round(s.asset.currentValue) * s.inCart).ToString("F0");
+                    shopCartTotalAmount += Mathf.Round(s.asset.currentValue) * s.inCart;
                     if (Mathf.Round(s.asset.currentValue) <= Mathf.Round(s.asset.baseValue)) s.assetCurrentValue.color = C.c.data.colors[0];
                     else s.assetCurrentValue.color = C.c.data.colors[1];
                 }
+                shopCartTotalText.text = "Cart Total - $" + shopCartTotalAmount;
             }
         }
         
@@ -90,3 +96,10 @@ public class Computer : MonoBehaviour {
 
 
 }
+
+
+public struct Delivery {
+
+}
+
+

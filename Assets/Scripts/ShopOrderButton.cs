@@ -6,14 +6,16 @@ using UnityEngine.UI;
 
 public class ShopOrderButton : MonoBehaviour, IPointerDownHandler {
 
-    ShopAssetListing listing;
-
-    private void Start() {
-        listing = GetComponentInParent<ShopAssetListing>();
-    }
+    Computer computer;
 
     public void OnPointerDown(PointerEventData eventData) {
-        listing.BuyAsset();
+        //listing.BuyAsset();
+        if (computer.shopCartTotalAmount > 0) {
+            if (computer.playerUsing.money >= computer.shopCartTotalAmount) {
+                computer.playerUsing.money -= computer.shopCartTotalAmount;
+
+            }
+        }
     }
 
 }
