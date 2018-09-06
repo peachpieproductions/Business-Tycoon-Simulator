@@ -45,7 +45,7 @@ public class C : MonoBehaviour {
 
     private void Update() {
 
-        if (data.npcsOut.Count < 5) {
+        if (data.npcsOut.Count < 3) {
             if (Random.value < .001f) {
                 var npc = data.npcsAtHome[Random.Range(0, data.npcsAtHome.Count)];
                 data.npcsAtHome.Remove(npc);

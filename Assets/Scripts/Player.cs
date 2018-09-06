@@ -118,7 +118,7 @@ public class Player : MonoBehaviour {
                 if (freeCam) FreeCamToggle();
             }
             else if (assetHovering) {
-                assetHovering.Use();
+                assetHovering.Use(); 
             }
             else if (nearbyPortal) {
                 if (!teleporting) StartCoroutine(TeleportSequence(nearbyPortal));

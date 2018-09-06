@@ -60,7 +60,8 @@ public class NPC : MonoBehaviour {
             }
         }
 
-        transform.GetComponentInChildren<TextMeshPro>().text = inventory[0].amount.ToString();
+        //debug show number of items in inventory
+        //transform.GetComponentInChildren<TextMeshPro>().text = inventory[0].amount.ToString();
 
         if (!walkingToDestination) {
 

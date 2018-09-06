@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class ShopOrderButton : MonoBehaviour, IPointerDownHandler {
 
-    Computer computer;
+    public Computer computer;
 
     public void OnPointerDown(PointerEventData eventData) {
         //listing.BuyAsset();
