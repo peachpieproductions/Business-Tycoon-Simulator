@@ -89,15 +89,17 @@ public class C : MonoBehaviour {
         return newList[Random.Range(0, newList.Count)];
     }
 
-    public void Delivery() {
+    public IEnumerator Delivery() {
         var inst = Instantiate(data.assetPrefab);
         inst.Set(null, "Wooden Crate");
         inst.transform.position = deliveryZone.position;
-        foreach(AssetInventorySlot a in player[0].upcomingDelivery) {
+        foreach (AssetInventorySlot a in player[0].upcomingDelivery) {
             inst.GetComponentInChildren<Storage>().AddAssetToInventory(a.asset, a.amount);
             a.amount = 0;
             a.asset = null;
         }
+        yield return null;
+        inst.transform.GetChild(0).GetComponent<Rigidbody>().isKinematic = false; //FIX THIS!!!!
     }
 
     public static float RemapFloat(float value, float from1, float to1, float from2, float to2) {

@@ -85,7 +85,7 @@ public class Player : MonoBehaviour {
         if (deliveryTimer > 0) {
             deliveryTimer -= Time.deltaTime;
             if (deliveryTimer <= 0) {
-                C.c.Delivery();
+                C.c.StartCoroutine(C.c.Delivery());
             }
         }
 
@@ -236,11 +236,11 @@ public class Player : MonoBehaviour {
         return placedAsset;
     }
 
-    public bool AddToUpcomingDelivery(AssetData asset) {
+    public bool AddToUpcomingDelivery(AssetData asset, int amount) {
         bool placedAsset = false;
         foreach (AssetInventorySlot slot in upcomingDelivery) { //find existing asset stack
             if (slot.amount > 0 && slot.asset == asset) {
-                slot.amount++;
+                slot.amount += amount;
                 placedAsset = true;
                 break;
             }
@@ -248,7 +248,7 @@ public class Player : MonoBehaviour {
         if (!placedAsset) {
             foreach (AssetInventorySlot slot in upcomingDelivery) { //make new stack
                 if (slot.amount == 0) {
-                    slot.amount++;
+                    slot.amount += amount;
                     slot.asset = asset;
                     placedAsset = true;
                     break;

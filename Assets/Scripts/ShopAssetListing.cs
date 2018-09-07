@@ -30,7 +30,7 @@ public class ShopAssetListing : MonoBehaviour {
         computer.UpdateComputer();
     }
 
-    public void BuyAsset() {
+    /*public void BuyAsset() {
         if (Mathf.Round(computer.playerUsing.money) >= Mathf.Round(asset.currentValue)) {
             computer.playerUsing.AddToUpcomingDelivery(asset);
             computer.playerUsing.money -= Mathf.Round(asset.currentValue);
@@ -39,7 +39,7 @@ public class ShopAssetListing : MonoBehaviour {
                 computer.playerUsing.deliveryTimer = 60 * 3;
             }
         }
-    }
+    }*/
 
 
 }

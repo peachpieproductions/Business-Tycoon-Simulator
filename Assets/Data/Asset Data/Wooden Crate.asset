@@ -11,10 +11,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3b6eac396418ab46a1449e0684acf61, type: 3}
   m_Name: Wooden Crate
   m_EditorClassIdentifier: 
+  useTag: Storage
   assetLevel: 2
   baseValue: 25
-  currentValue: 24.926224
-  currentPop: 0.39896864
+  currentValue: 24.72609
+  currentPop: 0.47795105
   physicsAsset: 1
   modelPrefab: {fileID: 1578032225775594, guid: be56d71f3b9390a478b409e6a9fa6de0,
     type: 2}
