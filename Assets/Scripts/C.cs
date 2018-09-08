@@ -11,7 +11,7 @@ public class C : MonoBehaviour {
     public string timeString;
     public Data data;
     public static C c;
-    public List<Player> player = new List<Player> ();
+    public List<Player> player = new List<Player>();
     public Light sunLight;
     public Transform deliveryZone;
     public Shop currentShop;
@@ -24,7 +24,6 @@ public class C : MonoBehaviour {
     private void Awake() {
         c = this;
         time = 10 * 60;
-
     }
 
     private void Start() {
