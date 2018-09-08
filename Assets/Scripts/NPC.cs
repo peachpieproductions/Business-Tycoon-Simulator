@@ -23,7 +23,7 @@ public class NPC : MonoBehaviour {
     }
 
     public void UpdateInWaitingLine() {
-        if (C.c.currentShop.npcCheckoutLine.IndexOf(this) == 0) agent.SetDestination(C.c.currentShop.computer.transform.position + -C.c.currentShop.computer.transform.forward);
+        if (C.c.currentShop.npcCheckoutLine.IndexOf(this) == 0) agent.SetDestination(C.c.currentShop.register.transform.position + -C.c.currentShop.register.transform.forward);
         else agent.SetDestination(C.c.currentShop.npcCheckoutLine[C.c.currentShop.npcCheckoutLine.IndexOf(this) - 1].transform.position);
         walkingToDestination = true;
     }

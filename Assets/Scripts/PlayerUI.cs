@@ -14,6 +14,7 @@ public class PlayerUI : MonoBehaviour {
     public TextMeshProUGUI MoneyText;
     public GameObject infoPopup;
     public CanvasGroup blackOutPanel;
+    public TextMeshProUGUI modeStatusText;
 
     private void Update() {
         CurrentTimeText.text = C.c.timeString;
@@ -27,11 +28,12 @@ public class PlayerUI : MonoBehaviour {
 
     }
 
-    public void CreateInfoPopup(string str,Color col) {
+    public void CreateInfoPopup(string str, Color col, float time = 6f) {
         var inst = Instantiate(infoPopup, infoPopup.transform.parent);
         inst.SetActive(true);
         inst.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = str;
         inst.transform.GetChild(0).GetComponent<TextMeshProUGUI>().color = col;
+        inst.GetComponent<FadeOut>().delay = time;
     }
 
 }

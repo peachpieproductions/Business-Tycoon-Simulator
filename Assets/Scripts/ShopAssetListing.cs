@@ -30,6 +30,12 @@ public class ShopAssetListing : MonoBehaviour {
         computer.UpdateComputer();
     }
 
+    public void ResetListing() {
+        inCart = 0;
+        assetInCart.text = inCart.ToString();
+        computer.UpdateComputer();
+    }
+
     /*public void BuyAsset() {
         if (Mathf.Round(computer.playerUsing.money) >= Mathf.Round(asset.currentValue)) {
             computer.playerUsing.AddToUpcomingDelivery(asset);

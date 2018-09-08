@@ -174,6 +174,7 @@ public class Player : MonoBehaviour {
             inventoryCurrentIndex += (int)Input.mouseScrollDelta.y;
             if (inventoryCurrentIndex < 0) inventoryCurrentIndex = 0;
             if (inventoryCurrentIndex >= inventory.Count) inventoryCurrentIndex = inventory.Count-1;
+            if (currentBuildAsset) Destroy(currentBuildAsset.gameObject);
         }
     }
 
@@ -194,6 +195,7 @@ public class Player : MonoBehaviour {
                 RaycastHit hit;
                 if (Physics.Raycast(cam.transform.position + cam.transform.forward, cam.transform.forward, out hit, 10f)) {
                     currentBuildAsset.transform.position = hit.point;
+                    if (Input.GetKey(KeyCode.R)) { currentBuildAsset.transform.Rotate(0, .75f, 0); }
                     if (Input.GetMouseButtonDown(0)) {
                         currentBuildAsset.placed = true;
                         currentBuildAsset.Set(currentBuildAsset.data);
@@ -208,6 +210,7 @@ public class Player : MonoBehaviour {
         //Start / stop Build Mode
         if (Input.GetKeyDown(KeyCode.B)) {
             buildMode = !buildMode;
+            pui.modeStatusText.transform.parent.gameObject.SetActive(buildMode);
             if (!buildMode) {
                 if (currentBuildAsset) Destroy(currentBuildAsset.gameObject);
             }

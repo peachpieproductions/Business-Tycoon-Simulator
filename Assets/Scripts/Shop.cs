@@ -23,10 +23,10 @@ public class Shop : MonoBehaviour {
         assetsSelling.Clear();
         var hits = Physics.BoxCastAll(transform.position + boxCastOffset, boxCastSize * .5f, transform.forward);
         foreach (RaycastHit t in hits) {
+            if (register == null) { register = t.transform.GetComponent<Register>(); }
+            if (computer == null) { computer = t.transform.GetComponent<Computer>(); }
             var a = t.transform.GetComponentInParent<Asset>();
             if (a) {
-                if (register == null) { register = t.transform.GetComponent<Register>(); }
-                if (computer == null) { computer = t.transform.GetComponent<Computer>(); }
                 if (a.selling) assetsSelling.Add(a);
             }
         }

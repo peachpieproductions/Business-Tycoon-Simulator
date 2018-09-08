@@ -20,6 +20,9 @@ public class ShopOrderButton : MonoBehaviour, IPointerDownHandler {
                 if (computer.playerUsing.deliveryTimer <= 0) {
                     computer.playerUsing.deliveryTimer = 60 * 3;
                 }
+                foreach(ShopAssetListing l in computer.shopListings) {
+                    l.ResetListing();
+                }
             }
         }
     }

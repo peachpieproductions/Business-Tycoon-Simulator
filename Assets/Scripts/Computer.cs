@@ -55,7 +55,8 @@ public class Computer : MonoBehaviour {
                     inst.assetBaseValue.text = "$" + ad.baseValue.ToString("F0");
                 }
                 assetListingPrototype.gameObject.SetActive(false);
-            } else {
+            }
+            if (shopListings.Count > 0) {
                 shopCartTotalAmount = 0;
                 foreach(ShopAssetListing s in shopListings) {
                     s.assetCurrentValue.text = "$" + s.asset.currentValue.ToString("F0");
