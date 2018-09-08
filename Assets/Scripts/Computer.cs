@@ -17,8 +17,6 @@ public class Computer : MonoBehaviour {
     public ShopAssetListing assetListingPrototype;
     public TextMeshProUGUI timeText;
     public TextMeshProUGUI shopCartTotalText;
-    public Transform assetBeingSoldModel;
-    public Transform moneySpawnPoint;
     public Vector2 mousePos;
     public Canvas screenCanvas;
 
@@ -77,10 +75,6 @@ public class Computer : MonoBehaviour {
 
         timeText.text = C.c.timeString;
 
-        if (assetBeingSoldModel.childCount > 0) {
-            assetBeingSoldModel.Rotate(0, Time.deltaTime * 20f, 0);
-        }
-
         if (playerUsing) {
             if (playerUsing.usingAsset != asset) { EndUsingComputer();  return; }
 
@@ -98,8 +92,5 @@ public class Computer : MonoBehaviour {
 }
 
 
-public struct Delivery {
-
-}
 
 

@@ -69,8 +69,8 @@ public class NPC : MonoBehaviour {
                 if (Random.value < .01f) UpdateInWaitingLine();
                 if (C.c.currentShop.npcCheckoutLine.Count > 0 && C.c.currentShop.npcCheckoutLine[0] == this) {
                     OverrideLookAt(C.c.player[0].transform);
-                    if (C.c.currentShop.computer.assetBeingSoldModel.childCount == 0) {
-                        var inst = Instantiate(inventory[0].asset.modelPrefab, C.c.currentShop.computer.assetBeingSoldModel);
+                    if (C.c.currentShop.register.assetBeingSoldModel.childCount == 0) {
+                        var inst = Instantiate(inventory[0].asset.modelPrefab, C.c.currentShop.register.assetBeingSoldModel);
                         var rb = inst.GetComponent<Rigidbody>(); if (rb) rb.isKinematic = true;
                         inst.transform.localPosition = Vector3.zero;
                         inst.transform.localScale *= inventory[0].asset.miniModelScaleMultiplier;

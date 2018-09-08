@@ -133,7 +133,7 @@ public class Player : MonoBehaviour {
                     else if (hit.transform.name == "AssetBeingSoldModel") {
                         if (hit.transform.childCount > 0) {
 
-                            var m = Instantiate(C.c.data.moneyPrefabs[1], C.c.currentShop.computer.moneySpawnPoint.position +
+                            var m = Instantiate(C.c.data.moneyPrefabs[1], C.c.currentShop.register.moneySpawnPoint.position +
                                 new Vector3(Random.Range(-.2f, .2f), 0, Random.Range(-.2f, .2f)), Quaternion.Euler(0, Random.Range(0, 359), 0)).GetComponent<Money>();
                             m.value = Mathf.Round(C.c.currentShop.npcCheckoutLine[0].inventory[0].asset.currentValue);
 

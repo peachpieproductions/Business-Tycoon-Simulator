@@ -8,6 +8,7 @@ public class Shop : MonoBehaviour {
     public Vector3 boxCastSize;
     public List<Asset> assetsSelling;
     public List<NPC> npcCheckoutLine;
+    public Register register;
     public Computer computer;
 
     private void Start() {
@@ -24,6 +25,7 @@ public class Shop : MonoBehaviour {
         foreach (RaycastHit t in hits) {
             var a = t.transform.GetComponentInParent<Asset>();
             if (a) {
+                if (register == null) { register = t.transform.GetComponent<Register>(); }
                 if (computer == null) { computer = t.transform.GetComponent<Computer>(); }
                 if (a.selling) assetsSelling.Add(a);
             }
