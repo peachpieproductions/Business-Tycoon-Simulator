@@ -16,7 +16,7 @@ MonoBehaviour:
   baseValue: 15
   currentValue: 24.899231
   currentPop: 0.45876133
-  physicsAsset: 0
+  physicsAsset: 1
   modelPrefab: {fileID: 1930749907312052, guid: 794020622ed6a3c4ab7fc6b85d214c36,
     type: 2}
   miniModelScaleMultiplier: 0.8

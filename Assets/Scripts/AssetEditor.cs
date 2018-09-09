@@ -24,6 +24,7 @@ public class AssetEditor : Editor {
             asset.goToActivateWhenOn = asset.model.transform.Find("ActivateWhenOn");
             asset.assetName = asset.data.name;
             asset.useTag = asset.data.useTag;
+            asset.physicsAsset = asset.data.physicsAsset;
             asset.transform.name = asset.assetName + " Asset";
             Debug.Log(asset.assetName + " Asset Loaded.");
         }

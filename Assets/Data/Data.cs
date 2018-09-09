@@ -13,6 +13,7 @@ public class Data : ScriptableObject {
     public List<GameObject> prefabs = new List<GameObject>();
     public List<GameObject> moneyPrefabs = new List<GameObject>();
     public Color[] colors;
+    public Material[] placingMats;
     public List<NPC> npcsAtHome = new List<NPC>();
     public List<NPC> npcsOut = new List<NPC>();
 

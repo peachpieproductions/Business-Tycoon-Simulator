@@ -12,7 +12,9 @@ public class Player : MonoBehaviour {
     public float lookSpeed = 1.5f;
     public Transform cam;
     public bool buildMode;
+    public bool buildPlacementValid;
     public Asset currentBuildAsset;
+    BoxCollider currentBuildCollider;
     public Asset assetHovering;
     public Asset usingAsset;
     public int inventoryCurrentIndex;
@@ -92,16 +94,18 @@ public class Player : MonoBehaviour {
         //hover assets for interaction
         assetHovering = null;
         RaycastHit hit;
-        if (Physics.Raycast(cam.transform.position + cam.transform.forward * .6f, cam.transform.forward, out hit,2f)) { 
-            if (hit.transform.CompareTag("Asset")) {
-                var asset = hit.transform.parent.GetComponent<Asset>();
-                if (asset) {
-                    assetHovering = asset;
-                    asset.Hovering(this);
+        if (!buildMode) {
+            if (Physics.Raycast(cam.transform.position + cam.transform.forward * .6f, cam.transform.forward, out hit, 2f)) {
+                if (hit.transform.CompareTag("Asset")) {
+                    var asset = hit.transform.parent.GetComponent<Asset>();
+                    if (asset) {
+                        assetHovering = asset;
+                        asset.Hovering(this);
+                    }
                 }
-            } 
-            else if (hit.transform.GetComponent<Interactable>()) {
-                if (Input.GetKeyDown(KeyCode.E)) hit.transform.GetComponent<Interactable>().Use();
+                else if (hit.transform.GetComponent<Interactable>()) {
+                    if (Input.GetKeyDown(KeyCode.E)) hit.transform.GetComponent<Interactable>().Use();
+                }
             }
         }
 
@@ -110,12 +114,13 @@ public class Player : MonoBehaviour {
 
         //use asset
         if (Input.GetKeyDown(KeyCode.E)) {
-            
-            if (usingAsset) {
-                StopUsingAsset();
+
+            if (assetHovering) {
+                if (usingAsset) StopUsingAsset();
+                assetHovering.Use();
             }
-            else if (assetHovering) {
-                assetHovering.Use(); 
+            else if (usingAsset) {
+                StopUsingAsset();
             }
             else if (nearbyPortal) {
                 if (!teleporting) StartCoroutine(TeleportSequence(nearbyPortal));
@@ -198,20 +203,44 @@ public class Player : MonoBehaviour {
         if (!freeCam) { cam.parent = transform; cam.transform.localEulerAngles = Vector3.zero; }
     }
 
+    /*public void OnDrawGizmos() {
+        if (currentBuildAsset) {
+            //Debug.Log(currentBuildAsset.model.GetComponent<Collider>().bounds.center + " " + currentBuildAsset.model.GetComponent<Collider>().bounds.extents);
+            //Gizmos.DrawCube(currentBuildCollider.bounds.center, currentBuildCollider.size * .49f);
+        }
+    }*/
+
     public void BuildMode() {
         if (buildMode) {
             if (currentBuildAsset == null) {
                 if (inventory[inventoryCurrentIndex].amount > 0) {
                     currentBuildAsset = Instantiate(C.c.data.assetPrefab);
                     currentBuildAsset.Set(inventory[inventoryCurrentIndex].asset, "",true);
+                    buildPlacementValid = false;
+                    currentBuildAsset.model.GetComponent<MeshRenderer>().material = C.c.data.placingMats[1];
+                    currentBuildCollider = currentBuildAsset.model.AddComponent<BoxCollider>();
+                    currentBuildCollider.isTrigger = true;
                 }
             }
             if (currentBuildAsset) {
                 RaycastHit hit;
                 if (Physics.Raycast(cam.transform.position + cam.transform.forward, cam.transform.forward, out hit, 10f)) {
+                    //Debug.Log(hit.normal.x + " " + hit.normal.y + " " + hit.normal.z);
+                    var placementValid = buildPlacementValid;
+                    if (Mathf.Abs(hit.normal.x) < .2f && Mathf.Abs(hit.normal.y) > .9f && Mathf.Abs(hit.normal.z) < .2f) placementValid = true;
+                    RaycastHit[] hits;
+                    hits = Physics.BoxCastAll(currentBuildCollider.bounds.center, currentBuildCollider.size * currentBuildAsset.model.transform.localScale.x * .48f, Vector3.up, currentBuildAsset.transform.rotation, .01f);
+                    foreach(RaycastHit h in hits) {
+                        //Debug.Log(h.transform);
+                        if (h.transform != currentBuildAsset.model.transform && h.transform != transform) placementValid = false;
+                    }
+
+                    if (placementValid) { if (!buildPlacementValid) currentBuildAsset.model.GetComponent<MeshRenderer>().material = C.c.data.placingMats[0]; buildPlacementValid = true; }
+                        else { if (buildPlacementValid) currentBuildAsset.model.GetComponent<MeshRenderer>().material = C.c.data.placingMats[1]; buildPlacementValid = false; }
+
                     currentBuildAsset.transform.position = hit.point;
                     if (Input.GetKey(KeyCode.R)) { currentBuildAsset.transform.Rotate(0, .6f, 0); }
-                    if (Input.GetMouseButtonDown(0)) {
+                    if (Input.GetMouseButtonDown(0) && buildPlacementValid) {
                         currentBuildAsset.placed = true;
                         currentBuildAsset.Set(currentBuildAsset.data);
                         if (Input.GetKey(KeyCode.LeftShift)) currentBuildAsset.ToggleSelling();
@@ -224,7 +253,7 @@ public class Player : MonoBehaviour {
         }
 
         //Start / stop Build Mode
-        if (Input.GetKeyDown(KeyCode.B)) {
+        if (Input.GetKeyDown(KeyCode.B) || (buildMode && Input.GetMouseButtonDown(1))) {
             buildMode = !buildMode;
             pui.modeStatusText.transform.parent.gameObject.SetActive(buildMode);
             if (!buildMode) {

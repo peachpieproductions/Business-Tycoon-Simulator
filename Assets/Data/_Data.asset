@@ -44,6 +44,9 @@ MonoBehaviour:
   colors:
   - {r: 0.057688158, g: 0.71323526, b: 0.27921796, a: 1}
   - {r: 1, g: 0.5147059, b: 0.5147059, a: 1}
+  placingMats:
+  - {fileID: 2100000, guid: 08280b3061fac8243b0a8ba75836ed98, type: 2}
+  - {fileID: 2100000, guid: 9d3df70e57abbf14d9f46574d7e6878e, type: 2}
   npcsAtHome:
   - {fileID: 0}
   - {fileID: 0}
