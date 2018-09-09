@@ -11,11 +11,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3b6eac396418ab46a1449e0684acf61, type: 3}
   m_Name: Computer
   m_EditorClassIdentifier: 
+  type: 3
   useTag: Computer
   assetLevel: 5
   baseValue: 1000
-  currentValue: 999.5908
-  currentPop: 0.58530927
+  currentValue: 999.77435
+  currentPop: 0.593426
   physicsAsset: 0
   modelPrefab: {fileID: 1650272839631308, guid: d97077a69ed3a5d468e12ff0acc518a8,
     type: 2}

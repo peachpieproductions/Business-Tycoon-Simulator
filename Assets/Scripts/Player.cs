@@ -179,7 +179,7 @@ public class Player : MonoBehaviour {
         }
 
         //Cycle active asset
-        if (Input.mouseScrollDelta.y != 0) {
+        if (Input.mouseScrollDelta.y != 0 && usingAsset == null) {
             inventoryCurrentIndex += (int)Input.mouseScrollDelta.y;
             if (inventoryCurrentIndex < 0) inventoryCurrentIndex = 0;
             if (inventoryCurrentIndex >= inventory.Count) inventoryCurrentIndex = inventory.Count-1;
