@@ -14,6 +14,7 @@ public class PropertyListing : MonoBehaviour {
 
     private void Start() {
         computer = GetComponentInParent<Computer>();
+        if (shopModel == null) shopModel = C.c.availableProperties[transform.GetSiblingIndex()];
     }
 
     public void BuyProperty() {

@@ -20,6 +20,7 @@ public class Computer : MonoBehaviour {
 
     private void Start() {
         asset = GetComponentInParent<Asset>();
+        screenCanvas.worldCamera = Camera.main;
         UpdateComputer();
     }
 
@@ -39,13 +40,17 @@ public class Computer : MonoBehaviour {
 
     public void UpdateComputer() {
 
-        //Marketplace
-        marketplace.gameObject.SetActive(marketplaceOpen);
-        marketplace.UpdateMarketplace();
+        if (asset && asset.placed) {
 
-        //Properties
-        propertyWebsite.gameObject.SetActive(propertyWebsiteOpen);
-        propertyWebsite.UpdatePropertyWebsite();
+            //Marketplace
+            marketplace.gameObject.SetActive(marketplaceOpen);
+            marketplace.UpdateMarketplace();
+
+            //Properties
+            propertyWebsite.gameObject.SetActive(propertyWebsiteOpen);
+            propertyWebsite.UpdatePropertyWebsite();
+
+        }
 
     }
 

@@ -17,7 +17,9 @@ public class C : MonoBehaviour {
     public Shop currentShop;
     public Economy econ;
     public Transform npcHomesParent;
-    
+    public List<GameObject> availableProperties = new List<GameObject>();
+
+
 
     public VirtualInputModule virtualInputModule;
 

@@ -14,11 +14,12 @@ MonoBehaviour:
   useTag: Chair
   assetLevel: 2
   baseValue: 5
-  currentValue: 4.6221294
-  currentPop: 0.4633829
+  currentValue: 5.4602623
+  currentPop: 0.4668586
   physicsAsset: 0
   modelPrefab: {fileID: 1196872645894402, guid: 1370bb843b485074bbb91e6750527ac9,
     type: 2}
   miniModelScaleMultiplier: 0.5
+  invModelScaleMultiplier: 0.35
   useable: 1
   storageSlots: 0

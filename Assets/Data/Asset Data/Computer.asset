@@ -14,11 +14,12 @@ MonoBehaviour:
   useTag: Computer
   assetLevel: 5
   baseValue: 1000
-  currentValue: 999.6724
-  currentPop: 0.39815015
+  currentValue: 999.5908
+  currentPop: 0.58530927
   physicsAsset: 0
-  modelPrefab: {fileID: 1498324226491794, guid: d97077a69ed3a5d468e12ff0acc518a8,
+  modelPrefab: {fileID: 1650272839631308, guid: d97077a69ed3a5d468e12ff0acc518a8,
     type: 2}
   miniModelScaleMultiplier: 0.5
+  invModelScaleMultiplier: 0.8
   useable: 1
   storageSlots: 0

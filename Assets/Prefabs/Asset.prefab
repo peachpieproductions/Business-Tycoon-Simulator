@@ -993,6 +993,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7181bd544291be1459ac4a425048dcff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  computer: {fileID: 0}
   link: FileExplorer
 --- !u!114 &114024414405827624
 MonoBehaviour:
@@ -1208,6 +1209,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7181bd544291be1459ac4a425048dcff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  computer: {fileID: 0}
   link: CloseShop
 --- !u!114 &114136055270987106
 MonoBehaviour:
@@ -1446,6 +1448,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7181bd544291be1459ac4a425048dcff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  computer: {fileID: 0}
   link: Property
 --- !u!114 &114175292578498714
 MonoBehaviour:
@@ -1578,7 +1581,7 @@ MonoBehaviour:
   model: {fileID: 1683449861719004}
   coll: {fileID: 64726926695914964}
   outline: {fileID: 114761221990882164}
-  placed: 1
+  placed: 0
   camOverride: {fileID: 4998455051034310}
   physicsAsset: 0
   selling: 0
@@ -1719,6 +1722,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7181bd544291be1459ac4a425048dcff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  computer: {fileID: 0}
   link: TurnOff
 --- !u!114 &114230956854262592
 MonoBehaviour:
@@ -1957,6 +1961,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7181bd544291be1459ac4a425048dcff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  computer: {fileID: 0}
   link: Shop
 --- !u!114 &114286467451517932
 MonoBehaviour:
@@ -2598,10 +2603,12 @@ MonoBehaviour:
   playerUsing: {fileID: 0}
   mouseSprite: {fileID: 224153470742831936}
   marketplaceOpen: 0
+  propertyWebsiteOpen: 0
   marketplace: {fileID: 114199323042019284}
+  propertyWebsite: {fileID: 0}
   timeText: {fileID: 114159467562911118}
-  mousePos: {x: 0, y: 0}
   screenCanvas: {fileID: 223922606859551746}
+  shopController: {fileID: 0}
 --- !u!114 &114511469056363126
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2613,6 +2620,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7181bd544291be1459ac4a425048dcff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  computer: {fileID: 0}
   link: Exit
 --- !u!114 &114549703351303584
 MonoBehaviour:
@@ -3601,6 +3609,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7181bd544291be1459ac4a425048dcff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  computer: {fileID: 0}
   link: Games
 --- !u!114 &114899846438721616
 MonoBehaviour:
@@ -3780,6 +3789,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7181bd544291be1459ac4a425048dcff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  computer: {fileID: 0}
   link: Net
 --- !u!114 &114984872742816544
 MonoBehaviour:
@@ -3905,6 +3915,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7181bd544291be1459ac4a425048dcff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  computer: {fileID: 0}
   link: Email
 --- !u!222 &222020700640418944
 CanvasRenderer:

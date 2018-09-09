@@ -20,5 +20,6 @@ MonoBehaviour:
   modelPrefab: {fileID: 1515687788551356, guid: 3ae71fc7e6d03cc4a80bd5b771183cfb,
     type: 2}
   miniModelScaleMultiplier: 0.3
+  invModelScaleMultiplier: 0.15
   useable: 1
   storageSlots: 0

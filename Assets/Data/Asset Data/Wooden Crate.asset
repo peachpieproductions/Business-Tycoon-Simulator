@@ -14,11 +14,12 @@ MonoBehaviour:
   useTag: Storage
   assetLevel: 2
   baseValue: 25
-  currentValue: 24.72609
-  currentPop: 0.47795105
+  currentValue: 24.123535
+  currentPop: 0.41866735
   physicsAsset: 1
   modelPrefab: {fileID: 1578032225775594, guid: be56d71f3b9390a478b409e6a9fa6de0,
     type: 2}
   miniModelScaleMultiplier: 0.5
+  invModelScaleMultiplier: 0.7
   useable: 1
   storageSlots: 10

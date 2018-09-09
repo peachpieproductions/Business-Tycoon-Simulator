@@ -9,6 +9,7 @@ public class PlayerUI : MonoBehaviour {
 
     public Player player;
 
+    public InventoryRender invRender;
     public TextMeshProUGUI CurrentAssetText;
     public TextMeshProUGUI CurrentTimeText;
     public TextMeshProUGUI MoneyText;
@@ -23,8 +24,8 @@ public class PlayerUI : MonoBehaviour {
 
         //DEBUG FIX
         if (C.c.player[0].inventory[C.c.player[0].inventoryCurrentIndex].amount > 0)
-            CurrentAssetText.text = C.c.player[0].inventory[C.c.player[0].inventoryCurrentIndex].asset.name + " - " + C.c.player[0].inventory[C.c.player[0].inventoryCurrentIndex].amount;
-        else CurrentAssetText.text = "Empty (" + C.c.player[0].inventoryCurrentIndex.ToString() + ")";
+            CurrentAssetText.text = C.c.player[0].inventory[C.c.player[0].inventoryCurrentIndex].asset.name + " (" + C.c.player[0].inventory[C.c.player[0].inventoryCurrentIndex].amount+")";
+        else CurrentAssetText.text = "";
 
     }
 

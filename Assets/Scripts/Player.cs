@@ -29,7 +29,7 @@ public class Player : MonoBehaviour {
     public bool teleporting;
     public bool isSleeping;
 
-    private void Start() {
+    private void Awake() {
         cam.gameObject.SetActive(true);
         C.c.player.Add(this);
         camOffset = cam.transform.localPosition;
@@ -161,8 +161,15 @@ public class Player : MonoBehaviour {
         //pick up asset
         if (Input.GetMouseButtonDown(1)) { 
             if (assetHovering) {
+                if (assetHovering.useTag == "Storage") {
+                    var stor = assetHovering.model.GetComponent<Storage>();
+                    if (stor) {
+                        if (stor.inventory[0].amount > 0) { stor.Open(); }
+                    }
+                }
                 var added = AddAssetToInventory(assetHovering.data);
                 if (added) Destroy(assetHovering.gameObject);
+                pui.invRender.UpdateInventoryRender();
             }
         }
 
@@ -172,6 +179,7 @@ public class Player : MonoBehaviour {
             if (inventoryCurrentIndex < 0) inventoryCurrentIndex = 0;
             if (inventoryCurrentIndex >= inventory.Count) inventoryCurrentIndex = inventory.Count-1;
             if (currentBuildAsset) Destroy(currentBuildAsset.gameObject);
+            pui.invRender.UpdateInventoryRender();
         }
     }
 
@@ -202,13 +210,14 @@ public class Player : MonoBehaviour {
                 RaycastHit hit;
                 if (Physics.Raycast(cam.transform.position + cam.transform.forward, cam.transform.forward, out hit, 10f)) {
                     currentBuildAsset.transform.position = hit.point;
-                    if (Input.GetKey(KeyCode.R)) { currentBuildAsset.transform.Rotate(0, .75f, 0); }
+                    if (Input.GetKey(KeyCode.R)) { currentBuildAsset.transform.Rotate(0, .6f, 0); }
                     if (Input.GetMouseButtonDown(0)) {
                         currentBuildAsset.placed = true;
                         currentBuildAsset.Set(currentBuildAsset.data);
                         if (Input.GetKey(KeyCode.LeftShift)) currentBuildAsset.ToggleSelling();
                         currentBuildAsset = null;
                         inventory[inventoryCurrentIndex].amount--;
+                        pui.invRender.UpdateInventoryRender();
                     }
                 }
             }

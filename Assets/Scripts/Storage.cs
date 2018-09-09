@@ -14,6 +14,7 @@ public class Storage : MonoBehaviour {
             }
         }
         inventory.Clear();
+        C.c.player[0].pui.invRender.UpdateInventoryRender();
     }
 
     public bool AddAssetToInventory(AssetData asset, int amount = 1) {

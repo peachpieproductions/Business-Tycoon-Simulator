@@ -14,5 +14,6 @@ public class AssetData : ScriptableObject {
     public bool physicsAsset;
     public GameObject modelPrefab;
     public float miniModelScaleMultiplier = 1;
+    public float invModelScaleMultiplier = 1;
 
 }

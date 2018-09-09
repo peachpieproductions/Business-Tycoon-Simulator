@@ -24,6 +24,7 @@ public class Asset : MonoBehaviour {
     public Transform camOverride;
     public bool physicsAsset;
     public bool selling;
+    public bool forceCantSell;
     public GameObject sellSymbol;
     public bool turnedOn;
     public Transform goToActivateWhenOn;
@@ -75,6 +76,7 @@ public class Asset : MonoBehaviour {
     }
 
     public void ToggleSelling() {
+        if (forceCantSell) { return; }
         selling = !selling;
         if (selling) {
             C.c.currentShop.assetsSelling.Add(this);
