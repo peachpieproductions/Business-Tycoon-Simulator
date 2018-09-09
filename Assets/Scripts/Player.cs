@@ -19,7 +19,7 @@ public class Player : MonoBehaviour {
     public Asset usingAsset;
     public int inventoryCurrentIndex;
     public List<AssetInventorySlot> inventory = new List<AssetInventorySlot>();
-    public List<AssetInventorySlot> upcomingDelivery = new List<AssetInventorySlot>();
+    public List<List<AssetInventorySlot>> upcomingDeliveries;
     public float deliveryTimer;
     public bool freeCam;
     public bool freeCamFreeRot; //if true, allows you to look around while freecam is active
@@ -38,6 +38,7 @@ public class Player : MonoBehaviour {
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
         rb = GetComponent<Rigidbody>();
+        upcomingDeliveries = new List<List<AssetInventorySlot>>();
     }
 
     public IEnumerator TeleportSequence(Portal p) {
@@ -88,6 +89,7 @@ public class Player : MonoBehaviour {
             deliveryTimer -= Time.deltaTime;
             if (deliveryTimer <= 0) {
                 C.c.StartCoroutine(C.c.Delivery());
+                if (upcomingDeliveries.Count > 0) deliveryTimer = 3 * 3;
             }
         }
 
@@ -203,12 +205,6 @@ public class Player : MonoBehaviour {
         if (!freeCam) { cam.parent = transform; cam.transform.localEulerAngles = Vector3.zero; }
     }
 
-    /*public void OnDrawGizmos() {
-        if (currentBuildAsset) {
-            //Debug.Log(currentBuildAsset.model.GetComponent<Collider>().bounds.center + " " + currentBuildAsset.model.GetComponent<Collider>().bounds.extents);
-            //Gizmos.DrawCube(currentBuildCollider.bounds.center, currentBuildCollider.size * .49f);
-        }
-    }*/
 
     public void BuildMode() {
         if (buildMode) {
@@ -284,7 +280,7 @@ public class Player : MonoBehaviour {
         return placedAsset;
     }
 
-    public bool AddToUpcomingDelivery(AssetData asset, int amount) {
+    /*public bool AddToUpcomingDelivery(AssetData asset, int amount) {
         bool placedAsset = false;
         foreach (AssetInventorySlot slot in upcomingDelivery) { //find existing asset stack
             if (slot.amount > 0 && slot.asset == asset) {
@@ -304,7 +300,7 @@ public class Player : MonoBehaviour {
             }
         }
         return placedAsset;
-    }
+    }*/
 
     public void MouseLook(bool rotPlayer) {
         cam.Rotate(-Input.GetAxis("Mouse Y") * lookSpeed, 0, 0);

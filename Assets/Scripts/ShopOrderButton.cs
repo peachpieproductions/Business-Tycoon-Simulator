@@ -12,13 +12,35 @@ public class ShopOrderButton : MonoBehaviour, IPointerDownHandler {
     public void OnPointerDown(PointerEventData eventData) {
         if (market.shopCartTotalAmount > 0) {
             if (computer.playerUsing.money >= market.shopCartTotalAmount) {
+                List<AssetInventorySlot> newOrder = new List<AssetInventorySlot>();
+                for (int i = 0; i < 10; i++) { newOrder.Add(new AssetInventorySlot()); }
                 foreach (ShopAssetListing ass in market.shopListings) {
-                    computer.playerUsing.AddToUpcomingDelivery(ass.asset,ass.inCart);
+                    if (ass.inCart > 0) {
+                        bool placedAsset = false;
+                        foreach (AssetInventorySlot slot in newOrder) { //find existing asset stack
+                            if (slot.amount > 0 && slot.asset == ass.asset) {
+                                slot.amount += ass.inCart;
+                                placedAsset = true;
+                                break;
+                            }
+                        }
+                        if (!placedAsset) {
+                            foreach (AssetInventorySlot slot in newOrder) { //make new stack
+                                if (slot.amount == 0) {
+                                    slot.amount += ass.inCart;
+                                    slot.asset = ass.asset;
+                                    placedAsset = true;
+                                    break;
+                                }
+                            }
+                        }
+                    }
                 }
+                computer.playerUsing.upcomingDeliveries.Add(newOrder);
                 computer.playerUsing.money -= market.shopCartTotalAmount;
                 computer.playerUsing.pui.CreateInfoPopup("- $" + Mathf.Round(market.shopCartTotalAmount), C.c.data.colors[1]);
                 if (computer.playerUsing.deliveryTimer <= 0) {
-                    computer.playerUsing.deliveryTimer = 60 * 3;
+                    computer.playerUsing.deliveryTimer = 3 * 3;
                 }
                 foreach(ShopAssetListing l in market.shopListings) {
                     l.ResetListing();

@@ -94,12 +94,13 @@ public class C : MonoBehaviour {
         var inst = Instantiate(data.assetPrefab);
         inst.Set(null, "Wooden Crate");
         inst.transform.position = deliveryZone.position;
-        player[0].pui.CreateInfoPopup("Your Delivery, including "+player[0].upcomingDelivery[0].asset.name+"s, has arrived.", Color.white, 8f);
-        foreach (AssetInventorySlot a in player[0].upcomingDelivery) {
+        //player[0].pui.CreateInfoPopup("Your Delivery, including "+player[0].upcomingDeliveries[0][0].asset.name+"s, has arrived.", Color.white, 8f);
+        foreach (AssetInventorySlot a in player[0].upcomingDeliveries[0]) {
             inst.GetComponentInChildren<Storage>().AddAssetToInventory(a.asset, a.amount);
             a.amount = 0;
             a.asset = null;
         }
+        player[0].upcomingDeliveries.RemoveAt(0);
         yield return null;
         inst.transform.GetChild(0).GetComponent<Rigidbody>().isKinematic = false; 
     }

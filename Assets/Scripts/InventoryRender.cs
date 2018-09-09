@@ -33,8 +33,8 @@ public class InventoryRender : MonoBehaviour {
             if (C.c.player[0].inventoryCurrentIndex == i) invSlots[i].color = invSlotSelectedColor;
                 else invSlots[i].color = invSlotColor;
 
-            if (items[i].childCount > 0) {
-                Destroy(items[i].GetChild(0).gameObject);
+            for (int j = 0; j < items[i].childCount; j++) {
+                Destroy(items[i].GetChild(j).gameObject);
             }
 
             if (C.c.player[0].inventory[i].amount > 0) {

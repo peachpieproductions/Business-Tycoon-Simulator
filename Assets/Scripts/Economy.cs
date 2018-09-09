@@ -5,9 +5,6 @@ using UnityEngine;
 public class Economy : MonoBehaviour {
 
 
-
-
-
     private void Start() {
         InitEcon();
         StartCoroutine(EconUpdate());

@@ -11,9 +11,11 @@ public class ComputerMarket : MonoBehaviour {
     public List<ShopAssetListing> shopListings = new List<ShopAssetListing>();
     public AssetData.Type? currentSortingType = null;
     public List<Button> sortTypeButtons = new List<Button>();
+    public float shippingCost;
     public float shopCartTotalAmount;
     public ShopAssetListing assetListingPrototype;
     public TextMeshProUGUI shopCartTotalText;
+    public TextMeshProUGUI shippingCostText;
     public RectScrollInput rectScrollInput;
 
     public void ChangeSortTab(int i) {
@@ -48,6 +50,8 @@ public class ComputerMarket : MonoBehaviour {
 
         //update store
         if (computer.marketplaceOpen) {
+            shippingCost = Mathf.Round(C.c.data.shippingCrate.currentValue);
+            shippingCostText.text = "+$" + shippingCost;
             if (shopListings.Count == 0) {
                 foreach (AssetData ad in C.c.data.assetData) {
                     if (currentSortingType == null || ad.type == currentSortingType) {
@@ -71,6 +75,7 @@ public class ComputerMarket : MonoBehaviour {
                     if (Mathf.Round(s.asset.currentValue) <= Mathf.Round(s.asset.baseValue)) s.assetCurrentValue.color = C.c.data.colors[0];
                     else s.assetCurrentValue.color = C.c.data.colors[1];
                 }
+                if (shopCartTotalAmount > 0) shopCartTotalAmount += shippingCost;
                 shopCartTotalText.text = "Cart Total - $" + shopCartTotalAmount;
             }
 
