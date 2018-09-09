@@ -42,8 +42,8 @@ MonoBehaviour:
   - {fileID: 1353611985460014, guid: 4f37c6336cfb1be428defb17594a5405, type: 2}
   - {fileID: 1786258640304132, guid: 8fe9452ef22518b42acfad16c0f53bd2, type: 2}
   colors:
-  - {r: 0, g: 0.6102941, b: 0.20623739, a: 1}
-  - {r: 1, g: 0.3602941, b: 0.3602941, a: 1}
+  - {r: 0.057688158, g: 0.71323526, b: 0.27921796, a: 1}
+  - {r: 1, g: 0.5147059, b: 0.5147059, a: 1}
   npcsAtHome:
   - {fileID: 0}
   - {fileID: 0}
@@ -51,7 +51,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
   npcsOut:
+  - {fileID: 0}
+  - {fileID: 0}
   - {fileID: 0}

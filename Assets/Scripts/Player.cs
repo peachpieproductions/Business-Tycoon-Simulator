@@ -112,10 +112,7 @@ public class Player : MonoBehaviour {
         if (Input.GetKeyDown(KeyCode.E)) {
             
             if (usingAsset) {
-                usingAsset = null;
-                freeCamFreeRot = false;
-                Cursor.lockState = CursorLockMode.Locked;
-                if (freeCam) FreeCamToggle();
+                StopUsingAsset();
             }
             else if (assetHovering) {
                 assetHovering.Use(); 
@@ -175,6 +172,16 @@ public class Player : MonoBehaviour {
             if (inventoryCurrentIndex < 0) inventoryCurrentIndex = 0;
             if (inventoryCurrentIndex >= inventory.Count) inventoryCurrentIndex = inventory.Count-1;
             if (currentBuildAsset) Destroy(currentBuildAsset.gameObject);
+        }
+    }
+
+    //Stop using asset
+    public void StopUsingAsset() {
+        if (usingAsset) {
+            usingAsset = null;
+            freeCamFreeRot = false;
+            Cursor.lockState = CursorLockMode.Locked;
+            if (freeCam) FreeCamToggle();
         }
     }
 

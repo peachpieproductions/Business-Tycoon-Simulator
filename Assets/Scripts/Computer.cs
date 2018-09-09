@@ -10,15 +10,13 @@ public class Computer : MonoBehaviour {
     public Asset asset;
     public Player playerUsing;
     public RectTransform mouseSprite;
-    public bool shopOpen;
-    public GameObject shopPanel;
-    public List<ShopAssetListing> shopListings = new List<ShopAssetListing>();
-    public float shopCartTotalAmount;
-    public ShopAssetListing assetListingPrototype;
+    public bool marketplaceOpen;
+    public bool propertyWebsiteOpen;
+    public ComputerMarket marketplace;
+    public ComputerProperty propertyWebsite;
     public TextMeshProUGUI timeText;
-    public TextMeshProUGUI shopCartTotalText;
-    public Vector2 mousePos;
     public Canvas screenCanvas;
+    public Shop shopController;
 
     private void Start() {
         asset = GetComponentInParent<Asset>();
@@ -41,35 +39,14 @@ public class Computer : MonoBehaviour {
 
     public void UpdateComputer() {
 
-        shopPanel.SetActive(shopOpen);
+        //Marketplace
+        marketplace.gameObject.SetActive(marketplaceOpen);
+        marketplace.UpdateMarketplace();
 
-        //update store
-        if (shopOpen) {
-            if (shopListings.Count == 0) {
-                foreach (AssetData ad in C.c.data.assetData) {
-                    var inst = Instantiate(assetListingPrototype, assetListingPrototype.transform.parent);
-                    shopListings.Add(inst);
-                    inst.gameObject.SetActive(true);
-                    inst.asset = ad;
-                    inst.assetNametext.text = ad.name;
-                    inst.assetCurrentValue.text = "$" + ad.currentValue.ToString("F0");
-                    inst.assetBaseValue.text = "$" + ad.baseValue.ToString("F0");
-                }
-                assetListingPrototype.gameObject.SetActive(false);
-            }
-            if (shopListings.Count > 0) {
-                shopCartTotalAmount = 0;
-                foreach(ShopAssetListing s in shopListings) {
-                    s.assetCurrentValue.text = "$" + s.asset.currentValue.ToString("F0");
-                    s.assetTotalCost.text = "$" + (Mathf.Round(s.asset.currentValue) * s.inCart).ToString("F0");
-                    shopCartTotalAmount += Mathf.Round(s.asset.currentValue) * s.inCart;
-                    if (Mathf.Round(s.asset.currentValue) <= Mathf.Round(s.asset.baseValue)) s.assetCurrentValue.color = C.c.data.colors[0];
-                    else s.assetCurrentValue.color = C.c.data.colors[1];
-                }
-                shopCartTotalText.text = "Cart Total - $" + shopCartTotalAmount;
-            }
-        }
-        
+        //Properties
+        propertyWebsite.gameObject.SetActive(propertyWebsiteOpen);
+        propertyWebsite.UpdatePropertyWebsite();
+
     }
 
     float mouseSpd = 7f;

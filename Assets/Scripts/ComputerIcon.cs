@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class ComputerIcon : MonoBehaviour, IPointerDownHandler {
 
-    Computer computer;
+    public Computer computer;
     public string link;
 
     private void Start() {
@@ -16,14 +16,22 @@ public class ComputerIcon : MonoBehaviour, IPointerDownHandler {
     public void OnPointerDown(PointerEventData eventData) {
         switch(link) {
             case "Shop":
-                computer.shopOpen = true;
-                computer.UpdateComputer();
+                computer.marketplaceOpen = true;
+                break;
+            case "Property":
+                computer.propertyWebsiteOpen = true;
                 break;
             case "CloseShop":
-                computer.shopOpen = false;
-                computer.UpdateComputer();
+                computer.marketplaceOpen = false;
+                break;
+            case "CloseProperty":
+                computer.propertyWebsiteOpen = false;
+                break;
+            case "Exit":
+                computer.playerUsing.StopUsingAsset();
                 break;
         }
+        computer.UpdateComputer();
     }
 
 
