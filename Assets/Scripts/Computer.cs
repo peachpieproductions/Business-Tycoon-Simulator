@@ -32,6 +32,7 @@ public class Computer : MonoBehaviour {
         p.usingAsset = asset;
         p.FreeCamToggle();
         p.camOverridePos = asset.camOverride;
+        UpdateComputer();
     }
 
     public void EndUsingComputer() {
