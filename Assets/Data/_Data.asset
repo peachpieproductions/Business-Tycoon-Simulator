@@ -18,12 +18,14 @@ MonoBehaviour:
     type: 2}
   shippingCrate: {fileID: 11400000, guid: b6a1bcc13ee65db4a82b1642d6d11fd9, type: 2}
   assetData:
-  - {fileID: 11400000, guid: 0433614e78cfd994692779d346bd8d61, type: 2}
-  - {fileID: 11400000, guid: 4e4d08b270ab079488edb280b98a6d67, type: 2}
-  - {fileID: 11400000, guid: 9e1a168bcf4493342944c8a9d2219b34, type: 2}
-  - {fileID: 11400000, guid: b6a1bcc13ee65db4a82b1642d6d11fd9, type: 2}
-  - {fileID: 11400000, guid: ff97b64f9e22bb14bac457921dae91da, type: 2}
   - {fileID: 11400000, guid: 9b350dd697e5cd14db8cf457226fd61f, type: 2}
+  - {fileID: 11400000, guid: ff97b64f9e22bb14bac457921dae91da, type: 2}
+  - {fileID: 11400000, guid: 9e1a168bcf4493342944c8a9d2219b34, type: 2}
+  - {fileID: 11400000, guid: 9b1294b4ef1121346950617eda996018, type: 2}
+  - {fileID: 11400000, guid: 4e4d08b270ab079488edb280b98a6d67, type: 2}
+  - {fileID: 11400000, guid: 460ce62ad9882744c826441bd3605beb, type: 2}
+  - {fileID: 11400000, guid: 0433614e78cfd994692779d346bd8d61, type: 2}
+  - {fileID: 11400000, guid: b6a1bcc13ee65db4a82b1642d6d11fd9, type: 2}
   npcData:
   - {fileID: 11400000, guid: 4110c473d373a634a81b6bdc884bfc35, type: 2}
   - {fileID: 11400000, guid: cf3fc141b6c7d7f4eab98881242bd640, type: 2}
@@ -56,7 +58,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  npcsOut:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  npcsOut: []

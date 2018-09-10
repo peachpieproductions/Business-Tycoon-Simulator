@@ -13,6 +13,7 @@ public class Economy : MonoBehaviour {
     public void InitEcon() {
         foreach(AssetData d in C.c.data.assetData) {
             d.currentValue = d.baseValue;
+            d.valueHistory.Clear();
             d.currentPop = .5f;
         }
     }
@@ -22,6 +23,8 @@ public class Economy : MonoBehaviour {
             foreach (AssetData d in C.c.data.assetData) {
                 d.currentValue += Random.Range(-1f, 1f);
                 d.currentValue = Mathf.Clamp(d.currentValue, d.baseValue * .5f, d.baseValue * 2f);
+                if (d.valueHistory.Count == 14) d.valueHistory.RemoveAt(0); 
+                d.valueHistory.Add(d.currentValue);
                 d.currentPop += Random.Range(-.1f, .1f);
                 d.currentPop = Mathf.Clamp01(d.currentPop);
             }

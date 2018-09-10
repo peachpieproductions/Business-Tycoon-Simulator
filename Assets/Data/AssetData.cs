@@ -23,6 +23,7 @@ public class AssetData : ScriptableObject {
     public int assetLevel;
     public float baseValue;
     public float currentValue;
+    public List<float> valueHistory = new List<float>();
     public float currentPop;
     public bool physicsAsset;
     public GameObject modelPrefab;

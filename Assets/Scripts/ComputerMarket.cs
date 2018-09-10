@@ -17,6 +17,11 @@ public class ComputerMarket : MonoBehaviour {
     public TextMeshProUGUI shopCartTotalText;
     public TextMeshProUGUI shippingCostText;
     public RectScrollInput rectScrollInput;
+    public AssetValueHistoryLineGraph assetValueGraph;
+
+    private void Start() {
+        assetValueGraph.gameObject.SetActive(false);
+    }
 
     public void ChangeSortTab(int i) {
 
@@ -81,6 +86,10 @@ public class ComputerMarket : MonoBehaviour {
 
             if (shopListings.Count > 0) {
                 rectScrollInput.endY = rectScrollInput.startY + shopListings.Count * rectScrollInput.perListingScrollHeightValue;
+            }
+
+            if (assetValueGraph.gameObject.activeSelf) {
+                assetValueGraph.UpdateGraph(assetValueGraph.assetListing);
             }
 
             //Init button color selection
