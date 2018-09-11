@@ -17,5 +17,6 @@ public class Data : ScriptableObject {
     public Material[] placingMats;
     public List<NPC> npcsAtHome = new List<NPC>();
     public List<NPC> npcsOut = new List<NPC>();
+    public List<AssetData> craftingBlueprintList = new List<AssetData>();
 
 }

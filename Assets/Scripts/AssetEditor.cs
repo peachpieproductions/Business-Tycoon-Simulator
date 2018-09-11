@@ -18,8 +18,10 @@ public class AssetEditor : Editor {
             if (asset.model) { DestroyImmediate(asset.model); }
             asset.model = Instantiate(asset.data.modelPrefab, asset.transform);
             asset.model.transform.localPosition = Vector3.zero;
+            asset.model.tag = "Asset";
             asset.outline = asset.model.GetComponent<Outline>();
             asset.coll = asset.model.GetComponent<Collider>();
+            asset.overlayCanvas = asset.model.GetComponentInChildren<Canvas>();
             asset.camOverride = asset.model.transform.Find("CamOverride");
             asset.goToActivateWhenOn = asset.model.transform.Find("ActivateWhenOn");
             asset.assetName = asset.data.name;

@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: 723ebf231ff7a0f4a9275528b2326a55
+timeCreated: 1489096508
+licenseType: Store
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Keyboard-Icons
+  fontNames:
+  - Keyboard-Icons
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

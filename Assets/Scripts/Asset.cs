@@ -17,10 +17,13 @@ public class Asset : MonoBehaviour {
     public string assetName;
     public string useTag;
     public Player playerHovering;
+    public Player playerUsing;
     public GameObject model;
+    public Canvas overlayCanvas;
+    public CanvasGroup cg;
     public Collider coll;
     public Outline outline;
-    public bool placed;
+    public bool placing;
     public Transform camOverride;
     public bool physicsAsset;
     public bool selling;
@@ -28,11 +31,25 @@ public class Asset : MonoBehaviour {
     public GameObject sellSymbol;
     public bool turnedOn;
     public Transform goToActivateWhenOn;
+    public Rigidbody rb;
+
+    private void Awake() {
+        outline = model.GetComponent<Outline>();
+        if (outline == null) outline = model.AddComponent<Outline>();
+        outline.enabled = false;
+
+        if (overlayCanvas == null) overlayCanvas = GetComponentInChildren<Canvas>();
+        if (overlayCanvas) cg = overlayCanvas.GetComponent<CanvasGroup>();
+    }
 
     public void Use() {
+        playerUsing = playerHovering;
         switch(useTag) {
             case "Computer":
                 transform.GetComponentInChildren<Computer>().StartUsingComputer(C.c.player[0]);
+                break;
+            case "Workbench":
+                transform.GetComponentInChildren<WorkBench>().StartAssembling(C.c.player[0]);
                 break;
             case "Storage":
                 transform.GetComponentInChildren<Storage>().Open();
@@ -46,31 +63,53 @@ public class Asset : MonoBehaviour {
             case "Chair":
                 transform.GetComponentInChildren<Chair>().Use(C.c.player[0]);
                 break;
+            case default(string):
+                playerUsing = null;
+                break;
+        }
+    }
+
+    public void UseSecondary() {
+        playerUsing = playerHovering;
+        switch (useTag) {
+            case "Workbench":
+                transform.GetComponentInChildren<WorkBench>().StartBreakingDown(C.c.player[0]);
+                break;
+            case default(string):
+                playerUsing = null;
+                break;
         }
     }
 
     public void Hovering(Player p) {
-        if (placed && playerHovering == null) {
+        if (!placing && playerHovering == null && playerUsing == null) {
             playerHovering = p;
-            outline.enabled = true;
+            if (outline) outline.enabled = true;
         }
     }
 
     private void Update() {
         HoverOutline();
+
+        if (playerHovering && overlayCanvas && cg) {
+            cg.alpha += Time.deltaTime * 2;
+        }
     }
 
     public void HoverOutline() {
-        if (outline.enabled) {
-            if (playerHovering) {
-                if (playerHovering.assetHovering != this) {
+        if (outline) {
+            if (outline.enabled) {
+                if (playerHovering) {
+                    if (playerUsing || playerHovering.assetHovering != this) {
+                        playerHovering = null;
+                        outline.enabled = false;
+                        if (overlayCanvas && cg) cg.alpha = 0;
+                    }
+                }
+                else {
                     playerHovering = null;
                     outline.enabled = false;
                 }
-            }
-            else {
-                playerHovering = null;
-                outline.enabled = false;
             }
         }
     }
@@ -90,34 +129,36 @@ public class Asset : MonoBehaviour {
         }
     }
 
-    public void Set(AssetData assetData = null, string loadByName = "",bool placing = false) {
+    public void Set(AssetData assetData = null, string loadByName = "",bool isPlacing = false) {
         data = assetData;
         if (loadByName != "") { foreach(AssetData ad in C.c.data.assetData) if (ad.name == loadByName) { data = ad; break; } }
         if (model) { Destroy(model); }
         model = Instantiate(data.modelPrefab, transform);
         model.transform.localPosition = Vector3.zero;
+        model.tag = "Asset";
         outline = model.GetComponent<Outline>();
+        overlayCanvas = model.GetComponentInChildren<Canvas>();
+        if (outline == null) outline = model.AddComponent<Outline>();
         coll = model.GetComponent<Collider>();
         camOverride = model.transform.Find("CamOverride");
         goToActivateWhenOn = model.transform.Find("ActivateWhenOn");
         assetName = data.name;
         useTag = data.useTag;
         physicsAsset = data.physicsAsset;
-        if (placing) {
+        if (physicsAsset) rb = model.GetComponent<Rigidbody>();
+        if (isPlacing) {
             coll.enabled = false;
             if (physicsAsset)
-                GetComponentInChildren<Rigidbody>().isKinematic = true;
+                rb.isKinematic = true;
         } else {
-            coll.enabled = placed || physicsAsset;
+            coll.enabled = true;
             if (physicsAsset)
-                GetComponentInChildren<Rigidbody>().isKinematic = placed;
+                rb.isKinematic = false;
         }
         
         name = assetName;
     }
 
-    private void Start() {
-        if (outline) outline.enabled = false;
-    }
+    
 
 }

@@ -16,6 +16,7 @@ public class PlayerUI : MonoBehaviour {
     public GameObject infoPopup;
     public CanvasGroup blackOutPanel;
     public TextMeshProUGUI modeStatusText;
+    public GameObject craftingPanel;
 
     private void Update() {
         CurrentTimeText.text = C.c.timeString;

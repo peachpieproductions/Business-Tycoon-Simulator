@@ -26,6 +26,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 460ce62ad9882744c826441bd3605beb, type: 2}
   - {fileID: 11400000, guid: 0433614e78cfd994692779d346bd8d61, type: 2}
   - {fileID: 11400000, guid: b6a1bcc13ee65db4a82b1642d6d11fd9, type: 2}
+  - {fileID: 11400000, guid: 15a59273354d2414ea17acbe4644663b, type: 2}
+  - {fileID: 11400000, guid: e6e61b73832c67941b9b9140d8ee6abb, type: 2}
   npcData:
   - {fileID: 11400000, guid: 4110c473d373a634a81b6bdc884bfc35, type: 2}
   - {fileID: 11400000, guid: cf3fc141b6c7d7f4eab98881242bd640, type: 2}

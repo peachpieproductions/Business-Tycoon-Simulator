@@ -12,12 +12,10 @@ public class Chair : MonoBehaviour {
     }
 
     public void Use(Player p) {
-        //Cursor.lockState = CursorLockMode.None;
         p.usingAsset = asset;
         p.FreeCamToggle();
         p.freeCamFreeRot = true;
         p.camOverridePos = asset.camOverride;
-        //p.StartCoroutine(p.Sleep());
     }
 
 }

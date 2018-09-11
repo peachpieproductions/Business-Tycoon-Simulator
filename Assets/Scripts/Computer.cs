@@ -40,7 +40,7 @@ public class Computer : MonoBehaviour {
 
     public void UpdateComputer() {
 
-        if (asset && asset.placed) {
+        if (asset && !asset.placing) {
 
             //Marketplace
             marketplace.gameObject.SetActive(marketplaceOpen);

@@ -20,7 +20,7 @@ public class AssetData : ScriptableObject {
 
     public Type type;
     public string useTag;
-    public int assetLevel;
+    public int assetLevel = 1;
     public float baseValue;
     public float currentValue;
     public List<float> valueHistory = new List<float>();
@@ -29,5 +29,8 @@ public class AssetData : ScriptableObject {
     public GameObject modelPrefab;
     public float miniModelScaleMultiplier = 1;
     public float invModelScaleMultiplier = 1;
+    public float invModelYOffset;
+    public List<AssetData> craftingMaterials = new List<AssetData>();
+    public List<AssetData> breakdownMaterials = new List<AssetData>();
 
 }

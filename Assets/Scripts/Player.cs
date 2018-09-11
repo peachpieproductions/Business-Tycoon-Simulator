@@ -96,7 +96,7 @@ public class Player : MonoBehaviour {
         //hover assets for interaction
         assetHovering = null;
         RaycastHit hit;
-        if (!buildMode) {
+        if (!buildMode && usingAsset == null) {
             if (Physics.Raycast(cam.transform.position + cam.transform.forward * .6f, cam.transform.forward, out hit, 2f)) {
                 if (hit.transform.CompareTag("Asset")) {
                     var asset = hit.transform.parent.GetComponent<Asset>();
@@ -156,9 +156,20 @@ public class Player : MonoBehaviour {
                     }
                 }
             }
-        } 
+        }
 
-        //put asset on sale
+        //use asset secondary use
+        if (Input.GetKeyDown(KeyCode.R)) {
+            if (assetHovering) {
+                if (usingAsset) StopUsingAsset();
+                assetHovering.UseSecondary();
+            }
+            else if (usingAsset) {
+                StopUsingAsset();
+            }
+        }
+
+            //put asset on sale
         if (Input.GetKeyDown(KeyCode.F)) {
             if (assetHovering) {
                 assetHovering.ToggleSelling();
@@ -171,7 +182,7 @@ public class Player : MonoBehaviour {
                 if (assetHovering.useTag == "Storage") {
                     var stor = assetHovering.model.GetComponent<Storage>();
                     if (stor) {
-                        if (stor.inventory[0].amount > 0) { stor.Open(); }
+                        if (stor.inventory.Count > 0 && stor.inventory[0].amount > 0) { stor.Open(); }
                     }
                 }
                 var added = AddAssetToInventory(assetHovering.data);
@@ -193,9 +204,12 @@ public class Player : MonoBehaviour {
     //Stop using asset
     public void StopUsingAsset() {
         if (usingAsset) {
+            usingAsset.playerUsing = null;
             usingAsset = null;
             freeCamFreeRot = false;
             Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+            pui.craftingPanel.SetActive(false);
             if (freeCam) FreeCamToggle();
         }
     }
@@ -221,23 +235,22 @@ public class Player : MonoBehaviour {
             if (currentBuildAsset) {
                 RaycastHit hit;
                 if (Physics.Raycast(cam.transform.position + cam.transform.forward, cam.transform.forward, out hit, 10f)) {
-                    //Debug.Log(hit.normal.x + " " + hit.normal.y + " " + hit.normal.z);
                     var placementValid = buildPlacementValid;
                     if (Mathf.Abs(hit.normal.x) < .2f && Mathf.Abs(hit.normal.y) > .9f && Mathf.Abs(hit.normal.z) < .2f) placementValid = true;
                     RaycastHit[] hits;
                     hits = Physics.BoxCastAll(currentBuildCollider.bounds.center, currentBuildCollider.size * currentBuildAsset.model.transform.localScale.x * .48f, Vector3.up, currentBuildAsset.transform.rotation, .01f);
                     foreach(RaycastHit h in hits) {
-                        //Debug.Log(h.transform);
                         if (h.transform != currentBuildAsset.model.transform && h.transform != transform) placementValid = false;
                     }
 
                     if (placementValid) { if (!buildPlacementValid) currentBuildAsset.model.GetComponent<MeshRenderer>().material = C.c.data.placingMats[0]; buildPlacementValid = true; }
                         else { if (buildPlacementValid) currentBuildAsset.model.GetComponent<MeshRenderer>().material = C.c.data.placingMats[1]; buildPlacementValid = false; }
 
-                    currentBuildAsset.transform.position = hit.point;
-                    if (Input.GetKey(KeyCode.R)) { currentBuildAsset.transform.Rotate(0, .6f, 0); }
+                    if (currentBuildAsset.physicsAsset) currentBuildAsset.transform.position = hit.point + Vector3.up * .05f;
+                    else currentBuildAsset.transform.position = hit.point;
+                    if (Input.GetKey(KeyCode.R)) { currentBuildAsset.transform.Rotate(0, .7f, 0); if (Input.GetKey(KeyCode.LeftShift)) currentBuildAsset.transform.Rotate(0, .7f, 0); }
                     if (Input.GetMouseButtonDown(0) && buildPlacementValid) {
-                        currentBuildAsset.placed = true;
+                        currentBuildAsset.placing = false;
                         currentBuildAsset.Set(currentBuildAsset.data);
                         if (Input.GetKey(KeyCode.LeftShift)) currentBuildAsset.ToggleSelling();
                         currentBuildAsset = null;
@@ -313,8 +326,8 @@ public class Player : MonoBehaviour {
 
         //camera
         if (freeCam) {
-            cam.transform.position = Vector3.Lerp(cam.transform.position, camOverridePos.position, .02f);
-            if (!freeCamFreeRot) cam.transform.rotation = Quaternion.Slerp(cam.transform.rotation, camOverridePos.rotation, .02f);
+            if (camOverridePos) cam.transform.position = Vector3.Lerp(cam.transform.position, camOverridePos.position, .02f);
+            if (!freeCamFreeRot) { if (camOverridePos) cam.transform.rotation = Quaternion.Slerp(cam.transform.rotation, camOverridePos.rotation, .02f); }
             else MouseLook(false);
         }
         else {

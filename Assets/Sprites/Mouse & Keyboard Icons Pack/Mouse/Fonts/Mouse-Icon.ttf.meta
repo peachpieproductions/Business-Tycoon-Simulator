@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: bb866bec0135a9e4c8f2f78484cbf74d
+timeCreated: 1487352853
+licenseType: Store
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Mouse-Icon
+  fontNames:
+  - Mouse-Icon
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
