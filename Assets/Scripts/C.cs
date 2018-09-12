@@ -31,6 +31,7 @@ public class C : MonoBehaviour {
     private void Start() {
         data.npcsOut.Clear();
         data.npcsAtHome.Clear();
+        data.craftingBlueprintList.Clear();
 
         //generate NPCs
         foreach(NPCData n in data.npcData) {

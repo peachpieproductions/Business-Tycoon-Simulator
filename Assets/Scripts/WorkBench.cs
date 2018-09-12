@@ -16,6 +16,7 @@ public class WorkBench : MonoBehaviour {
         playerUsing = p;
         breakingDown = false;
         StartUsing();
+        playerUsing.pui.GenerateCraftingList();
     }
     public void StartBreakingDown(Player p) {
         playerUsing = p;
@@ -29,7 +30,6 @@ public class WorkBench : MonoBehaviour {
         playerUsing.freeCamFreeRot = false;
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
-        playerUsing.pui.craftingPanel.SetActive(true);
     }
 
     private void Update() {

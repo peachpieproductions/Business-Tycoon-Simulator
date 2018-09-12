@@ -38,4 +38,25 @@ public class PlayerUI : MonoBehaviour {
         inst.GetComponent<FadeOut>().delay = time;
     }
 
+    public void GenerateCraftingList() {
+        craftingPanel.SetActive(true);
+        Button b = craftingPanel.GetComponentInChildren<Button>();
+        foreach(Button butt in b.transform.parent.GetComponentsInChildren<Button>()) {
+            if (butt == b) continue;
+            Destroy(butt.gameObject);
+        }
+        if (C.c.data.craftingBlueprintList.Count > 0) {
+            b.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = C.c.data.craftingBlueprintList[0].name;
+            foreach (AssetData d in C.c.data.craftingBlueprintList) {
+                var newButton = Instantiate(b, b.transform.parent);
+                newButton.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = d.name;
+            }
+            Destroy(b.gameObject);
+        } else {
+            b.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = "No Crafting Recipies";
+        }
+        
+        
+    }
+
 }

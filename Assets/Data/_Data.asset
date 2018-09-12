@@ -60,7 +60,11 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 0}
   npcsOut:
   - {fileID: 0}
   - {fileID: 0}
-  - {fileID: 0}
+  craftingBlueprintList:
+  - {fileID: 11400000, guid: 9b350dd697e5cd14db8cf457226fd61f, type: 2}
+  - {fileID: 11400000, guid: 4e4d08b270ab079488edb280b98a6d67, type: 2}
+  - {fileID: 11400000, guid: 0433614e78cfd994692779d346bd8d61, type: 2}
