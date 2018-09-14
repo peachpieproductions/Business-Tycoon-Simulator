@@ -14,16 +14,29 @@ MonoBehaviour:
   type: 0
   useTag: 
   assetLevel: 3
-  baseValue: 25
-  currentValue: 24.931913
+  baseValue: 20
+  currentValue: 26.201752
   valueHistory:
-  - 24.931913
-  currentPop: 0.59150946
+  - 25.513485
+  - 26.201752
+  currentPop: 0.61508113
   physicsAsset: 0
   modelPrefab: {fileID: 1226480081883372, guid: 04ce859483d097a45b4956c01e7ef4ac,
     type: 2}
   miniModelScaleMultiplier: 0.3
   invModelScaleMultiplier: 0.23
   invModelYOffset: 0.1
+  craftingMaterials:
+  - {fileID: 11400000, guid: 15a59273354d2414ea17acbe4644663b, type: 2}
+  - {fileID: 11400000, guid: 15a59273354d2414ea17acbe4644663b, type: 2}
+  - {fileID: 11400000, guid: 15a59273354d2414ea17acbe4644663b, type: 2}
+  - {fileID: 11400000, guid: 15a59273354d2414ea17acbe4644663b, type: 2}
+  - {fileID: 11400000, guid: e6e61b73832c67941b9b9140d8ee6abb, type: 2}
+  - {fileID: 11400000, guid: e6e61b73832c67941b9b9140d8ee6abb, type: 2}
+  breakdownMaterials:
+  - {fileID: 11400000, guid: 15a59273354d2414ea17acbe4644663b, type: 2}
+  - {fileID: 11400000, guid: 15a59273354d2414ea17acbe4644663b, type: 2}
+  - {fileID: 11400000, guid: 15a59273354d2414ea17acbe4644663b, type: 2}
+  - {fileID: 11400000, guid: e6e61b73832c67941b9b9140d8ee6abb, type: 2}
   useable: 0
   storageSlots: 0

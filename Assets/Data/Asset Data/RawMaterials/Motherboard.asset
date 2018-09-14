@@ -1,0 +1,43 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 660f28809130f1b4690ff2323b6920c4, type: 3}
+  m_Name: Motherboard
+  m_EditorClassIdentifier: 
+  type: 2
+  useTag: 
+  assetLevel: 1
+  baseValue: 15
+  currentValue: 14.153538
+  valueHistory:
+  - 15.372276
+  - 15.955865
+  - 16.31613
+  - 17.310211
+  - 17.016459
+  - 16.62331
+  - 17.23274
+  - 17.660807
+  - 16.931112
+  - 16.997606
+  - 16.329153
+  - 15.509631
+  - 14.701564
+  - 14.153538
+  currentPop: 0.31285262
+  physicsAsset: 1
+  mass: 10
+  modelPrefab: {fileID: 1744734478214484, guid: 94d0ac1235d5e034aac9df5757e89382,
+    type: 2}
+  miniModelScaleMultiplier: 1
+  invModelScaleMultiplier: 0.75
+  invModelYOffset: 0.25
+  craftingMaterials: []
+  breakdownMaterials: []

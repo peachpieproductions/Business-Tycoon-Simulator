@@ -1,0 +1,43 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 660f28809130f1b4690ff2323b6920c4, type: 3}
+  m_Name: Wood Stick
+  m_EditorClassIdentifier: 
+  type: 2
+  useTag: 
+  assetLevel: 1
+  baseValue: 1
+  currentValue: 1.2111497
+  valueHistory:
+  - 1.5955955
+  - 2
+  - 2
+  - 1.2542605
+  - 0.5
+  - 0.7746892
+  - 0.63058794
+  - 0.5
+  - 0.5
+  - 0.5
+  - 1.0918849
+  - 1.672818
+  - 1.4995102
+  - 1.2111497
+  currentPop: 0.5846228
+  physicsAsset: 1
+  mass: 1
+  modelPrefab: {fileID: 1225663146361494, guid: 9423da7e728cbb14585ffe56dcdb5973,
+    type: 2}
+  miniModelScaleMultiplier: 0.8
+  invModelScaleMultiplier: 0.75
+  invModelYOffset: 0.25
+  craftingMaterials: []
+  breakdownMaterials: []

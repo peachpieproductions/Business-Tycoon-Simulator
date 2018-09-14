@@ -1,0 +1,43 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 660f28809130f1b4690ff2323b6920c4, type: 3}
+  m_Name: Silver Ore
+  m_EditorClassIdentifier: 
+  type: 2
+  useTag: 
+  assetLevel: 3
+  baseValue: 9
+  currentValue: 5.3173695
+  valueHistory:
+  - 10.022106
+  - 9.113176
+  - 8.558977
+  - 7.8188024
+  - 8.4114485
+  - 7.610099
+  - 7.7414436
+  - 7.3854413
+  - 6.833052
+  - 6.9256015
+  - 6.669668
+  - 5.860895
+  - 6.146028
+  - 5.3173695
+  currentPop: 0.7247642
+  physicsAsset: 1
+  mass: 1
+  modelPrefab: {fileID: 1238737900985128, guid: d1808c937bb992f40b9d0dd90e5df5ff,
+    type: 2}
+  miniModelScaleMultiplier: 1
+  invModelScaleMultiplier: 0.4
+  invModelYOffset: 0.25
+  craftingMaterials: []
+  breakdownMaterials: []

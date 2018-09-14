@@ -1,0 +1,43 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 660f28809130f1b4690ff2323b6920c4, type: 3}
+  m_Name: Iron Bar
+  m_EditorClassIdentifier: 
+  type: 2
+  useTag: 
+  assetLevel: 2
+  baseValue: 12
+  currentValue: 14.723373
+  valueHistory:
+  - 12.743928
+  - 11.877863
+  - 11.339984
+  - 12.205437
+  - 12.726005
+  - 12.602974
+  - 12.628246
+  - 13.300852
+  - 14.162608
+  - 14.978675
+  - 13.999346
+  - 13.317241
+  - 14.013617
+  - 14.723373
+  currentPop: 0.8326827
+  physicsAsset: 1
+  mass: 1
+  modelPrefab: {fileID: 1351047288806432, guid: 4ed76bd9aa6e5a045ad0102f7d97965f,
+    type: 2}
+  miniModelScaleMultiplier: 1
+  invModelScaleMultiplier: 2.4
+  invModelYOffset: 0.35
+  craftingMaterials: []
+  breakdownMaterials: []

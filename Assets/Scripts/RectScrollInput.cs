@@ -11,11 +11,13 @@ public class RectScrollInput : MonoBehaviour {
     public float perListingScrollHeightValue = 31.5f;
     RectTransform rect;
     public Slider scrollbar;
+    public Computer computer;
 
 
     private void Start() {
         rect = transform as RectTransform;
         startY = rect.anchoredPosition.y;
+        computer = GetComponentInParent<Computer>();
     }
 
     public void SetScrollPoint(float point = -1) {
@@ -29,8 +31,8 @@ public class RectScrollInput : MonoBehaviour {
     }
 
     private void Update() {
-        if (Input.mouseScrollDelta.y != 0) {
-            rect.anchoredPosition -= new Vector2(0, Input.mouseScrollDelta.y * scrollSpeed);
+        if (computer.playerUsing && InputManager.Scroll(computer.playerUsing.playerId) != 0) {
+            rect.anchoredPosition -= new Vector2(0, InputManager.Scroll(computer.playerUsing.playerId) * scrollSpeed);
             rect.anchoredPosition = new Vector2(rect.anchoredPosition.x, Mathf.Clamp(rect.anchoredPosition.y, startY, endY));
             scrollbar.value = C.RemapFloat(rect.anchoredPosition.y, startY, endY, 0, 1);
         }

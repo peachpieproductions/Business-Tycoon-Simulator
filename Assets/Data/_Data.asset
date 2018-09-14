@@ -18,16 +18,45 @@ MonoBehaviour:
     type: 2}
   shippingCrate: {fileID: 11400000, guid: b6a1bcc13ee65db4a82b1642d6d11fd9, type: 2}
   assetData:
-  - {fileID: 11400000, guid: 9b350dd697e5cd14db8cf457226fd61f, type: 2}
   - {fileID: 11400000, guid: ff97b64f9e22bb14bac457921dae91da, type: 2}
-  - {fileID: 11400000, guid: 9e1a168bcf4493342944c8a9d2219b34, type: 2}
+  - {fileID: 11400000, guid: 0433614e78cfd994692779d346bd8d61, type: 2}
+  - {fileID: 11400000, guid: 9b350dd697e5cd14db8cf457226fd61f, type: 2}
   - {fileID: 11400000, guid: 9b1294b4ef1121346950617eda996018, type: 2}
   - {fileID: 11400000, guid: 4e4d08b270ab079488edb280b98a6d67, type: 2}
   - {fileID: 11400000, guid: 460ce62ad9882744c826441bd3605beb, type: 2}
-  - {fileID: 11400000, guid: 0433614e78cfd994692779d346bd8d61, type: 2}
   - {fileID: 11400000, guid: b6a1bcc13ee65db4a82b1642d6d11fd9, type: 2}
-  - {fileID: 11400000, guid: 15a59273354d2414ea17acbe4644663b, type: 2}
+  - {fileID: 11400000, guid: f1da49097d856b944b4fe4ec1a9b3c2f, type: 2}
+  - {fileID: 11400000, guid: b7ee6f20080bfc84f84dd589050b1aff, type: 2}
+  - {fileID: 11400000, guid: da38a5750197a294ca5505d26f19fa82, type: 2}
+  - {fileID: 11400000, guid: b652daabffd4c9243b60bd948a386f56, type: 2}
+  - {fileID: 11400000, guid: dd717e6e98d24ee40921cc5dd28e46a2, type: 2}
+  - {fileID: 11400000, guid: 9ee3e669ff0c2774494a6883464a3e37, type: 2}
+  - {fileID: 11400000, guid: 80a1eb0eb16b5974e8e15739079704ac, type: 2}
+  - {fileID: 11400000, guid: 26902db22a5dbca4a8ea2ce5c56ec781, type: 2}
+  - {fileID: 11400000, guid: 19d287fbd8ee0f341a80cebc220452c9, type: 2}
+  - {fileID: 11400000, guid: f81549fae196fc24ba44b816a5ffda9d, type: 2}
+  - {fileID: 11400000, guid: 6bd0da41c364615409a9b4e1838472fc, type: 2}
+  - {fileID: 11400000, guid: 816dd7f617300e0488afbcf5a11d40c4, type: 2}
+  - {fileID: 11400000, guid: f66e5bb900c8be24ba382067ce2963d0, type: 2}
+  - {fileID: 11400000, guid: eb30f6af33380ab49bae6fdd657a9e79, type: 2}
+  - {fileID: 11400000, guid: 68d4a17a44b0203499d5725a89b1936b, type: 2}
+  - {fileID: 11400000, guid: 6f646aabf04059c41bee9e0240ec56bf, type: 2}
+  - {fileID: 11400000, guid: 26057c07748015d4f92e1af2a1e9ebba, type: 2}
+  - {fileID: 11400000, guid: f8d5efd36fd51f04f9355db43248d72d, type: 2}
+  - {fileID: 11400000, guid: cc6304a3550bc964cb3019bc6c05ff3e, type: 2}
   - {fileID: 11400000, guid: e6e61b73832c67941b9b9140d8ee6abb, type: 2}
+  - {fileID: 11400000, guid: 5b8a5301bca3e5f498c88c54865d71e2, type: 2}
+  - {fileID: 11400000, guid: 2d67e15ade2ccb14a99ec677a2d0e289, type: 2}
+  - {fileID: 11400000, guid: 3ff70c3239446174bbe0f509bfe7d03c, type: 2}
+  - {fileID: 11400000, guid: 41d51517fd3a6c140afa040f90c5ab0d, type: 2}
+  - {fileID: 11400000, guid: e73cd81ddabff94448e467ce8b148263, type: 2}
+  - {fileID: 11400000, guid: 0968dad2a7826bb4986af084fb8392ed, type: 2}
+  - {fileID: 11400000, guid: 89f195d2f196d524e84d42db562105f5, type: 2}
+  - {fileID: 11400000, guid: bade4ed824972c54a931cb33f66950e6, type: 2}
+  - {fileID: 11400000, guid: e98b57e0e477dea408d0107c7765e94a, type: 2}
+  - {fileID: 11400000, guid: 1eea7a31772e0314bbddf9761601064b, type: 2}
+  - {fileID: 11400000, guid: 15a59273354d2414ea17acbe4644663b, type: 2}
+  - {fileID: 11400000, guid: 84ee9e76d6f0cf940a98e98e05694eee, type: 2}
   npcData:
   - {fileID: 11400000, guid: 4110c473d373a634a81b6bdc884bfc35, type: 2}
   - {fileID: 11400000, guid: cf3fc141b6c7d7f4eab98881242bd640, type: 2}
@@ -60,8 +89,8 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  - {fileID: 0}
   npcsOut:
+  - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   craftingBlueprintList:

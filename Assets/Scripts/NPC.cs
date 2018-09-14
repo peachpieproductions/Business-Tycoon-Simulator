@@ -73,6 +73,9 @@ public class NPC : MonoBehaviour {
                         var inst = Instantiate(inventory[0].asset.modelPrefab, C.c.currentShop.register.assetBeingSoldModel);
                         var rb = inst.GetComponent<Rigidbody>(); if (rb) rb.isKinematic = true;
                         inst.transform.localPosition = Vector3.zero;
+                        var coll = inst.AddComponent<SphereCollider>();
+                        coll.radius *= 1.5f;
+                        inst.transform.name = "AssetBeingSoldModel";
                         inst.transform.localScale *= inventory[0].asset.miniModelScaleMultiplier;
                     }
                 }

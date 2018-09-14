@@ -1,0 +1,43 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 660f28809130f1b4690ff2323b6920c4, type: 3}
+  m_Name: Gold Bar
+  m_EditorClassIdentifier: 
+  type: 2
+  useTag: 
+  assetLevel: 2
+  baseValue: 25
+  currentValue: 28.41173
+  valueHistory:
+  - 28.896189
+  - 27.976086
+  - 27.247017
+  - 27.507364
+  - 28.011957
+  - 27.819735
+  - 28.403654
+  - 28.952593
+  - 28.30517
+  - 28.947874
+  - 29.539043
+  - 28.900078
+  - 28.80678
+  - 28.41173
+  currentPop: 0.63816774
+  physicsAsset: 1
+  mass: 1
+  modelPrefab: {fileID: 1442159518382584, guid: c33f32006ac40b04c88638c3bbc89f0b,
+    type: 2}
+  miniModelScaleMultiplier: 1
+  invModelScaleMultiplier: 2.4
+  invModelYOffset: 0.35
+  craftingMaterials: []
+  breakdownMaterials: []

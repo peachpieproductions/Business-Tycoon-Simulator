@@ -15,14 +15,26 @@ MonoBehaviour:
   useTag: Lamp
   assetLevel: 3
   baseValue: 15
-  currentValue: 15.08068
+  currentValue: 16.198513
   valueHistory:
-  - 15.08068
-  currentPop: 0.44659334
+  - 15.437044
+  - 16.198513
+  currentPop: 0.4497375
   physicsAsset: 1
+  mass: 1
   modelPrefab: {fileID: 1930749907312052, guid: 794020622ed6a3c4ab7fc6b85d214c36,
     type: 2}
   miniModelScaleMultiplier: 0.8
   invModelScaleMultiplier: 0.5
+  invModelYOffset: 0
+  craftingMaterials:
+  - {fileID: 11400000, guid: 816dd7f617300e0488afbcf5a11d40c4, type: 2}
+  - {fileID: 11400000, guid: 816dd7f617300e0488afbcf5a11d40c4, type: 2}
+  - {fileID: 11400000, guid: e98b57e0e477dea408d0107c7765e94a, type: 2}
+  - {fileID: 11400000, guid: e98b57e0e477dea408d0107c7765e94a, type: 2}
+  - {fileID: 11400000, guid: 2d67e15ade2ccb14a99ec677a2d0e289, type: 2}
+  breakdownMaterials:
+  - {fileID: 11400000, guid: 816dd7f617300e0488afbcf5a11d40c4, type: 2}
+  - {fileID: 11400000, guid: e98b57e0e477dea408d0107c7765e94a, type: 2}
   useable: 1
   storageSlots: 0

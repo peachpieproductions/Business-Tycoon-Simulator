@@ -7,6 +7,7 @@ using UnityEngine.UI;
 
 public class C : MonoBehaviour {
 
+    
     public float time;
     public string timeString;
     public Data data;
@@ -19,9 +20,7 @@ public class C : MonoBehaviour {
     public Transform npcHomesParent;
     public List<GameObject> availableProperties = new List<GameObject>();
 
-
-
-    public VirtualInputModule virtualInputModule;
+    public HardwareCursor hardwareCursor;
 
     private void Awake() {
         c = this;
@@ -46,6 +45,8 @@ public class C : MonoBehaviour {
     }
 
     private void Update() {
+
+        InputManager.UpdateControllerStates();
 
         if (data.npcsOut.Count < 3) {
             if (Random.value < .001f) {

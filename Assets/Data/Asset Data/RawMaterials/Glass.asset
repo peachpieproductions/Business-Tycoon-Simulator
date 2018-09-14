@@ -1,0 +1,43 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 660f28809130f1b4690ff2323b6920c4, type: 3}
+  m_Name: Glass
+  m_EditorClassIdentifier: 
+  type: 2
+  useTag: 
+  assetLevel: 1
+  baseValue: 3
+  currentValue: 2.6770859
+  valueHistory:
+  - 2.2942548
+  - 3.2192569
+  - 2.2306328
+  - 2.7466693
+  - 3.6118112
+  - 4.2117205
+  - 3.2702687
+  - 2.557718
+  - 2.1164312
+  - 1.7180115
+  - 2.4316506
+  - 2.7995975
+  - 2.5582428
+  - 2.6770859
+  currentPop: 0
+  physicsAsset: 1
+  mass: 1
+  modelPrefab: {fileID: 1754903120807434, guid: ebbaccf5a94268d4692a2ec2c6c34335,
+    type: 2}
+  miniModelScaleMultiplier: 1
+  invModelScaleMultiplier: 1.5
+  invModelYOffset: 0.25
+  craftingMaterials: []
+  breakdownMaterials: []

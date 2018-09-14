@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 660f28809130f1b4690ff2323b6920c4, type: 3}
+  m_Name: Plastic
+  m_EditorClassIdentifier: 
+  type: 2
+  useTag: 
+  assetLevel: 1
+  baseValue: 1
+  currentValue: 1.5183305
+  valueHistory:
+  - 1.3487618
+  - 1.5183305
+  currentPop: 0.5310044
+  physicsAsset: 1
+  mass: 1
+  modelPrefab: {fileID: 1690206285504424, guid: f445e00c408db16489a4f2e59b1defb1,
+    type: 2}
+  miniModelScaleMultiplier: 1
+  invModelScaleMultiplier: 1.2
+  invModelYOffset: 0.2
+  craftingMaterials: []
+  breakdownMaterials: []

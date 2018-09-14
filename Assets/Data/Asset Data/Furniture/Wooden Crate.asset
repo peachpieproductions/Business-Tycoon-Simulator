@@ -15,14 +15,25 @@ MonoBehaviour:
   useTag: Storage
   assetLevel: 2
   baseValue: 5
-  currentValue: 5.492793
+  currentValue: 5.5456896
   valueHistory:
-  - 5.492793
-  currentPop: 0.5769092
+  - 4.549662
+  - 5.5456896
+  currentPop: 0.3697204
   physicsAsset: 1
+  mass: 50
   modelPrefab: {fileID: 1578032225775594, guid: be56d71f3b9390a478b409e6a9fa6de0,
     type: 2}
-  miniModelScaleMultiplier: 0.5
-  invModelScaleMultiplier: 0.7
+  miniModelScaleMultiplier: 0.35
+  invModelScaleMultiplier: 0.6
+  invModelYOffset: 0
+  craftingMaterials:
+  - {fileID: 11400000, guid: 15a59273354d2414ea17acbe4644663b, type: 2}
+  - {fileID: 11400000, guid: 15a59273354d2414ea17acbe4644663b, type: 2}
+  - {fileID: 11400000, guid: 15a59273354d2414ea17acbe4644663b, type: 2}
+  - {fileID: 11400000, guid: e6e61b73832c67941b9b9140d8ee6abb, type: 2}
+  breakdownMaterials:
+  - {fileID: 11400000, guid: 15a59273354d2414ea17acbe4644663b, type: 2}
+  - {fileID: 11400000, guid: 15a59273354d2414ea17acbe4644663b, type: 2}
   useable: 1
   storageSlots: 10

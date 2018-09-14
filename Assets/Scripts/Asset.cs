@@ -9,6 +9,13 @@ public class AssetInventorySlot {
     public AssetData asset;
     public int amount;
 
+    public AssetInventorySlot Clone() {
+        var slotClone = new AssetInventorySlot();
+        slotClone.asset = asset;
+        slotClone.amount = amount;
+        return slotClone;
+    }
+
 }
 
 public class Asset : MonoBehaviour {
@@ -52,18 +59,20 @@ public class Asset : MonoBehaviour {
                 transform.GetComponentInChildren<WorkBench>().StartAssembling(C.c.player[0]);
                 break;
             case "Storage":
+                playerUsing = null;
                 transform.GetComponentInChildren<Storage>().Open();
                 break;
             case "Bed":
                 transform.GetComponentInChildren<Bed>().Use(C.c.player[0]);
                 break;
             case "Lamp":
+                playerUsing = null;
                 transform.GetComponentInChildren<TurnOn>().Use();
                 break;
             case "Chair":
                 transform.GetComponentInChildren<Chair>().Use(C.c.player[0]);
                 break;
-            case default(string):
+            default:
                 playerUsing = null;
                 break;
         }
@@ -75,7 +84,7 @@ public class Asset : MonoBehaviour {
             case "Workbench":
                 transform.GetComponentInChildren<WorkBench>().StartBreakingDown(C.c.player[0]);
                 break;
-            case default(string):
+            default:
                 playerUsing = null;
                 break;
         }
@@ -92,6 +101,8 @@ public class Asset : MonoBehaviour {
         HoverOutline();
 
         if (playerHovering && overlayCanvas && cg) {
+            overlayCanvas.transform.parent.LookAt(playerHovering.transform);
+            overlayCanvas.transform.parent.eulerAngles = new Vector3(0, overlayCanvas.transform.parent.eulerAngles.y, 0);
             cg.alpha += Time.deltaTime * 2;
         }
     }
@@ -138,6 +149,8 @@ public class Asset : MonoBehaviour {
         model.tag = "Asset";
         outline = model.GetComponent<Outline>();
         overlayCanvas = model.GetComponentInChildren<Canvas>();
+        if (overlayCanvas) cg = overlayCanvas.GetComponent<CanvasGroup>();
+        if (overlayCanvas && cg == null) cg = overlayCanvas.gameObject.AddComponent<CanvasGroup>();
         if (outline == null) outline = model.AddComponent<Outline>();
         coll = model.GetComponent<Collider>();
         camOverride = model.transform.Find("CamOverride");
@@ -145,7 +158,10 @@ public class Asset : MonoBehaviour {
         assetName = data.name;
         useTag = data.useTag;
         physicsAsset = data.physicsAsset;
-        if (physicsAsset) rb = model.GetComponent<Rigidbody>();
+        if (physicsAsset) {
+            rb = model.AddComponent<Rigidbody>();
+            rb.mass = data.mass;
+        }
         if (isPlacing) {
             coll.enabled = false;
             if (physicsAsset)

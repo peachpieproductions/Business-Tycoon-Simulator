@@ -11,6 +11,7 @@ Material:
   m_ShaderKeywords: _ALPHAPREMULTIPLY_ON _EMISSION _GLOSSYREFLECTIONS_OFF _SPECULARHIGHLIGHTS_OFF
   m_LightmapFlags: 1
   m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
   m_CustomRenderQueue: 3000
   stringTagMap:
     RenderType: Transparent
@@ -64,9 +65,9 @@ Material:
     - _DetailNormalMapScale: 1
     - _DstBlend: 10
     - _GlossMapScale: 1
-    - _Glossiness: 0.196
+    - _Glossiness: 0.417
     - _GlossyReflections: 0
-    - _Metallic: 0.15
+    - _Metallic: 0.19
     - _Mode: 3
     - _OcclusionStrength: 1
     - _Parallax: 0.02
@@ -76,6 +77,6 @@ Material:
     - _UVSec: 0
     - _ZWrite: 0
     m_Colors:
-    - _Color: {r: 1, g: 1, b: 1, a: 0.159}
+    - _Color: {r: 0.61764705, g: 0.82596356, b: 1, a: 0.353}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _SpecColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}

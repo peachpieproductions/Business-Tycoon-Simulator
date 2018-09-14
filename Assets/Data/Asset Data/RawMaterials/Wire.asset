@@ -1,0 +1,43 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 660f28809130f1b4690ff2323b6920c4, type: 3}
+  m_Name: Wire
+  m_EditorClassIdentifier: 
+  type: 2
+  useTag: 
+  assetLevel: 2
+  baseValue: 5
+  currentValue: 3.4458966
+  valueHistory:
+  - 3.5093412
+  - 3.1023006
+  - 3.3571136
+  - 4.179916
+  - 4.805174
+  - 5.7524395
+  - 6.480487
+  - 5.5306587
+  - 4.7055216
+  - 3.9661903
+  - 3.7007766
+  - 2.9456935
+  - 2.5
+  - 3.4458966
+  currentPop: 0.4726975
+  physicsAsset: 1
+  mass: 1
+  modelPrefab: {fileID: 1244924884476650, guid: 705080f2ceb69354d9119f6e9d81fcc3,
+    type: 2}
+  miniModelScaleMultiplier: 1
+  invModelScaleMultiplier: 1.4
+  invModelYOffset: 0.25
+  craftingMaterials: []
+  breakdownMaterials: []

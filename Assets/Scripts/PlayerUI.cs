@@ -40,23 +40,41 @@ public class PlayerUI : MonoBehaviour {
 
     public void GenerateCraftingList() {
         craftingPanel.SetActive(true);
+        craftingPanel.transform.Find("Title").GetComponent<TextMeshProUGUI>().text = "Assembly Blueprints";
         Button b = craftingPanel.GetComponentInChildren<Button>();
         foreach(Button butt in b.transform.parent.GetComponentsInChildren<Button>()) {
             if (butt == b) continue;
             Destroy(butt.gameObject);
         }
         if (C.c.data.craftingBlueprintList.Count > 0) {
-            b.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = C.c.data.craftingBlueprintList[0].name;
             foreach (AssetData d in C.c.data.craftingBlueprintList) {
                 var newButton = Instantiate(b, b.transform.parent);
                 newButton.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = d.name;
             }
             Destroy(b.gameObject);
         } else {
-            b.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = "No Crafting Recipies";
+            b.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = "No Assembly Blueprints";
         }
-        
-        
+    }
+
+    public void GenerateBreakdownList() {
+        craftingPanel.SetActive(true);
+        craftingPanel.transform.Find("Title").GetComponent<TextMeshProUGUI>().text = "Inventory List";
+        Button b = craftingPanel.GetComponentInChildren<Button>();
+        foreach (Button butt in b.transform.parent.GetComponentsInChildren<Button>()) {
+            if (butt == b) continue;
+            Destroy(butt.gameObject);
+        }
+        foreach (AssetInventorySlot d in player.inventory) {
+            if (d.amount > 0) {
+                var newButton = Instantiate(b, b.transform.parent);
+                newButton.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = d.asset.name + " (" + d.amount + ")";
+            } else {
+                var newButton = Instantiate(b, b.transform.parent);
+                newButton.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = "(EMPTY)";
+            }
+        }
+        Destroy(b.gameObject);
     }
 
 }

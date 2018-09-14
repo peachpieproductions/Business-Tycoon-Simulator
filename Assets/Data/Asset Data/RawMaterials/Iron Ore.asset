@@ -1,0 +1,43 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 660f28809130f1b4690ff2323b6920c4, type: 3}
+  m_Name: Iron Ore
+  m_EditorClassIdentifier: 
+  type: 2
+  useTag: 
+  assetLevel: 2
+  baseValue: 5
+  currentValue: 5.4262247
+  valueHistory:
+  - 6.3522835
+  - 6.4404507
+  - 6.802122
+  - 6.591219
+  - 7.146412
+  - 6.1777
+  - 5.371788
+  - 6.160776
+  - 6.443032
+  - 6.0719376
+  - 6.3933897
+  - 5.966724
+  - 5.2359
+  - 5.4262247
+  currentPop: 0.89960146
+  physicsAsset: 1
+  mass: 1
+  modelPrefab: {fileID: 1376007435933634, guid: 91369076397bdc6469b98935421b2f3f,
+    type: 2}
+  miniModelScaleMultiplier: 1
+  invModelScaleMultiplier: 0.4
+  invModelYOffset: 0.25
+  craftingMaterials: []
+  breakdownMaterials: []

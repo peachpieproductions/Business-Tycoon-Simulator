@@ -25,7 +25,6 @@ public class Computer : MonoBehaviour {
     }
 
     public void StartUsingComputer(Player p) {
-        C.c.virtualInputModule.m_VirtualCursor = mouseSprite;
         playerUsing = p;
         Cursor.lockState = CursorLockMode.None;
         p.usingAsset = asset;
@@ -62,6 +61,7 @@ public class Computer : MonoBehaviour {
         if (playerUsing) {
             if (playerUsing.usingAsset != asset) { EndUsingComputer();  return; }
 
+            //Virual Mouse
             Vector2 pos;
             RectTransformUtility.ScreenPointToLocalPointInRectangle(screenCanvas.transform as RectTransform, Input.mousePosition, screenCanvas.worldCamera, out pos);
             mouseSprite.position = screenCanvas.transform.TransformPoint(pos);

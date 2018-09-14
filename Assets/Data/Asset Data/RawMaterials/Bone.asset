@@ -1,0 +1,43 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 660f28809130f1b4690ff2323b6920c4, type: 3}
+  m_Name: Bone
+  m_EditorClassIdentifier: 
+  type: 2
+  useTag: 
+  assetLevel: 1
+  baseValue: 1
+  currentValue: 0.5
+  valueHistory:
+  - 0.9894866
+  - 1.2490684
+  - 1.0021877
+  - 1.3651803
+  - 0.70252514
+  - 1.2635338
+  - 1.820627
+  - 2
+  - 2
+  - 2
+  - 2
+  - 1.063133
+  - 0.5
+  - 0.5
+  currentPop: 0.9158807
+  physicsAsset: 1
+  mass: 1
+  modelPrefab: {fileID: 1393051279726122, guid: e3bb1c8d277a1e34b9d77ea8231b88a7,
+    type: 2}
+  miniModelScaleMultiplier: 1
+  invModelScaleMultiplier: 1.1
+  invModelYOffset: 0.25
+  craftingMaterials: []
+  breakdownMaterials: []

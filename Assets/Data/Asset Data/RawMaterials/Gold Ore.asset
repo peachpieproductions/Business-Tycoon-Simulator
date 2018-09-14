@@ -1,0 +1,43 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 660f28809130f1b4690ff2323b6920c4, type: 3}
+  m_Name: Gold Ore
+  m_EditorClassIdentifier: 
+  type: 2
+  useTag: 
+  assetLevel: 2
+  baseValue: 17
+  currentValue: 20.541344
+  valueHistory:
+  - 19.418774
+  - 20.124685
+  - 20.17681
+  - 20.355349
+  - 20.13706
+  - 20.07553
+  - 20.571735
+  - 21.194635
+  - 21.834091
+  - 21.44267
+  - 20.492817
+  - 21.379057
+  - 20.405998
+  - 20.541344
+  currentPop: 0.6801694
+  physicsAsset: 1
+  mass: 1
+  modelPrefab: {fileID: 1967498362527418, guid: 8f18d7b9feb559043b8aeec12ba89094,
+    type: 2}
+  miniModelScaleMultiplier: 1
+  invModelScaleMultiplier: 0.4
+  invModelYOffset: 0.25
+  craftingMaterials: []
+  breakdownMaterials: []

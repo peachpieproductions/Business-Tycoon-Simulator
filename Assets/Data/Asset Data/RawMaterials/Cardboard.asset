@@ -1,0 +1,43 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 660f28809130f1b4690ff2323b6920c4, type: 3}
+  m_Name: Cardboard
+  m_EditorClassIdentifier: 
+  type: 2
+  useTag: 
+  assetLevel: 1
+  baseValue: 1
+  currentValue: 1.4603354
+  valueHistory:
+  - 1.3984935
+  - 1.1337777
+  - 0.63713646
+  - 0.8421329
+  - 0.5
+  - 1.22244
+  - 1.0816504
+  - 1.9561976
+  - 2
+  - 1.8052613
+  - 1.1529948
+  - 0.5
+  - 1.3245912
+  - 1.4603354
+  currentPop: 0.3285027
+  physicsAsset: 1
+  mass: 1
+  modelPrefab: {fileID: 1734522607898492, guid: 87eb0bf3f90c47a4aa35e143f753fd4e,
+    type: 2}
+  miniModelScaleMultiplier: 1
+  invModelScaleMultiplier: 0.5
+  invModelYOffset: 0.1
+  craftingMaterials: []
+  breakdownMaterials: []

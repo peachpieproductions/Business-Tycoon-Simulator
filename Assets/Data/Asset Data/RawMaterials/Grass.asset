@@ -1,0 +1,43 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 660f28809130f1b4690ff2323b6920c4, type: 3}
+  m_Name: Grass
+  m_EditorClassIdentifier: 
+  type: 2
+  useTag: 
+  assetLevel: 1
+  baseValue: 1
+  currentValue: 1.6389538
+  valueHistory:
+  - 1.3393196
+  - 1.5006223
+  - 2
+  - 2
+  - 2
+  - 1.1353133
+  - 0.5
+  - 0.5
+  - 0.7085155
+  - 0.78056765
+  - 1.3780591
+  - 2
+  - 2
+  - 1.6389538
+  currentPop: 0.2737371
+  physicsAsset: 1
+  mass: 1
+  modelPrefab: {fileID: 1175163490421302, guid: b8a16a223dd59924d9a10f4057faf5bb,
+    type: 2}
+  miniModelScaleMultiplier: 1
+  invModelScaleMultiplier: 0.7
+  invModelYOffset: 0
+  craftingMaterials: []
+  breakdownMaterials: []

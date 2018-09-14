@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Player : MonoBehaviour {
 
-
+    public int playerId = 0;
     internal Rigidbody rb;
     public float playerAcceleration = 2;
     public float playerMaxSpeed = 6;
@@ -38,7 +38,7 @@ public class Player : MonoBehaviour {
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
         rb = GetComponent<Rigidbody>();
-        upcomingDeliveries = new List<List<AssetInventorySlot>>();
+        upcomingDeliveries = new List<List<AssetInventorySlot>>();        
     }
 
     public IEnumerator TeleportSequence(Portal p) {
@@ -74,13 +74,27 @@ public class Player : MonoBehaviour {
         C.c.time += 6 * 60;
 
         while (pui.blackOutPanel.alpha > 0) {
-            pui.blackOutPanel.alpha -= .001f;
+            pui.blackOutPanel.alpha -= .004f;
             yield return null;
         }
         isSleeping = false;
     }
 
     private void Update() {
+
+        if (Input.GetKeyDown(KeyCode.Alpha9)) {
+            foreach (AssetInventorySlot s in inventory) {
+                s.asset = C.c.data.assetData[Random.Range(0, C.c.data.assetData.Count)];
+                s.amount = 10;
+            }
+            pui.invRender.UpdateInventoryRender();
+        }
+
+        //virtual mouse with controller
+        if (Cursor.lockState == CursorLockMode.None) {
+            HardwareCursor.SetPosition(HardwareCursor.GetPosition() + new Vector2(InputManager.MovementInput(playerId).x * 4, -InputManager.MovementInput(playerId).y * 4));
+            if (InputManager.JumpInput(playerId)) { HardwareCursor.LeftClick(); }
+        }
 
         MoveAndLook();
 
@@ -106,7 +120,7 @@ public class Player : MonoBehaviour {
                     }
                 }
                 else if (hit.transform.GetComponent<Interactable>()) {
-                    if (Input.GetKeyDown(KeyCode.E)) hit.transform.GetComponent<Interactable>().Use();
+                    if (InputManager.InteractInput(playerId)) hit.transform.GetComponent<Interactable>().Use();
                 }
             }
         }
@@ -115,7 +129,7 @@ public class Player : MonoBehaviour {
         BuildMode();
 
         //use asset
-        if (Input.GetKeyDown(KeyCode.E)) {
+        if (InputManager.InteractInput(playerId) && !isSleeping && !teleporting) {
 
             if (assetHovering) {
                 if (usingAsset) StopUsingAsset();
@@ -125,7 +139,7 @@ public class Player : MonoBehaviour {
                 StopUsingAsset();
             }
             else if (nearbyPortal) {
-                if (!teleporting) StartCoroutine(TeleportSequence(nearbyPortal));
+                if (!teleporting && !isSleeping) StartCoroutine(TeleportSequence(nearbyPortal));
             }
             else {
                 if (Physics.Raycast(cam.transform.position + cam.transform.forward * .6f, cam.transform.forward, out hit, 2f)) {
@@ -135,31 +149,29 @@ public class Player : MonoBehaviour {
                         Destroy(hit.transform.gameObject);
                     }
                     else if (hit.transform.name == "AssetBeingSoldModel") {
-                        if (hit.transform.childCount > 0) {
+                        var m = Instantiate(C.c.data.moneyPrefabs[1], C.c.currentShop.register.moneySpawnPoint.position +
+                            new Vector3(Random.Range(-.2f, .2f), 0, Random.Range(-.2f, .2f)), Quaternion.Euler(0, Random.Range(0, 359), 0)).GetComponent<Money>();
+                        m.value = Mathf.CeilToInt(C.c.currentShop.npcCheckoutLine[0].inventory[0].asset.currentValue);
 
-                            var m = Instantiate(C.c.data.moneyPrefabs[1], C.c.currentShop.register.moneySpawnPoint.position +
-                                new Vector3(Random.Range(-.2f, .2f), 0, Random.Range(-.2f, .2f)), Quaternion.Euler(0, Random.Range(0, 359), 0)).GetComponent<Money>();
-                            m.value = Mathf.Round(C.c.currentShop.npcCheckoutLine[0].inventory[0].asset.currentValue);
-
-                            if (--C.c.currentShop.npcCheckoutLine[0].inventory[0].amount == 0) {
-                                C.c.currentShop.npcCheckoutLine[0].inventory.Add(new AssetInventorySlot());
-                                C.c.currentShop.npcCheckoutLine[0].inventory.RemoveAt(0);
-                            }
-                            if (C.c.currentShop.npcCheckoutLine[0].inventory[0].amount == 0) {
-                                C.c.currentShop.npcCheckoutLine[0].GoHome();
-                                C.c.currentShop.npcCheckoutLine.RemoveAt(0);
-                                foreach (NPC n in C.c.currentShop.npcCheckoutLine) n.UpdateInWaitingLine();
-                            } 
-
-                            Destroy(hit.transform.GetChild(0).gameObject);
+                        if (--C.c.currentShop.npcCheckoutLine[0].inventory[0].amount == 0) {
+                            C.c.currentShop.npcCheckoutLine[0].inventory.Add(new AssetInventorySlot());
+                            C.c.currentShop.npcCheckoutLine[0].inventory.RemoveAt(0);
                         }
+                        if (C.c.currentShop.npcCheckoutLine[0].inventory[0].amount == 0) {
+                            C.c.currentShop.npcCheckoutLine[0].GoHome();
+                            C.c.currentShop.npcCheckoutLine.RemoveAt(0);
+                            foreach (NPC n in C.c.currentShop.npcCheckoutLine) n.UpdateInWaitingLine();
+                        } 
+
+                        Destroy(hit.transform.gameObject);
+                        
                     }
                 }
             }
         }
 
         //use asset secondary use
-        if (Input.GetKeyDown(KeyCode.R)) {
+        if (InputManager.SecondaryInteractInput(playerId)) {
             if (assetHovering) {
                 if (usingAsset) StopUsingAsset();
                 assetHovering.UseSecondary();
@@ -169,22 +181,23 @@ public class Player : MonoBehaviour {
             }
         }
 
-            //put asset on sale
-        if (Input.GetKeyDown(KeyCode.F)) {
-            if (assetHovering) {
+        //put asset on sale
+        if (InputManager.SecondaryInteractInput(playerId)) {
+            if (assetHovering && assetHovering.playerUsing == null) {
                 assetHovering.ToggleSelling();
             }
         }
 
         //pick up asset
-        if (Input.GetMouseButtonDown(1)) { 
-            if (assetHovering) {
+        if (InputManager.PickUpInput(playerId)) { 
+            if (assetHovering && !assetHovering.forceCantSell) {
                 if (assetHovering.useTag == "Storage") {
                     var stor = assetHovering.model.GetComponent<Storage>();
                     if (stor) {
                         if (stor.inventory.Count > 0 && stor.inventory[0].amount > 0) { stor.Open(); }
                     }
                 }
+                if (assetHovering.selling) assetHovering.ToggleSelling();
                 var added = AddAssetToInventory(assetHovering.data);
                 if (added) Destroy(assetHovering.gameObject);
                 pui.invRender.UpdateInventoryRender();
@@ -192,8 +205,8 @@ public class Player : MonoBehaviour {
         }
 
         //Cycle active asset
-        if (Input.mouseScrollDelta.y != 0 && usingAsset == null) {
-            inventoryCurrentIndex += (int)Input.mouseScrollDelta.y;
+        if (InputManager.CycleHotbar(playerId) != 0 && usingAsset == null) {
+            inventoryCurrentIndex += (int)InputManager.CycleHotbar(playerId);
             if (inventoryCurrentIndex < 0) inventoryCurrentIndex = 0;
             if (inventoryCurrentIndex >= inventory.Count) inventoryCurrentIndex = inventory.Count-1;
             if (currentBuildAsset) Destroy(currentBuildAsset.gameObject);
@@ -207,6 +220,7 @@ public class Player : MonoBehaviour {
             usingAsset.playerUsing = null;
             usingAsset = null;
             freeCamFreeRot = false;
+            camOverridePos = null;
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
             pui.craftingPanel.SetActive(false);
@@ -216,7 +230,7 @@ public class Player : MonoBehaviour {
 
     public void FreeCamToggle() {
         freeCam = !freeCam;
-        if (!freeCam) { cam.parent = transform; cam.transform.localEulerAngles = Vector3.zero; }
+        if (!freeCam) { cam.parent = transform; /*cam.transform.localEulerAngles = Vector3.zero;*/ }
     }
 
 
@@ -246,13 +260,15 @@ public class Player : MonoBehaviour {
                     if (placementValid) { if (!buildPlacementValid) currentBuildAsset.model.GetComponent<MeshRenderer>().material = C.c.data.placingMats[0]; buildPlacementValid = true; }
                         else { if (buildPlacementValid) currentBuildAsset.model.GetComponent<MeshRenderer>().material = C.c.data.placingMats[1]; buildPlacementValid = false; }
 
-                    if (currentBuildAsset.physicsAsset) currentBuildAsset.transform.position = hit.point + Vector3.up * .05f;
-                    else currentBuildAsset.transform.position = hit.point;
-                    if (Input.GetKey(KeyCode.R)) { currentBuildAsset.transform.Rotate(0, .7f, 0); if (Input.GetKey(KeyCode.LeftShift)) currentBuildAsset.transform.Rotate(0, .7f, 0); }
-                    if (Input.GetMouseButtonDown(0) && buildPlacementValid) {
+                    var ydiff = currentBuildAsset.transform.position.y - (currentBuildCollider.bounds.center.y - currentBuildCollider.bounds.extents.y);
+                    if (currentBuildAsset.physicsAsset) currentBuildAsset.transform.position = hit.point + Vector3.up * + (ydiff + .05f);
+                    else currentBuildAsset.transform.position = hit.point + Vector3.up * ydiff;
+
+                    if (InputManager.RotatePlacement(playerId)) { currentBuildAsset.transform.Rotate(0, .7f, 0); if (Input.GetKey(KeyCode.LeftShift)) currentBuildAsset.transform.Rotate(0, .7f, 0); }
+                    if (InputManager.PlaceAsset(playerId) && buildPlacementValid) {
                         currentBuildAsset.placing = false;
                         currentBuildAsset.Set(currentBuildAsset.data);
-                        if (Input.GetKey(KeyCode.LeftShift)) currentBuildAsset.ToggleSelling();
+                        if (InputManager.AutoSellWhilePlacing(playerId)) currentBuildAsset.ToggleSelling();
                         currentBuildAsset = null;
                         inventory[inventoryCurrentIndex].amount--;
                         pui.invRender.UpdateInventoryRender();
@@ -262,7 +278,7 @@ public class Player : MonoBehaviour {
         }
 
         //Start / stop Build Mode
-        if (Input.GetKeyDown(KeyCode.B) || (buildMode && Input.GetMouseButtonDown(1))) {
+        if (InputManager.BuildModeInput(playerId) || (buildMode && InputManager.PickUpInput(playerId))) {
             buildMode = !buildMode;
             pui.modeStatusText.transform.parent.gameObject.SetActive(buildMode);
             if (!buildMode) {
@@ -293,33 +309,13 @@ public class Player : MonoBehaviour {
         return placedAsset;
     }
 
-    /*public bool AddToUpcomingDelivery(AssetData asset, int amount) {
-        bool placedAsset = false;
-        foreach (AssetInventorySlot slot in upcomingDelivery) { //find existing asset stack
-            if (slot.amount > 0 && slot.asset == asset) {
-                slot.amount += amount;
-                placedAsset = true;
-                break;
-            }
-        }
-        if (!placedAsset) {
-            foreach (AssetInventorySlot slot in upcomingDelivery) { //make new stack
-                if (slot.amount == 0) {
-                    slot.amount += amount;
-                    slot.asset = asset;
-                    placedAsset = true;
-                    break;
-                }
-            }
-        }
-        return placedAsset;
-    }*/
+
 
     public void MouseLook(bool rotPlayer) {
-        cam.Rotate(-Input.GetAxis("Mouse Y") * lookSpeed, 0, 0);
+        cam.Rotate(-InputManager.LookInput(playerId).y * lookSpeed, 0, 0);
         cam.localEulerAngles = new Vector3(cam.localEulerAngles.x, cam.localEulerAngles.y, 0);
-        if (rotPlayer) transform.Rotate(0, Input.GetAxis("Mouse X") * lookSpeed, 0);
-        else cam.transform.Rotate(0, Input.GetAxis("Mouse X") * lookSpeed, 0);
+        if (rotPlayer) transform.Rotate(0, InputManager.LookInput(playerId).x * lookSpeed, 0);
+        else cam.transform.Rotate(0, InputManager.LookInput(playerId).x * lookSpeed, 0);
     }
 
     public void MoveAndLook() {
@@ -332,25 +328,23 @@ public class Player : MonoBehaviour {
         }
         else {
             //lerp cam back to head
-            cam.transform.localPosition = Vector3.Lerp(cam.transform.localPosition, camOffset, .02f);
+            cam.transform.localPosition = Vector3.Lerp(cam.transform.localPosition, camOffset, .2f);
+
+            //aim body to cam
+            if (cam.localEulerAngles.y != 0) {
+                var diff = cam.localEulerAngles.y;
+                transform.Rotate(0, diff, 0,Space.World);
+                cam.Rotate(0, -diff, 0,Space.World);
+            }
 
             //Mouse Look
             MouseLook(true);
 
             //Keyboard inputs
-            if (Input.GetKey(KeyCode.W)) {
-                rb.velocity += transform.forward * playerAcceleration;
-            }
-            if (Input.GetKey(KeyCode.S)) {
-                rb.velocity += -transform.forward * playerAcceleration;
-            }
-            if (Input.GetKey(KeyCode.A)) {
-                rb.velocity += -transform.right * playerAcceleration;
-            }
-            if (Input.GetKey(KeyCode.D)) {
-                rb.velocity += transform.right * playerAcceleration;
-            }
-            if (Input.GetKeyDown(KeyCode.Space)) {
+            rb.velocity += InputManager.MovementInput(playerId).y * transform.forward * playerAcceleration +
+                InputManager.MovementInput(playerId).x * transform.right * playerAcceleration;
+
+            if (InputManager.JumpInput(playerId)) {
                 rb.velocity += Vector3.up * jumpHeight;
             }
 

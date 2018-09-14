@@ -15,14 +15,33 @@ MonoBehaviour:
   useTag: Bed
   assetLevel: 3
   baseValue: 40
-  currentValue: 39.864338
+  currentValue: 41.099525
   valueHistory:
-  - 39.864338
-  currentPop: 0.5543834
+  - 40.824837
+  - 41.099525
+  currentPop: 0.66437507
   physicsAsset: 0
+  mass: 1
   modelPrefab: {fileID: 1515687788551356, guid: 3ae71fc7e6d03cc4a80bd5b771183cfb,
     type: 2}
   miniModelScaleMultiplier: 0.3
-  invModelScaleMultiplier: 0.15
+  invModelScaleMultiplier: 0.13
+  invModelYOffset: 0.2
+  craftingMaterials:
+  - {fileID: 11400000, guid: 15a59273354d2414ea17acbe4644663b, type: 2}
+  - {fileID: 11400000, guid: 15a59273354d2414ea17acbe4644663b, type: 2}
+  - {fileID: 11400000, guid: 15a59273354d2414ea17acbe4644663b, type: 2}
+  - {fileID: 11400000, guid: 15a59273354d2414ea17acbe4644663b, type: 2}
+  - {fileID: 11400000, guid: 15a59273354d2414ea17acbe4644663b, type: 2}
+  - {fileID: 11400000, guid: e6e61b73832c67941b9b9140d8ee6abb, type: 2}
+  - {fileID: 11400000, guid: e6e61b73832c67941b9b9140d8ee6abb, type: 2}
+  - {fileID: 11400000, guid: e6e61b73832c67941b9b9140d8ee6abb, type: 2}
+  - {fileID: 11400000, guid: e6e61b73832c67941b9b9140d8ee6abb, type: 2}
+  breakdownMaterials:
+  - {fileID: 11400000, guid: 15a59273354d2414ea17acbe4644663b, type: 2}
+  - {fileID: 11400000, guid: 15a59273354d2414ea17acbe4644663b, type: 2}
+  - {fileID: 11400000, guid: 15a59273354d2414ea17acbe4644663b, type: 2}
+  - {fileID: 11400000, guid: e6e61b73832c67941b9b9140d8ee6abb, type: 2}
+  - {fileID: 11400000, guid: e6e61b73832c67941b9b9140d8ee6abb, type: 2}
   useable: 1
   storageSlots: 0

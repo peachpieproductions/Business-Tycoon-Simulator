@@ -1,0 +1,43 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 660f28809130f1b4690ff2323b6920c4, type: 3}
+  m_Name: Silver Bar
+  m_EditorClassIdentifier: 
+  type: 2
+  useTag: 
+  assetLevel: 3
+  baseValue: 20
+  currentValue: 23.358717
+  valueHistory:
+  - 20.712917
+  - 20.642311
+  - 21.51812
+  - 20.817753
+  - 21.493462
+  - 21.850155
+  - 21.390139
+  - 22.28779
+  - 21.687464
+  - 21.703411
+  - 22.231174
+  - 21.928299
+  - 22.779945
+  - 23.358717
+  currentPop: 0.60881674
+  physicsAsset: 1
+  mass: 1
+  modelPrefab: {fileID: 1259842672093234, guid: d5854dfe9c082e449801d2a5db0b8c69,
+    type: 2}
+  miniModelScaleMultiplier: 1
+  invModelScaleMultiplier: 2.4
+  invModelYOffset: 0.35
+  craftingMaterials: []
+  breakdownMaterials: []

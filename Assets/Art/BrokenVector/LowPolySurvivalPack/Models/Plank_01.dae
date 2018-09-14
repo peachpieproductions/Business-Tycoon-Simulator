@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<COLLADA xmlns="http://www.collada.org/2005/11/COLLADASchema" version="1.4.1">
+  <asset>
+    <contributor>
+      <author>Blender User</author>
+      <authoring_tool>Blender 2.77.0 commit date:2016-03-18, commit time:12:34, hash:22a2853</authoring_tool>
+    </contributor>
+    <created>2017-11-26T17:31:50</created>
+    <modified>2017-11-26T17:31:50</modified>
+    <unit name="meter" meter="1"/>
+    <up_axis>Z_UP</up_axis>
+  </asset>
+  <library_images/>
+  <library_effects>
+    <effect id="Planks-effect">
+      <profile_COMMON>
+        <technique sid="common">
+          <phong>
+            <emission>
+              <color sid="emission">0 0 0 1</color>
+            </emission>
+            <ambient>
+              <color sid="ambient">0 0 0 1</color>
+            </ambient>
+            <diffuse>
+              <color sid="diffuse">0.64 0.64 0.64 1</color>
+            </diffuse>
+            <specular>
+              <color sid="specular">0.5 0.5 0.5 1</color>
+            </specular>
+            <shininess>
+              <float sid="shininess">50</float>
+            </shininess>
+            <index_of_refraction>
+              <float sid="index_of_refraction">1</float>
+            </index_of_refraction>
+          </phong>
+        </technique>
+      </profile_COMMON>
+    </effect>
+  </library_effects>
+  <library_materials>
+    <material id="Planks-material" name="Planks">
+      <instance_effect url="#Planks-effect"/>
+    </material>
+  </library_materials>
+  <library_geometries>
+    <geometry id="Plank_01_mesh-mesh" name="Plank_01_mesh">
+      <mesh>
+        <source id="Plank_01_mesh-mesh-positions">
+          <float_array id="Plank_01_mesh-mesh-positions-array" count="102">-0.0951116 0.006089806 0.5596604 -0.1176699 0.01133096 0.628959 -0.1176699 0.01133096 -0.6855371 -0.1176699 -0.01808893 0.628959 -0.1176365 -0.01808893 -0.6779278 0.1154152 0.009572684 -0.6826056 0.1154152 -0.01984727 0.628959 0.1154152 -0.01808893 -0.6855371 0.04920721 0.01133096 0.628959 0.1154152 0.001991212 0.628959 0.03876537 0.01133096 0.5828879 0.03797459 -0.009172499 0.628959 0.03068435 0.01133096 0.628959 0.1105177 0.01133096 0.5729864 0.1153251 0.01133096 0.5998521 0.1097589 -0.008332431 0.628959 0.1027667 0.01133096 0.628959 -0.0972529 0.01133096 0.5604709 -0.09191352 0.01133096 0.560627 -0.0881136 0.01133096 0.628959 -0.0958181 -0.001513004 0.628959 -0.1009612 0.01133096 0.628959 0.07091796 -0.01808893 -0.6824217 0.07004141 -0.01808893 -0.6855371 0.06330937 0.01133096 -0.6855371 0.07041937 0.01133096 -0.6602617 -0.07698565 -0.01808893 -0.6164498 -0.04501765 -0.01808893 -0.6826878 -0.07755547 0.01133096 -0.5854924 -0.03859817 0.01133096 -0.6855371 0.07411026 -0.01232141 -0.6855371 0.08156621 0.01133096 -0.6855371 -0.09386289 -0.01808893 -0.6855371 -0.1019948 0.01133096 -0.6855371</float_array>
+          <technique_common>
+            <accessor source="#Plank_01_mesh-mesh-positions-array" count="34" stride="3">
+              <param name="X" type="float"/>
+              <param name="Y" type="float"/>
+              <param name="Z" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="Plank_01_mesh-mesh-normals">
+          <float_array id="Plank_01_mesh-mesh-normals-array" count="57">-0.02883958 -0.1642617 0.9859951 -1.40278e-7 0 1 0.04398864 0.05060929 -0.9977493 0.003749191 0.999993 -9.84362e-5 0.9999988 0.001534521 8.86983e-6 -0.00382626 -0.9999921 -0.001094818 -0.9999999 -5.69993e-4 -1.2756e-5 -0.8601869 0.4712435 0.1949571 0.9296037 0.3305299 0.1630555 0.9381998 0.2593325 -0.2291893 -0.01311588 -0.04843395 -0.9987403 -0.1872129 -0.1514961 -0.970567 0.9342837 0.3322271 0.1293793 0.9400987 0.2151229 -0.2644557 -0.8663803 0.4747151 0.1550185 0.9271917 0.3712095 0.05019104 -0.8860162 0.2686163 -0.3779163 -0.879132 0.2771342 -0.3877161 -0.856565 0.5138357 0.04763728</float_array>
+          <technique_common>
+            <accessor source="#Plank_01_mesh-mesh-normals-array" count="19" stride="3">
+              <param name="X" type="float"/>
+              <param name="Y" type="float"/>
+              <param name="Z" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="Plank_01_mesh-mesh-map-0">
+          <float_array id="Plank_01_mesh-mesh-map-0-array" count="204">0.0639888 0.8210101 0.0639888 0.8210101 0.0639888 0.8210101 0.0639888 0.8210101 0.0639888 0.8210101 0.0639888 0.8210101 0.0639888 0.8210101 0.0639888 0.8210101 0.0639888 0.8210101 0.0639888 0.8210101 0.0639888 0.8210101 0.0639888 0.8210101 0.0639888 0.8210101 0.0639888 0.8210101 0.0639888 0.8210101 0.0639888 0.8210101 0.0639888 0.8210101 0.0639888 0.8210101 0.0639888 0.8210101 0.0639888 0.8210101 0.0639888 0.8210101 0.0639888 0.8210101 0.0639888 0.8210101 0.0639888 0.8210101 0.0639888 0.8210101 0.0639888 0.8210101 0.0639888 0.8210101 0.0639888 0.8210101 0.0639888 0.8210101 0.0639888 0.8210101 0.0639888 0.8210101 0.0639888 0.8210101 0.0639888 0.8210101 0.0639888 0.8210101 0.0639888 0.8210101 0.0639888 0.8210101 0.0639888 0.8210101 0.0639888 0.8210101 0.0639888 0.8210101 0.0639888 0.8210101 0.0639888 0.8210101 0.0639888 0.8210101 0.0639888 0.8210101 0.0639888 0.8210101 0.0639888 0.8210101 0.0639888 0.8210101 0.0639888 0.8210101 0.0639888 0.8210101 0.0639888 0.8210101 0.0639888 0.8210101 0.0639888 0.8210101 0.0639888 0.8210101 0.0639888 0.8210101 0.0639888 0.8210101 0.0639888 0.8210101 0.0639888 0.8210101 0.0639888 0.8210101 0.0639888 0.8210101 0.0639888 0.8210101 0.0639888 0.8210101 0.0639888 0.8210101 0.0639888 0.8210101 0.0639888 0.8210101 0.0639888 0.8210101 0.0639888 0.8210101 0.0639888 0.8210101 0.0639888 0.8210101 0.0639888 0.8210101 0.0639888 0.8210101 0.0639888 0.8210101 0.0639888 0.8210101 0.0639888 0.8210101 0.0639888 0.8210101 0.0639888 0.8210101 0.0639888 0.8210101 0.0639888 0.8210101 0.0639888 0.8210101 0.0639888 0.8210101 0.0639888 0.8210101 0.0639888 0.8210101 0.0639888 0.8210101 0.0639888 0.8210101 0.0639888 0.8210101 0.0639888 0.8210101 0.0639888 0.8210101 0.0639888 0.8210101 0.0639888 0.8210101 0.0639888 0.8210101 0.0639888 0.8210101 0.0639888 0.8210101 0.0639888 0.8210101 0.0639888 0.8210101 0.0639888 0.8210101 0.0639888 0.8210101 0.0639888 0.8210101 0.0639888 0.8210101 0.0639888 0.8210101 0.0639888 0.8210101 0.0639888 0.8210101 0.0639888 0.8210101 0.0639888 0.8210101 0.0639888 0.8210101</float_array>
+          <technique_common>
+            <accessor source="#Plank_01_mesh-mesh-map-0-array" count="102" stride="2">
+              <param name="S" type="float"/>
+              <param name="T" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <vertices id="Plank_01_mesh-mesh-vertices">
+          <input semantic="POSITION" source="#Plank_01_mesh-mesh-positions"/>
+        </vertices>
+        <polylist material="Planks-material" count="19">
+          <input semantic="VERTEX" source="#Plank_01_mesh-mesh-vertices" offset="0"/>
+          <input semantic="NORMAL" source="#Plank_01_mesh-mesh-normals" offset="1"/>
+          <input semantic="TEXCOORD" source="#Plank_01_mesh-mesh-map-0" offset="2" set="0"/>
+          <vcount>3 12 4 19 5 10 4 3 3 4 4 4 3 4 4 4 4 4 4 </vcount>
+          <p>0 0 0 18 0 1 17 0 2 3 1 3 6 1 4 9 1 5 15 1 6 16 1 7 8 1 8 11 1 9 12 1 10 19 1 11 20 1 12 21 1 13 1 1 14 7 2 15 30 2 16 31 2 17 5 2 18 16 3 19 13 3 20 14 3 21 5 3 22 31 3 23 25 3 24 24 3 25 29 3 26 28 3 27 33 3 28 2 3 29 1 3 30 21 3 31 17 3 32 18 3 33 19 3 34 12 3 35 10 3 36 8 3 37 6 4 38 7 4 39 5 4 40 14 4 41 9 4 42 3 5 43 4 5 44 32 5 45 26 5 46 27 5 47 23 5 48 22 5 49 30 5 50 7 5 51 6 5 52 1 6 53 2 6 54 4 6 55 3 6 56 10 7 57 11 7 58 8 7 59 11 8 60 10 8 61 12 8 62 28 9 63 26 9 64 32 9 65 33 9 66 24 10 67 23 10 68 27 10 69 29 10 70 33 11 71 32 11 72 4 11 73 2 11 74 15 12 75 13 12 76 16 12 77 25 13 78 22 13 79 23 13 80 24 13 81 13 14 82 15 14 83 9 14 84 14 14 85 20 15 86 0 15 87 17 15 88 21 15 89 26 16 90 28 16 91 29 16 92 27 16 93 22 17 94 25 17 95 31 17 96 30 17 97 18 18 98 0 18 99 20 18 100 19 18 101</p>
+        </polylist>
+      </mesh>
+    </geometry>
+  </library_geometries>
+  <library_visual_scenes>
+    <visual_scene id="Scene" name="Scene">
+      <node id="Plank_01_mesh" name="Plank_01_mesh" type="NODE">
+        <matrix sid="transform">1 0 0 0 0 -4.37114e-8 -1 0 0 1 -4.37114e-8 0 0 0 0 1</matrix>
+        <instance_geometry url="#Plank_01_mesh-mesh" name="Plank_01_mesh">
+          <bind_material>
+            <technique_common>
+              <instance_material symbol="Planks-material" target="#Planks-material"/>
+            </technique_common>
+          </bind_material>
+        </instance_geometry>
+      </node>
+    </visual_scene>
+  </library_visual_scenes>
+  <scene>
+    <instance_visual_scene url="#Scene"/>
+  </scene>
+</COLLADA>

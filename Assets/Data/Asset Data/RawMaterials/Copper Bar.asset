@@ -1,0 +1,43 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 660f28809130f1b4690ff2323b6920c4, type: 3}
+  m_Name: Copper Bar
+  m_EditorClassIdentifier: 
+  type: 2
+  useTag: 
+  assetLevel: 2
+  baseValue: 7
+  currentValue: 5.795983
+  valueHistory:
+  - 6.3253675
+  - 6.813273
+  - 7.6836805
+  - 7.623586
+  - 7.092214
+  - 7.7724257
+  - 7.98348
+  - 7.976105
+  - 7.6831994
+  - 7.2637296
+  - 7.750161
+  - 7.116452
+  - 6.587934
+  - 5.795983
+  currentPop: 0.48904756
+  physicsAsset: 1
+  mass: 1
+  modelPrefab: {fileID: 1119492406475272, guid: 295a630a0d6a2ae43ab3e23846294f10,
+    type: 2}
+  miniModelScaleMultiplier: 1
+  invModelScaleMultiplier: 2.4
+  invModelYOffset: 0.35
+  craftingMaterials: []
+  breakdownMaterials: []

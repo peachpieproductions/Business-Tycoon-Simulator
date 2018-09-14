@@ -1,0 +1,43 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 660f28809130f1b4690ff2323b6920c4, type: 3}
+  m_Name: Fiber
+  m_EditorClassIdentifier: 
+  type: 2
+  useTag: 
+  assetLevel: 2
+  baseValue: 4
+  currentValue: 5.183399
+  valueHistory:
+  - 2.156601
+  - 2
+  - 2.8969486
+  - 2.1110158
+  - 2
+  - 2.6538959
+  - 2.1640344
+  - 2
+  - 2.9017584
+  - 3.4197094
+  - 4.069976
+  - 3.8238602
+  - 4.3581114
+  - 5.183399
+  currentPop: 0.40144283
+  physicsAsset: 1
+  mass: 1
+  modelPrefab: {fileID: 1737438342537070, guid: 870f2c167fbe2fd42bac82ff05b08f89,
+    type: 2}
+  miniModelScaleMultiplier: 1
+  invModelScaleMultiplier: 1.5
+  invModelYOffset: 0.25
+  craftingMaterials: []
+  breakdownMaterials: []

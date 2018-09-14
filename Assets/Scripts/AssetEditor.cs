@@ -27,6 +27,10 @@ public class AssetEditor : Editor {
             asset.assetName = asset.data.name;
             asset.useTag = asset.data.useTag;
             asset.physicsAsset = asset.data.physicsAsset;
+            if (asset.physicsAsset) {
+                asset.rb = asset.model.AddComponent<Rigidbody>();
+                asset.rb.mass = asset.data.mass;
+            }
             asset.transform.name = asset.assetName + " Asset";
             Debug.Log(asset.assetName + " Asset Loaded.");
         }

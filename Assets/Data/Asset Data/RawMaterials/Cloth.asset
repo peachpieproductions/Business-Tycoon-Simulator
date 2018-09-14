@@ -1,0 +1,43 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 660f28809130f1b4690ff2323b6920c4, type: 3}
+  m_Name: Cloth
+  m_EditorClassIdentifier: 
+  type: 2
+  useTag: 
+  assetLevel: 1
+  baseValue: 2
+  currentValue: 1.8522248
+  valueHistory:
+  - 3.112187
+  - 3.405507
+  - 4
+  - 4
+  - 4
+  - 4
+  - 3.6099253
+  - 3.3727617
+  - 4
+  - 3.1264713
+  - 3.3190002
+  - 2.3562224
+  - 2.4837685
+  - 1.8522248
+  currentPop: 0.58499944
+  physicsAsset: 1
+  mass: 1
+  modelPrefab: {fileID: 1798912482344648, guid: 0ca625823c96d8240b0904dca143ec47,
+    type: 2}
+  miniModelScaleMultiplier: 1
+  invModelScaleMultiplier: 1.1
+  invModelYOffset: 0.25
+  craftingMaterials: []
+  breakdownMaterials: []

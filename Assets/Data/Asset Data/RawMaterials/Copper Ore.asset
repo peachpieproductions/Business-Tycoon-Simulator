@@ -1,0 +1,43 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 660f28809130f1b4690ff2323b6920c4, type: 3}
+  m_Name: Copper Ore
+  m_EditorClassIdentifier: 
+  type: 2
+  useTag: 
+  assetLevel: 2
+  baseValue: 2
+  currentValue: 4
+  valueHistory:
+  - 1.5292056
+  - 1
+  - 1.5609837
+  - 1
+  - 1.8141832
+  - 1.8883778
+  - 2.6490507
+  - 2.8770108
+  - 3.7733557
+  - 3.8351808
+  - 3.249852
+  - 4
+  - 4
+  - 4
+  currentPop: 0.78058565
+  physicsAsset: 1
+  mass: 1
+  modelPrefab: {fileID: 1478083545609702, guid: 1eb027d5f84a9c9409348ae8b3b09e25,
+    type: 2}
+  miniModelScaleMultiplier: 1
+  invModelScaleMultiplier: 0.4
+  invModelYOffset: 0.25
+  craftingMaterials: []
+  breakdownMaterials: []
