@@ -27,6 +27,10 @@ public static class InputManager {
         return Input.GetMouseButtonDown(1) && player == 0 || prevState[player].Triggers.Left <= .7f && state[player].Triggers.Left > .7f;
     }
 
+    public static bool Cancel(int player) {
+        return Input.GetMouseButtonDown(1) && player == 0 || prevState[player].Buttons.B == ButtonState.Released && state[player].Buttons.B == ButtonState.Pressed;
+    }
+
     public static bool JumpInput(int player) {
         return Input.GetKeyDown(KeyCode.Space) && player == 0 || prevState[player].Buttons.A == ButtonState.Released && state[player].Buttons.A == ButtonState.Pressed;
     }

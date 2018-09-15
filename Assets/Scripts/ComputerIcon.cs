@@ -22,6 +22,7 @@ public class ComputerIcon : MonoBehaviour, IPointerDownHandler {
                 computer.propertyWebsiteOpen = true;
                 break;
             case "CloseShop":
+                Debug.Log("shopClosed");
                 computer.marketplaceOpen = false;
                 break;
             case "CloseProperty":

@@ -92,7 +92,7 @@ public class Player : MonoBehaviour {
 
         //virtual mouse with controller
         if (Cursor.lockState == CursorLockMode.None) {
-            HardwareCursor.SetPosition(HardwareCursor.GetPosition() + new Vector2(InputManager.MovementInput(playerId).x * 4, -InputManager.MovementInput(playerId).y * 4));
+            HardwareCursor.SetPosition(HardwareCursor.GetPosition() + new Vector2(InputManager.MovementInput(playerId).x * 600 * Time.deltaTime, -InputManager.MovementInput(playerId).y * 600 * Time.deltaTime));
             if (InputManager.JumpInput(playerId)) { HardwareCursor.LeftClick(); }
         }
 
@@ -278,7 +278,7 @@ public class Player : MonoBehaviour {
         }
 
         //Start / stop Build Mode
-        if (InputManager.BuildModeInput(playerId) || (buildMode && InputManager.PickUpInput(playerId))) {
+        if (InputManager.BuildModeInput(playerId) || (buildMode && InputManager.Cancel(playerId))) {
             buildMode = !buildMode;
             pui.modeStatusText.transform.parent.gameObject.SetActive(buildMode);
             if (!buildMode) {
@@ -312,10 +312,10 @@ public class Player : MonoBehaviour {
 
 
     public void MouseLook(bool rotPlayer) {
-        cam.Rotate(-InputManager.LookInput(playerId).y * lookSpeed, 0, 0);
+        cam.Rotate(-InputManager.LookInput(playerId).y * lookSpeed * 100 * Time.deltaTime, 0, 0);
         cam.localEulerAngles = new Vector3(cam.localEulerAngles.x, cam.localEulerAngles.y, 0);
-        if (rotPlayer) transform.Rotate(0, InputManager.LookInput(playerId).x * lookSpeed, 0);
-        else cam.transform.Rotate(0, InputManager.LookInput(playerId).x * lookSpeed, 0);
+        if (rotPlayer) transform.Rotate(0, InputManager.LookInput(playerId).x * lookSpeed * 100 * Time.deltaTime, 0);
+        else cam.transform.Rotate(0, InputManager.LookInput(playerId).x * lookSpeed * 100 * Time.deltaTime, 0);
     }
 
     public void MoveAndLook() {
