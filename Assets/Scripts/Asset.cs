@@ -58,6 +58,9 @@ public class Asset : MonoBehaviour {
             case "Workbench":
                 transform.GetComponentInChildren<WorkBench>().StartAssembling(C.c.player[0]);
                 break;
+            case "WorkbenchNoBreakdown":
+                transform.GetComponentInChildren<WorkBench>().StartAssembling(C.c.player[0]);
+                break;
             case "Storage":
                 playerUsing = null;
                 transform.GetComponentInChildren<Storage>().Open();

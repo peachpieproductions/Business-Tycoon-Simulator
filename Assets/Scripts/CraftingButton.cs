@@ -18,14 +18,14 @@ public class CraftingButton : MonoBehaviour {
     public void HoverButton() {
         var index = transform.GetSiblingIndex();
         if (!craftingTable.breakingDown) {
-            if (C.c.data.craftingBlueprintList.Count > 0) craftBlueprintData = C.c.data.craftingBlueprintList[index];
+            if (craftBlueprintData == null && C.c.data.craftingBlueprintList.Count > 0) craftBlueprintData = C.c.data.craftingBlueprintList[index];
             if (craftBlueprintData) {
                 string txt = "";
                 foreach (AssetData a in craftBlueprintData.craftingMaterials) {
                     txt += "x1 " + a.name + "\n";
                 }
                 pui.craftingPanel.transform.Find("RequiredComponentsPanel").GetChild(0).GetComponent<TextMeshProUGUI>().text = txt;
-            }
+            }     
         }
         else {
             if (pui && pui.player.inventory[index].amount > 0) invSlotForBreakdown = index;

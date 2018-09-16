@@ -230,7 +230,7 @@ public class Player : MonoBehaviour {
 
     public void FreeCamToggle() {
         freeCam = !freeCam;
-        if (!freeCam) { cam.parent = transform; /*cam.transform.localEulerAngles = Vector3.zero;*/ }
+        if (!freeCam) { cam.parent = transform;  }
     }
 
 
@@ -312,10 +312,10 @@ public class Player : MonoBehaviour {
 
 
     public void MouseLook(bool rotPlayer) {
-        cam.Rotate(-InputManager.LookInput(playerId).y * lookSpeed * 100 * Time.deltaTime, 0, 0);
+        cam.Rotate(-InputManager.LookInput(playerId).y * lookSpeed * 135 * Time.deltaTime, 0, 0);
         cam.localEulerAngles = new Vector3(cam.localEulerAngles.x, cam.localEulerAngles.y, 0);
-        if (rotPlayer) transform.Rotate(0, InputManager.LookInput(playerId).x * lookSpeed * 100 * Time.deltaTime, 0);
-        else cam.transform.Rotate(0, InputManager.LookInput(playerId).x * lookSpeed * 100 * Time.deltaTime, 0);
+        if (rotPlayer) transform.Rotate(0, InputManager.LookInput(playerId).x * lookSpeed * 135 * Time.deltaTime, 0);
+        else cam.transform.Rotate(0, InputManager.LookInput(playerId).x * lookSpeed * 135 * Time.deltaTime, 0);
     }
 
     public void MoveAndLook() {

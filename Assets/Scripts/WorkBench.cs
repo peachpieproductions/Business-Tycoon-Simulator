@@ -3,19 +3,23 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+public enum WorkbenchType { Workbench, FoodPrepTable, Grill, Stovetop, Oven, Toaster, Fryer }
+
 public class WorkBench : MonoBehaviour {
 
+    public WorkbenchType type;  
     public Asset asset;
     public Player playerUsing;
     public bool breakingDown;
     public Canvas workshopCanvas;
     public Image progressBar;
+    public bool blueprintsUnlocked;
+    public AssetData.Type includedBlueprints;
     bool working;
     float workTimer;
     float workTimerTotal;
     int breakdownIndex;
     AssetData craftData;
-    
 
     private void Start() {
         asset = GetComponentInParent<Asset>();
@@ -23,19 +27,19 @@ public class WorkBench : MonoBehaviour {
 
     public void StartAssembling(Player p) {
         playerUsing = p;
+        StartUsing();
         if (workTimer == 0) {
             breakingDown = false;
             playerUsing.pui.GenerateCraftingList();
         }
-        StartUsing();
     }
     public void StartBreakingDown(Player p) {
         playerUsing = p;
+        StartUsing();
         if (workTimer == 0) {
             breakingDown = true;
             playerUsing.pui.GenerateBreakdownList();
         }
-        StartUsing();
     }
 
     public void StartUsing() {

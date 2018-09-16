@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99211b2e4022f024a86072e40d6be2ee, type: 3}
+  m_Name: Dough
+  m_EditorClassIdentifier: 
+  type: 1
+  useTag: 
+  assetLevel: 1
+  baseValue: 5
+  currentValue: 4.9047966
+  valueHistory:
+  - 4.9047966
+  currentPop: 0.54380023
+  physicsAsset: 1
+  mass: 1
+  modelPrefab: {fileID: 1950884363847948, guid: 2ac3a500fe2fadc489fa05551fdf575a,
+    type: 2}
+  miniModelScaleMultiplier: 1
+  invModelScaleMultiplier: 2
+  invModelYOffset: 0
+  craftingMaterials:
+  - {fileID: 11400000, guid: b5fdf3edf06b2674fb692fef5ff7159a, type: 2}
+  - {fileID: 11400000, guid: ff97b64f9e22bb14bac457921dae91da, type: 2}
+  - {fileID: 11400000, guid: 1f9770823aabf81439a95ce187f60a92, type: 2}
+  breakdownMaterials: []
+  workbenchNeeded: 1

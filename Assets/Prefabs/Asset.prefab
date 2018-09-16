@@ -352,14 +352,14 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1270239285139166}
-  m_LocalRotation: {x: -0, y: -0.74479634, z: -0, w: 0.6672919}
+  m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 17.538, y: 0.333, z: 55.495}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4821989896709574}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: -96.283005, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
 --- !u!4 &4574568129656730
 Transform:
   m_ObjectHideFlags: 1
@@ -899,6 +899,7 @@ MonoBehaviour:
   assetName: Work Bench
   useTag: Workbench
   playerHovering: {fileID: 0}
+  playerUsing: {fileID: 0}
   model: {fileID: 1043509406267510}
   overlayCanvas: {fileID: 223807607422476590}
   cg: {fileID: 0}
@@ -951,8 +952,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5fc1a37c6ddee2f41a12c1e888e6234b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  type: 0
+  asset: {fileID: 0}
   playerUsing: {fileID: 0}
   breakingDown: 0
+  workshopCanvas: {fileID: 0}
+  progressBar: {fileID: 0}
 --- !u!114 &114394216562915126
 MonoBehaviour:
   m_ObjectHideFlags: 1

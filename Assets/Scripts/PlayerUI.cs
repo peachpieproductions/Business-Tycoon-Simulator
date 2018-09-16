@@ -39,6 +39,7 @@ public class PlayerUI : MonoBehaviour {
     }
 
     public void GenerateCraftingList() {
+        WorkBench station = player.usingAsset.model.GetComponent<WorkBench>();
         craftingPanel.SetActive(true);
         craftingPanel.transform.Find("Title").GetComponent<TextMeshProUGUI>().text = "Assembly Blueprints";
         Button b = craftingPanel.GetComponentInChildren<Button>();
@@ -46,8 +47,18 @@ public class PlayerUI : MonoBehaviour {
             if (butt == b) continue;
             Destroy(butt.gameObject);
         }
-        if (C.c.data.craftingBlueprintList.Count > 0) {
+        if (station.blueprintsUnlocked) {
+            foreach (AssetData d in C.c.data.assetData) {
+                if (d.workbenchNeeded != station.type || d.craftingMaterials.Count == 0) continue;
+                var newButton = Instantiate(b, b.transform.parent);
+                newButton.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = d.name;
+                newButton.GetComponent<CraftingButton>().craftBlueprintData = d;
+            }
+            Destroy(b.gameObject);
+        }
+        else if (C.c.data.craftingBlueprintList.Count > 0) {
             foreach (AssetData d in C.c.data.craftingBlueprintList) {
+                if (d.workbenchNeeded != station.type) continue;
                 var newButton = Instantiate(b, b.transform.parent);
                 newButton.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = d.name;
             }

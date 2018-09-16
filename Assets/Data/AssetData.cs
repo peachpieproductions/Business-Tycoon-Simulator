@@ -33,5 +33,6 @@ public class AssetData : ScriptableObject {
     public float invModelYOffset;
     public List<AssetData> craftingMaterials = new List<AssetData>();
     public List<AssetData> breakdownMaterials = new List<AssetData>();
+    public WorkbenchType workbenchNeeded;
 
 }
