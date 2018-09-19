@@ -1,0 +1,38 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99211b2e4022f024a86072e40d6be2ee, type: 3}
+  m_Name: Chocolate Bar
+  m_EditorClassIdentifier: 
+  type: 1
+  useTag: 
+  assetLevel: 1
+  baseValue: 9
+  currentValue: 7.7486796
+  valueHistory:
+  - 8.65772
+  - 8.659637
+  - 7.7486796
+  currentPop: 0.54274124
+  physicsAsset: 1
+  mass: 1
+  modelPrefab: {fileID: 1019149979020710, guid: d4ff3e9456f4c0e488cf67dac87651d0,
+    type: 2}
+  miniModelScaleMultiplier: 1
+  invModelScaleMultiplier: 2
+  invModelYOffset: 0.3
+  invModelRotOffset: 180
+  craftingOutput: 1
+  craftingMaterials:
+  - {fileID: 11400000, guid: 2d549a006127f19438bf8d28faf62f2d, type: 2}
+  - {fileID: 11400000, guid: 0c5927e4a69ba3b46bef612e2aa2736e, type: 2}
+  craftingIngredients: []
+  breakdownMaterials: []
+  workbenchNeeded: 1

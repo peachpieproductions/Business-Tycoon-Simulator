@@ -1,0 +1,40 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99211b2e4022f024a86072e40d6be2ee, type: 3}
+  m_Name: Toast With Jam
+  m_EditorClassIdentifier: 
+  type: 1
+  useTag: 
+  assetLevel: 1
+  baseValue: 7
+  currentValue: 1.5
+  valueHistory:
+  - 2.6636276
+  - 2.2456665
+  - 1.5
+  - 1.6205713
+  - 1.5
+  currentPop: 0.49651593
+  physicsAsset: 1
+  mass: 1
+  modelPrefab: {fileID: 1666809123176698, guid: 4005314bb9003d646b5905be22f35449,
+    type: 2}
+  miniModelScaleMultiplier: 1
+  invModelScaleMultiplier: 2
+  invModelYOffset: 0.25
+  invModelRotOffset: 0
+  craftingOutput: 1
+  craftingMaterials:
+  - {fileID: 11400000, guid: 666c304c87df7fe42a7f2741dd0ca444, type: 2}
+  - {fileID: 11400000, guid: 88f092abbf49b2944a34e40caa55c140, type: 2}
+  craftingIngredients: []
+  breakdownMaterials: []
+  workbenchNeeded: 1

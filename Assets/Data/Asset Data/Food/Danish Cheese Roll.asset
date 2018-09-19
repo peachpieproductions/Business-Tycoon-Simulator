@@ -1,0 +1,40 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99211b2e4022f024a86072e40d6be2ee, type: 3}
+  m_Name: Danish Cheese Roll
+  m_EditorClassIdentifier: 
+  type: 1
+  useTag: 
+  assetLevel: 1
+  baseValue: 6
+  currentValue: 3.124644
+  valueHistory:
+  - 5.0429864
+  - 4.2842126
+  - 3.6028643
+  - 3.8852262
+  - 3.124644
+  currentPop: 0.4669567
+  physicsAsset: 1
+  mass: 1
+  modelPrefab: {fileID: 1004319740875918, guid: e1ffeb3af4f4b2543a86cc3aa2ee5dd1,
+    type: 2}
+  miniModelScaleMultiplier: 1
+  invModelScaleMultiplier: 2
+  invModelYOffset: 0.2
+  invModelRotOffset: 0
+  craftingOutput: 2
+  craftingMaterials:
+  - {fileID: 11400000, guid: 779320d192f71374f9197744acc91a28, type: 2}
+  - {fileID: 11400000, guid: f7d5c919a58884041aa386781a5c99a6, type: 2}
+  - {fileID: 11400000, guid: 5a256bf4b7c096e42bdff2b2f53775a9, type: 2}
+  breakdownMaterials: []
+  workbenchNeeded: 1

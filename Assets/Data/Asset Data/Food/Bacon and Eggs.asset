@@ -1,0 +1,39 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99211b2e4022f024a86072e40d6be2ee, type: 3}
+  m_Name: Bacon and Eggs
+  m_EditorClassIdentifier: 
+  type: 1
+  useTag: 
+  assetLevel: 1
+  baseValue: 5
+  currentValue: 4.760741
+  valueHistory:
+  - 5.479075
+  - 4.760741
+  currentPop: 0.45764995
+  physicsAsset: 1
+  mass: 1
+  modelPrefab: {fileID: 1666831852726946, guid: 97c2dbff4eeaa384d9f3871228311a5d,
+    type: 2}
+  miniModelScaleMultiplier: 1
+  invModelScaleMultiplier: 2
+  invModelYOffset: 0.25
+  invModelRotOffset: 0
+  craftingOutput: 1
+  craftingMaterials:
+  - {fileID: 11400000, guid: 6fd23a84f53da8f4abcc433e594f988f, type: 2}
+  - {fileID: 11400000, guid: 1f9770823aabf81439a95ce187f60a92, type: 2}
+  craftingIngredients:
+  - ingredient: {fileID: 0}
+    amount: 0
+  breakdownMaterials: []
+  workbenchNeeded: 2

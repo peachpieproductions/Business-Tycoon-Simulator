@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public enum WorkbenchType { Workbench, FoodPrepTable, Grill, Stovetop, Oven, Toaster, Fryer }
+public enum WorkbenchType { Workbench, FoodPrepTable, Grill, Oven, Toaster, Fryer }
 
 public class WorkBench : MonoBehaviour {
 
@@ -129,7 +129,7 @@ public class WorkBench : MonoBehaviour {
                                 }
                             }
                         }
-                        playerUsing.AddAssetToInventory(craftData);
+                        playerUsing.AddAssetToInventory(craftData,craftData.craftingOutput);
                         playerUsing.pui.invRender.UpdateInventoryRender();
                         working = false;
                         workTimer = 0;

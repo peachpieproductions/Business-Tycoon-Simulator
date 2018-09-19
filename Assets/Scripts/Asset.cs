@@ -156,6 +156,7 @@ public class Asset : MonoBehaviour {
         if (overlayCanvas && cg == null) cg = overlayCanvas.gameObject.AddComponent<CanvasGroup>();
         if (outline == null) outline = model.AddComponent<Outline>();
         coll = model.GetComponent<Collider>();
+        if (coll == null) coll = model.AddComponent<BoxCollider>();
         camOverride = model.transform.Find("CamOverride");
         goToActivateWhenOn = model.transform.Find("ActivateWhenOn");
         assetName = data.name;

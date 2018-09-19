@@ -1,0 +1,39 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99211b2e4022f024a86072e40d6be2ee, type: 3}
+  m_Name: Chocolate Cupcake
+  m_EditorClassIdentifier: 
+  type: 1
+  useTag: 
+  assetLevel: 1
+  baseValue: 8
+  currentValue: 7.3861322
+  valueHistory:
+  - 7.501205
+  - 6.9747076
+  - 7.1214185
+  - 7.3861322
+  currentPop: 0.4166689
+  physicsAsset: 1
+  mass: 1
+  modelPrefab: {fileID: 1569456170586708, guid: 81b514033c103b24394598163ddbdace,
+    type: 2}
+  miniModelScaleMultiplier: 1
+  invModelScaleMultiplier: 2
+  invModelYOffset: 0.3
+  invModelRotOffset: 10
+  craftingOutput: 1
+  craftingMaterials:
+  - {fileID: 11400000, guid: 530952470e0580c48b4acdac62111412, type: 2}
+  - {fileID: 11400000, guid: 54e8ab91e530fbb4da61541151614ba1, type: 2}
+  craftingIngredients: []
+  breakdownMaterials: []
+  workbenchNeeded: 1

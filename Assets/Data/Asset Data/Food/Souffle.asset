@@ -1,0 +1,41 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99211b2e4022f024a86072e40d6be2ee, type: 3}
+  m_Name: Souffle
+  m_EditorClassIdentifier: 
+  type: 1
+  useTag: 
+  assetLevel: 1
+  baseValue: 13
+  currentValue: 12.613998
+  valueHistory:
+  - 12.434484
+  - 12.277256
+  - 12.920447
+  - 12.613998
+  currentPop: 0.69299227
+  physicsAsset: 1
+  mass: 1
+  modelPrefab: {fileID: 1583007054153364, guid: 47b7cadac412ddd4a9b61cd8f1e43183,
+    type: 2}
+  miniModelScaleMultiplier: 1
+  invModelScaleMultiplier: 2
+  invModelYOffset: 0.2
+  invModelRotOffset: 0
+  craftingOutput: 1
+  craftingMaterials:
+  - {fileID: 11400000, guid: 779320d192f71374f9197744acc91a28, type: 2}
+  - {fileID: 11400000, guid: 1f9770823aabf81439a95ce187f60a92, type: 2}
+  - {fileID: 11400000, guid: 0c5927e4a69ba3b46bef612e2aa2736e, type: 2}
+  - {fileID: 11400000, guid: 288b99f290444e04db848c27ee088688, type: 2}
+  craftingIngredients: []
+  breakdownMaterials: []
+  workbenchNeeded: 1

@@ -15,18 +15,23 @@ MonoBehaviour:
   useTag: 
   assetLevel: 1
   baseValue: 2
-  currentValue: 1.7927871
+  currentValue: 1
   valueHistory:
-  - 1.616263
-  - 1.7927871
-  currentPop: 0.47690883
+  - 2.8367727
+  - 2.1034596
+  - 1.6794988
+  - 1
+  - 1
+  currentPop: 0.26142222
   physicsAsset: 1
   mass: 1
   modelPrefab: {fileID: 1788699808421468, guid: 078742cce596c184ea4bbfb6fc2adaee,
     type: 2}
   miniModelScaleMultiplier: 1
   invModelScaleMultiplier: 2
-  invModelYOffset: 0
+  invModelYOffset: 0.1
+  invModelRotOffset: 45
+  craftingOutput: 1
   craftingMaterials: []
   breakdownMaterials: []
   workbenchNeeded: 1

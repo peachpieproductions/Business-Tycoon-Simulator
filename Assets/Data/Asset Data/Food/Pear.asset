@@ -1,0 +1,38 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99211b2e4022f024a86072e40d6be2ee, type: 3}
+  m_Name: Pear
+  m_EditorClassIdentifier: 
+  type: 1
+  useTag: 
+  assetLevel: 1
+  baseValue: 2
+  currentValue: 1.2255951
+  valueHistory:
+  - 1.2279978
+  - 1.2398888
+  - 1.8407003
+  - 1.4537947
+  - 1.2255951
+  currentPop: 0.5294534
+  physicsAsset: 1
+  mass: 1
+  modelPrefab: {fileID: 1249638731604834, guid: 5f7fcc6702627674981cce82399e5e8a,
+    type: 2}
+  miniModelScaleMultiplier: 1
+  invModelScaleMultiplier: 2
+  invModelYOffset: 0.2
+  invModelRotOffset: 0
+  craftingOutput: 1
+  craftingMaterials: []
+  craftingIngredients: []
+  breakdownMaterials: []
+  workbenchNeeded: 1

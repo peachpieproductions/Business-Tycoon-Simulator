@@ -1,0 +1,45 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99211b2e4022f024a86072e40d6be2ee, type: 3}
+  m_Name: Pizza
+  m_EditorClassIdentifier: 
+  type: 1
+  useTag: 
+  assetLevel: 1
+  baseValue: 3
+  currentValue: 2.382372
+  valueHistory:
+  - 2.248402
+  - 1.5270183
+  - 1.5636066
+  - 2.0691762
+  - 2.961824
+  - 2.6946597
+  - 2.4918814
+  - 2.382372
+  currentPop: 0.24786183
+  physicsAsset: 1
+  mass: 1
+  modelPrefab: {fileID: 1670804407505868, guid: 0ff9761b49a3f074e80127c0d47b1300,
+    type: 2}
+  miniModelScaleMultiplier: 1
+  invModelScaleMultiplier: 2
+  invModelYOffset: 0.1
+  invModelRotOffset: 0
+  craftingOutput: 8
+  craftingMaterials:
+  - {fileID: 11400000, guid: 598590ce4aaa11a408a01010c48f25ed, type: 2}
+  - {fileID: 11400000, guid: 471c2c76ce521274fb703bdf0eed9794, type: 2}
+  - {fileID: 11400000, guid: 1026d6d9b0f51474691d1b7dc34bf2e7, type: 2}
+  - {fileID: 11400000, guid: f1de2bc397502264a9d7ce7148906819, type: 2}
+  craftingIngredients: []
+  breakdownMaterials: []
+  workbenchNeeded: 3

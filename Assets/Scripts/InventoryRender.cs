@@ -41,8 +41,8 @@ public class InventoryRender : MonoBehaviour {
                 itemsParent.GetChild(i).rotation = Quaternion.identity;
                 var inst = Instantiate(C.c.player[0].inventory[i].asset.modelPrefab,items[i]);
                 inst.transform.localPosition = new Vector3 (0, C.c.player[0].inventory[i].asset.invModelYOffset, 0);
-                inst.transform.localEulerAngles = new Vector3(10, 120, -15);
-                inst.transform.localScale = C.c.player[0].inventory[i].asset.invModelScaleMultiplier * Vector3.one;
+                inst.transform.localEulerAngles = new Vector3(10, 120 + C.c.player[0].inventory[i].asset.invModelRotOffset, -15);
+                inst.transform.localScale = C.c.player[0].inventory[i].asset.invModelScaleMultiplier * inst.transform.localScale;//Vector3.one;
                 var rb = inst.GetComponent<Rigidbody>();
                 if (rb) rb.isKinematic = true;
                 inst.layer = 9;

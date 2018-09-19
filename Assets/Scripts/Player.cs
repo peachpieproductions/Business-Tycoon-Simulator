@@ -103,7 +103,7 @@ public class Player : MonoBehaviour {
             deliveryTimer -= Time.deltaTime;
             if (deliveryTimer <= 0) {
                 C.c.StartCoroutine(C.c.Delivery());
-                if (upcomingDeliveries.Count > 0) deliveryTimer = 3 * 3;
+                if (upcomingDeliveries.Count > 0) deliveryTimer = 60 * 3;
             }
         }
 
@@ -278,7 +278,7 @@ public class Player : MonoBehaviour {
         }
 
         //Start / stop Build Mode
-        if (InputManager.BuildModeInput(playerId) || (buildMode && InputManager.Cancel(playerId))) {
+        if (InputManager.BuildModeInput(playerId) || (buildMode && (InputManager.Cancel(playerId) || InputManager.InteractInput(playerId)))) {
             buildMode = !buildMode;
             pui.modeStatusText.transform.parent.gameObject.SetActive(buildMode);
             if (!buildMode) {

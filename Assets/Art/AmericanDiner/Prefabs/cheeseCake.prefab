@@ -10,7 +10,6 @@ GameObject:
   - component: {fileID: 420326}
   - component: {fileID: 3323182}
   - component: {fileID: 2309740}
-  - component: {fileID: 9568918}
   m_Layer: 0
   m_Name: cheeseCake
   m_TagString: Untagged
@@ -72,23 +71,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 196822}
   m_Mesh: {fileID: 4300000, guid: feb196497f55346c8a3752b77b31dd35, type: 3}
---- !u!95 &9568918
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 196822}
-  m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: feb196497f55346c8a3752b77b31dd35, type: 3}
-  m_Controller: {fileID: 0}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

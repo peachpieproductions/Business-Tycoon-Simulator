@@ -1,0 +1,40 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99211b2e4022f024a86072e40d6be2ee, type: 3}
+  m_Name: Chocolate Doughnut
+  m_EditorClassIdentifier: 
+  type: 1
+  useTag: 
+  assetLevel: 1
+  baseValue: 9
+  currentValue: 3.124644
+  valueHistory:
+  - 5.0429864
+  - 4.2842126
+  - 3.6028643
+  - 3.8852262
+  - 3.124644
+  currentPop: 0.4669567
+  physicsAsset: 1
+  mass: 1
+  modelPrefab: {fileID: 1382218045297444, guid: d2fb99ec195ab174681f8ab31030336c,
+    type: 2}
+  miniModelScaleMultiplier: 1
+  invModelScaleMultiplier: 2
+  invModelYOffset: 0.2
+  invModelRotOffset: 0
+  craftingOutput: 1
+  craftingMaterials:
+  - {fileID: 11400000, guid: 9e67a8ebf78b99f4aaabd448adb6241e, type: 2}
+  - {fileID: 11400000, guid: 54e8ab91e530fbb4da61541151614ba1, type: 2}
+  - {fileID: 11400000, guid: 288b99f290444e04db848c27ee088688, type: 2}
+  breakdownMaterials: []
+  workbenchNeeded: 1

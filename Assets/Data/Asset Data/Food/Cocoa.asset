@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99211b2e4022f024a86072e40d6be2ee, type: 3}
+  m_Name: Cocoa
+  m_EditorClassIdentifier: 
+  type: 1
+  useTag: 
+  assetLevel: 1
+  baseValue: 2
+  currentValue: 2.5336366
+  valueHistory:
+  - 2.125959
+  - 1.8298544
+  - 2.5336366
+  currentPop: 0.51390976
+  physicsAsset: 1
+  mass: 1
+  modelPrefab: {fileID: 1968372695019172, guid: 20ea35db3fdd0bc42802de812bfb6309,
+    type: 2}
+  miniModelScaleMultiplier: 1
+  invModelScaleMultiplier: 2
+  invModelYOffset: 0.2
+  invModelRotOffset: 0
+  craftingOutput: 1
+  craftingMaterials:
+  - {fileID: 11400000, guid: 3e0dd1e8e5fc38c42afba1db9d4626ce, type: 2}
+  craftingIngredients: []
+  breakdownMaterials: []
+  workbenchNeeded: 1

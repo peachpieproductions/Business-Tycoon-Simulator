@@ -1,0 +1,42 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99211b2e4022f024a86072e40d6be2ee, type: 3}
+  m_Name: Apple Juice
+  m_EditorClassIdentifier: 
+  type: 1
+  useTag: 
+  assetLevel: 1
+  baseValue: 6
+  currentValue: 1.6178523
+  valueHistory:
+  - 2.4839473
+  - 2.1676822
+  - 1.5781882
+  - 1.1981617
+  - 1.6178523
+  currentPop: 0.6451942
+  physicsAsset: 1
+  mass: 1
+  modelPrefab: {fileID: 1359774687561194, guid: 78b6d53e92672364bbbd550a81d9ee9f,
+    type: 2}
+  miniModelScaleMultiplier: 1
+  invModelScaleMultiplier: 2
+  invModelYOffset: 0
+  invModelRotOffset: 0
+  craftingOutput: 1
+  craftingMaterials:
+  - {fileID: 11400000, guid: 0d053b146ca1fda47b821534d030a0f9, type: 2}
+  - {fileID: 11400000, guid: ff97b64f9e22bb14bac457921dae91da, type: 2}
+  - {fileID: 11400000, guid: 2a0c3a8577a829c4fb2840cab2ea0205, type: 2}
+  craftingIngredients: []
+  breakdownMaterials:
+  - {fileID: 11400000, guid: 2d67e15ade2ccb14a99ec677a2d0e289, type: 2}
+  workbenchNeeded: 1

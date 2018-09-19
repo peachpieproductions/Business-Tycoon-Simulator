@@ -1,0 +1,41 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99211b2e4022f024a86072e40d6be2ee, type: 3}
+  m_Name: Brownie
+  m_EditorClassIdentifier: 
+  type: 1
+  useTag: 
+  assetLevel: 1
+  baseValue: 3
+  currentValue: 3.124644
+  valueHistory:
+  - 5.0429864
+  - 4.2842126
+  - 3.6028643
+  - 3.8852262
+  - 3.124644
+  currentPop: 0.4669567
+  physicsAsset: 1
+  mass: 1
+  modelPrefab: {fileID: 1556846004335586, guid: d164c47d03d20f347bae92912f0e3b84,
+    type: 2}
+  miniModelScaleMultiplier: 1
+  invModelScaleMultiplier: 2
+  invModelYOffset: 0.2
+  invModelRotOffset: 0
+  craftingOutput: 4
+  craftingMaterials:
+  - {fileID: 11400000, guid: 598590ce4aaa11a408a01010c48f25ed, type: 2}
+  - {fileID: 11400000, guid: f02a3461f8310e343a8300db7db52946, type: 2}
+  - {fileID: 11400000, guid: 2a0c3a8577a829c4fb2840cab2ea0205, type: 2}
+  - {fileID: 11400000, guid: 288b99f290444e04db848c27ee088688, type: 2}
+  breakdownMaterials: []
+  workbenchNeeded: 1

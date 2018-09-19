@@ -1,0 +1,43 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99211b2e4022f024a86072e40d6be2ee, type: 3}
+  m_Name: Burrito
+  m_EditorClassIdentifier: 
+  type: 1
+  useTag: 
+  assetLevel: 1
+  baseValue: 11
+  currentValue: 4.308784
+  valueHistory:
+  - 5.6058035
+  - 5.900466
+  - 4.9931574
+  - 4.2937784
+  - 4.308784
+  currentPop: 0.48393887
+  physicsAsset: 1
+  mass: 1
+  modelPrefab: {fileID: 1149165843472850, guid: e2543ad5a2400734691c86d0db4ae736,
+    type: 2}
+  miniModelScaleMultiplier: 1
+  invModelScaleMultiplier: 2
+  invModelYOffset: 0.1
+  invModelRotOffset: 0
+  craftingOutput: 1
+  craftingMaterials:
+  - {fileID: 11400000, guid: 289f6e15167b32242a09c44f7b2ef6cb, type: 2}
+  - {fileID: 11400000, guid: ce7e8e770e54ab845b6a44d24af85998, type: 2}
+  - {fileID: 11400000, guid: 082dbff08b8024341931507068e4051e, type: 2}
+  - {fileID: 11400000, guid: 5a256bf4b7c096e42bdff2b2f53775a9, type: 2}
+  - {fileID: 11400000, guid: a5e8171b8b9462f4d9d6ebf41b9a3e56, type: 2}
+  craftingIngredients: []
+  breakdownMaterials: []
+  workbenchNeeded: 1

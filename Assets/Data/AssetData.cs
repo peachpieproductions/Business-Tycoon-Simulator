@@ -6,6 +6,12 @@ using UnityEngine;
 [CreateAssetMenu]
 public class AssetData : ScriptableObject {
 
+    [System.Serializable]
+    public class CraftingIngredient {
+        public AssetData ingredient;
+        public int amount;
+    }
+
     public enum Type { Furniture, Food, RawMaterial, Tech, Transport, Item, Living, Wearable }
     /*
      * Furniture - regular furniture, storage, workbenches, decorations, toilets, shower, etc...
@@ -31,7 +37,10 @@ public class AssetData : ScriptableObject {
     public float miniModelScaleMultiplier = 1;
     public float invModelScaleMultiplier = 1;
     public float invModelYOffset;
+    public float invModelRotOffset;
+    public int craftingOutput = 1;
     public List<AssetData> craftingMaterials = new List<AssetData>();
+    public List<CraftingIngredient> craftingIngredients = new List<CraftingIngredient>();
     public List<AssetData> breakdownMaterials = new List<AssetData>();
     public WorkbenchType workbenchNeeded;
 

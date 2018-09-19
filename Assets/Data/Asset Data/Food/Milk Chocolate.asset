@@ -1,0 +1,39 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99211b2e4022f024a86072e40d6be2ee, type: 3}
+  m_Name: Milk Chocolate
+  m_EditorClassIdentifier: 
+  type: 1
+  useTag: 
+  assetLevel: 1
+  baseValue: 4
+  currentValue: 4.88647
+  valueHistory:
+  - 3.138235
+  - 3.8963103
+  - 4.497031
+  - 4.09135
+  - 4.88647
+  currentPop: 0.20424135
+  physicsAsset: 1
+  mass: 1
+  modelPrefab: {fileID: 1841858051858482, guid: 537f79aae2d6e6c48883aa5443f08fc1,
+    type: 2}
+  miniModelScaleMultiplier: 1
+  invModelScaleMultiplier: 2
+  invModelYOffset: 0.2
+  invModelRotOffset: 0
+  craftingOutput: 1
+  craftingMaterials:
+  - {fileID: 11400000, guid: 288b99f290444e04db848c27ee088688, type: 2}
+  - {fileID: 11400000, guid: b50e5869d340d8641b17decbab79f2cb, type: 2}
+  breakdownMaterials: []
+  workbenchNeeded: 1

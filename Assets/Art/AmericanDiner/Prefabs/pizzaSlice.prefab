@@ -10,7 +10,6 @@ GameObject:
   - component: {fileID: 465262}
   - component: {fileID: 3349270}
   - component: {fileID: 2358750}
-  - component: {fileID: 9569802}
   m_Layer: 0
   m_Name: pizzaSlice
   m_TagString: Untagged
@@ -72,23 +71,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 162716}
   m_Mesh: {fileID: 4300000, guid: b1af280342b0d4e5391cde25bdd8b510, type: 3}
---- !u!95 &9569802
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 162716}
-  m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: b1af280342b0d4e5391cde25bdd8b510, type: 3}
-  m_Controller: {fileID: 0}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

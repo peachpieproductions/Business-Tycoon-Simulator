@@ -1,0 +1,41 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99211b2e4022f024a86072e40d6be2ee, type: 3}
+  m_Name: Raw Sushi
+  m_EditorClassIdentifier: 
+  type: 1
+  useTag: 
+  assetLevel: 1
+  baseValue: 3
+  currentValue: 1.8675737
+  valueHistory:
+  - 2.1907468
+  - 1.7327205
+  - 2.4549341
+  - 1.8675737
+  currentPop: 0.56042814
+  physicsAsset: 1
+  mass: 1
+  modelPrefab: {fileID: 1802659469880752, guid: 0e647208aadcbe644b5eb27713c7cf90,
+    type: 2}
+  miniModelScaleMultiplier: 1
+  invModelScaleMultiplier: 2
+  invModelYOffset: 0.2
+  invModelRotOffset: 0
+  craftingOutput: 4
+  craftingMaterials:
+  - {fileID: 11400000, guid: 17487d315b18b7a41976f9cff755ce9b, type: 2}
+  - {fileID: 11400000, guid: c6beb320e1e0b804b9b6dab52aefa51f, type: 2}
+  - {fileID: 11400000, guid: 33f068eaede6b5947b57444321e250fd, type: 2}
+  - {fileID: 11400000, guid: 66c8a8167848bc446a721867d79b401c, type: 2}
+  craftingIngredients: []
+  breakdownMaterials: []
+  workbenchNeeded: 1

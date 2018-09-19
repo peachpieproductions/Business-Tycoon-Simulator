@@ -1,0 +1,42 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99211b2e4022f024a86072e40d6be2ee, type: 3}
+  m_Name: Fruit Punch
+  m_EditorClassIdentifier: 
+  type: 1
+  useTag: 
+  assetLevel: 1
+  baseValue: 15
+  currentValue: 1.6178523
+  valueHistory:
+  - 2.4839473
+  - 2.1676822
+  - 1.5781882
+  - 1.1981617
+  - 1.6178523
+  currentPop: 0.6451942
+  physicsAsset: 1
+  mass: 1
+  modelPrefab: {fileID: 1932282946563022, guid: 88e8b905cdd45df408eb98b17da722ce,
+    type: 2}
+  miniModelScaleMultiplier: 1
+  invModelScaleMultiplier: 2
+  invModelYOffset: 0
+  invModelRotOffset: 0
+  craftingOutput: 1
+  craftingMaterials:
+  - {fileID: 11400000, guid: de7abab1f7a44ff46aa03fc138cfa64a, type: 2}
+  - {fileID: 11400000, guid: 04847e30951691c46946c2fb9788fe3c, type: 2}
+  - {fileID: 11400000, guid: 1536a3e62d8aa2d43a42190e5c9f607e, type: 2}
+  craftingIngredients: []
+  breakdownMaterials:
+  - {fileID: 11400000, guid: 2d67e15ade2ccb14a99ec677a2d0e289, type: 2}
+  workbenchNeeded: 1

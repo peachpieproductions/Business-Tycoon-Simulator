@@ -40,7 +40,7 @@ public class ShopOrderButton : MonoBehaviour, IPointerDownHandler {
                 computer.playerUsing.money -= market.shopCartTotalAmount;
                 computer.playerUsing.pui.CreateInfoPopup("- $" + Mathf.Round(market.shopCartTotalAmount), C.c.data.colors[1]);
                 if (computer.playerUsing.deliveryTimer <= 0) {
-                    computer.playerUsing.deliveryTimer = 3 * 3;
+                    computer.playerUsing.deliveryTimer = 60 * 3;
                 }
                 foreach(ShopAssetListing l in market.shopListings) {
                     l.ResetListing();

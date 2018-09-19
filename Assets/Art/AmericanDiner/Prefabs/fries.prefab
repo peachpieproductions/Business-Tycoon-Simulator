@@ -10,7 +10,6 @@ GameObject:
   - component: {fileID: 443070}
   - component: {fileID: 3316072}
   - component: {fileID: 2381870}
-  - component: {fileID: 9548356}
   m_Layer: 0
   m_Name: fries
   m_TagString: Untagged
@@ -72,23 +71,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 182126}
   m_Mesh: {fileID: 4300000, guid: a9f57e63b168e4e12ad1822351f63707, type: 3}
---- !u!95 &9548356
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 182126}
-  m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: a9f57e63b168e4e12ad1822351f63707, type: 3}
-  m_Controller: {fileID: 0}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
