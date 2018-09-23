@@ -12,10 +12,8 @@ public class Bed : MonoBehaviour {
     }
 
     public void Use(Player p) {
-        //Cursor.lockState = CursorLockMode.None;
         p.usingAsset = asset;
-        p.FreeCamToggle();
-        p.camOverridePos = asset.camOverride;
+        p.SetCameraMode(false, false, asset.camOverride);
         p.StartCoroutine(p.Sleep());
     }
 

@@ -30,13 +30,13 @@ public class Player : MonoBehaviour {
     public Portal nearbyPortal;
     public bool teleporting;
     public bool isSleeping;
+    public bool inventoryOpen;
 
     private void Awake() {
         cam.gameObject.SetActive(true);
         C.c.player.Add(this);
         camOffset = cam.transform.localPosition;
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
+        SetCameraMode(true);
         rb = GetComponent<Rigidbody>();
         upcomingDeliveries = new List<List<AssetInventorySlot>>();        
     }
@@ -144,21 +144,33 @@ public class Player : MonoBehaviour {
             else {
                 if (Physics.Raycast(cam.transform.position + cam.transform.forward * .6f, cam.transform.forward, out hit, 2f)) {
                     if (hit.transform.GetComponent<Money>()) {
-                        money += Mathf.Round(hit.transform.GetComponent<Money>().value);
-                        pui.CreateInfoPopup("+ $" + Mathf.Round(hit.transform.GetComponent<Money>().value), C.c.data.colors[0]);
+                        float moneyValue = Mathf.Max(1, Mathf.Round(hit.transform.GetComponent<Money>().value));
+                        money += moneyValue;
+                        if (hit.transform.GetComponent<Money>().isTip) pui.CreateInfoPopup("+ $" + moneyValue + " (tip)", C.c.data.colors[0]);
+                        else pui.CreateInfoPopup("+ $" + Mathf.Round(moneyValue), C.c.data.colors[0]);
                         Destroy(hit.transform.gameObject);
                     }
                     else if (hit.transform.name == "AssetBeingSoldModel") {
-                        var m = Instantiate(C.c.data.moneyPrefabs[1], C.c.currentShop.register.moneySpawnPoint.position +
-                            new Vector3(Random.Range(-.2f, .2f), 0, Random.Range(-.2f, .2f)), Quaternion.Euler(0, Random.Range(0, 359), 0)).GetComponent<Money>();
-                        m.value = Mathf.CeilToInt(C.c.currentShop.npcCheckoutLine[0].inventory[0].asset.currentValue);
-
-                        if (--C.c.currentShop.npcCheckoutLine[0].inventory[0].amount == 0) {
-                            C.c.currentShop.npcCheckoutLine[0].inventory.Add(new AssetInventorySlot());
-                            C.c.currentShop.npcCheckoutLine[0].inventory.RemoveAt(0);
+                        var npcAtRegister = C.c.currentShop.npcCheckoutLine[0];
+                        AssetData assetBeingSold = npcAtRegister.inventory[0].asset;
+                        var chargeAmount = Mathf.Max(1f, Mathf.Round(assetBeingSold.currentValue));
+                        if (assetBeingSold == C.c.data.bill) chargeAmount = Mathf.Max(1f, Mathf.Round(npcAtRegister.owedAmount));
+                        var m = C.c.SpawnMoney(C.c.currentShop.register.moneySpawnPoint.position, chargeAmount);
+                        if (assetBeingSold == C.c.data.bill) {
+                            npcAtRegister.owedAmount = 0;
+                            var tip = Mathf.Round(2f - npcAtRegister.timeSpentWaiting / 30);
+                            if (tip > 0) {
+                                var tipMoney = C.c.SpawnMoney(C.c.currentShop.register.moneySpawnPoint.position, tip - Random.Range(0, .5f));
+                                tipMoney.isTip = true;
+                            }
                         }
-                        if (C.c.currentShop.npcCheckoutLine[0].inventory[0].amount == 0) {
-                            C.c.currentShop.npcCheckoutLine[0].GoHome();
+
+                        if (--npcAtRegister.inventory[0].amount == 0) {
+                            npcAtRegister.inventory.Add(new AssetInventorySlot());
+                            npcAtRegister.inventory.RemoveAt(0);
+                        }
+                        if (npcAtRegister.inventory[0].amount == 0) {
+                            npcAtRegister.GoHome();
                             C.c.currentShop.npcCheckoutLine.RemoveAt(0);
                             foreach (NPC n in C.c.currentShop.npcCheckoutLine) n.UpdateInWaitingLine();
                         } 
@@ -168,6 +180,11 @@ public class Player : MonoBehaviour {
                     }
                 }
             }
+        }
+
+        //Inventory
+        if (InputManager.ToggleInventory(playerId) && !buildMode) {
+            ToggleInventory();
         }
 
         //use asset secondary use
@@ -190,11 +207,21 @@ public class Player : MonoBehaviour {
 
         //pick up asset
         if (InputManager.PickUpInput(playerId)) { 
-            if (assetHovering && !assetHovering.forceCantSell) {
+            if (assetHovering && !assetHovering.forceCantPickUp) {
                 if (assetHovering.useTag == "Storage") {
                     var stor = assetHovering.model.GetComponent<Storage>();
                     if (stor) {
-                        if (stor.inventory.Count > 0 && stor.inventory[0].amount > 0) { stor.Open(); }
+                        if (!stor.IsEmpty()) { stor.asset.Use(); return; }
+                    }
+                }
+                else if (assetHovering.useTag == "RestaurantTable") {
+                    var diningTable = assetHovering.model.GetComponent<DiningTable>();
+                    if (diningTable) {
+                        if (diningTable.isBeingUsed()) {
+                            return;
+                        } else {
+                            diningTable.PickUpTable();
+                        }
                     }
                 }
                 if (assetHovering.selling) assetHovering.ToggleSelling();
@@ -208,29 +235,54 @@ public class Player : MonoBehaviour {
         if (InputManager.CycleHotbar(playerId) != 0 && usingAsset == null) {
             inventoryCurrentIndex += (int)InputManager.CycleHotbar(playerId);
             if (inventoryCurrentIndex < 0) inventoryCurrentIndex = 0;
-            if (inventoryCurrentIndex >= inventory.Count) inventoryCurrentIndex = inventory.Count-1;
+            if (inventoryCurrentIndex >= 8) inventoryCurrentIndex = 7;
             if (currentBuildAsset) Destroy(currentBuildAsset.gameObject);
             pui.invRender.UpdateInventoryRender();
+        }
+    }
+
+    public void ToggleInventory() {
+        if (!inventoryOpen && Cursor.lockState == CursorLockMode.None) return;
+        inventoryOpen = !inventoryOpen;
+        pui.invRender.OpenMainInventory(inventoryOpen);
+        if (inventoryOpen) {
+            SetCameraMode(false);
+        }
+        else {
+            if (pui.invRender.storageOpen) pui.invRender.CloseStorage();
+            SetCameraMode(true);
         }
     }
 
     //Stop using asset
     public void StopUsingAsset() {
         if (usingAsset) {
-            usingAsset.playerUsing = null;
+            usingAsset.StopUsing();
+            SetCameraMode(true);
             usingAsset = null;
-            freeCamFreeRot = false;
-            camOverridePos = null;
-            Cursor.lockState = CursorLockMode.Locked;
-            Cursor.visible = false;
-            pui.craftingPanel.SetActive(false);
-            if (freeCam) FreeCamToggle();
+            pui.SetUI(true);
         }
     }
 
-    public void FreeCamToggle() {
-        freeCam = !freeCam;
-        if (!freeCam) { cam.parent = transform;  }
+    public void SetCameraMode(bool standardFpsMode,bool showCursor = true, Transform camOverride = null, bool freeRot = false) {
+        if (standardFpsMode) {
+            FreeCamToggle(false);
+            camOverridePos = null;
+            freeCamFreeRot = false;
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+        } else {
+            FreeCamToggle(true);
+            camOverridePos = camOverride;
+            freeCamFreeRot = freeRot;
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = showCursor;
+        }
+    }
+
+    public void FreeCamToggle(bool free) {
+        freeCam = free;
+        //if (!freeCam) { cam.parent = transform;  }
     }
 
 
@@ -252,7 +304,7 @@ public class Player : MonoBehaviour {
                     var placementValid = buildPlacementValid;
                     if (Mathf.Abs(hit.normal.x) < .2f && Mathf.Abs(hit.normal.y) > .9f && Mathf.Abs(hit.normal.z) < .2f) placementValid = true;
                     RaycastHit[] hits;
-                    hits = Physics.BoxCastAll(currentBuildCollider.bounds.center, currentBuildCollider.size * currentBuildAsset.model.transform.localScale.x * .48f, Vector3.up, currentBuildAsset.transform.rotation, .01f);
+                    hits = Physics.BoxCastAll(currentBuildCollider.bounds.center, Vector3.Scale(currentBuildCollider.size, currentBuildAsset.model.transform.localScale) * .48f, Vector3.up, currentBuildAsset.transform.rotation, .01f);
                     foreach(RaycastHit h in hits) {
                         if (h.transform != currentBuildAsset.model.transform && h.transform != transform) placementValid = false;
                     }
@@ -264,21 +316,23 @@ public class Player : MonoBehaviour {
                     if (currentBuildAsset.physicsAsset) currentBuildAsset.transform.position = hit.point + Vector3.up * + (ydiff + .05f);
                     else currentBuildAsset.transform.position = hit.point + Vector3.up * ydiff;
 
-                    if (InputManager.RotatePlacement(playerId)) { currentBuildAsset.transform.Rotate(0, .7f, 0); if (Input.GetKey(KeyCode.LeftShift)) currentBuildAsset.transform.Rotate(0, .7f, 0); }
-                    if (InputManager.PlaceAsset(playerId) && buildPlacementValid) {
+                    if (InputManager.RotatePlacement(playerId) != 0) { currentBuildAsset.transform.Rotate(0, .7f * InputManager.RotatePlacement(playerId), 0);
+                        if (Input.GetKey(KeyCode.LeftShift)) currentBuildAsset.transform.Rotate(0, .7f * InputManager.RotatePlacement(playerId), 0); }
+                    if ((InputManager.PlaceAsset(playerId) || InputManager.JumpInput(playerId)) && buildPlacementValid) {
                         currentBuildAsset.placing = false;
                         currentBuildAsset.Set(currentBuildAsset.data);
                         if (InputManager.AutoSellWhilePlacing(playerId)) currentBuildAsset.ToggleSelling();
                         currentBuildAsset = null;
                         inventory[inventoryCurrentIndex].amount--;
                         pui.invRender.UpdateInventoryRender();
+                        C.c.currentShop.UpdateShop();
                     }
                 }
             }
         }
 
         //Start / stop Build Mode
-        if (InputManager.BuildModeInput(playerId) || (buildMode && (InputManager.Cancel(playerId) || InputManager.InteractInput(playerId)))) {
+        if (InputManager.BuildModeInput(playerId) || (buildMode && InputManager.Cancel(playerId))) {
             buildMode = !buildMode;
             pui.modeStatusText.transform.parent.gameObject.SetActive(buildMode);
             if (!buildMode) {
@@ -322,9 +376,11 @@ public class Player : MonoBehaviour {
 
         //camera
         if (freeCam) {
-            if (camOverridePos) cam.transform.position = Vector3.Lerp(cam.transform.position, camOverridePos.position, .02f);
-            if (!freeCamFreeRot) { if (camOverridePos) cam.transform.rotation = Quaternion.Slerp(cam.transform.rotation, camOverridePos.rotation, .02f); }
-            else MouseLook(false);
+            if (camOverridePos) {
+                cam.transform.position = Vector3.Lerp(cam.transform.position, camOverridePos.position, .02f);
+                if (!freeCamFreeRot) cam.transform.rotation = Quaternion.Slerp(cam.transform.rotation, camOverridePos.rotation, .02f); 
+            }
+            if (freeCamFreeRot) MouseLook(false);
         }
         else {
             //lerp cam back to head
@@ -344,7 +400,7 @@ public class Player : MonoBehaviour {
             rb.velocity += InputManager.MovementInput(playerId).y * transform.forward * playerAcceleration +
                 InputManager.MovementInput(playerId).x * transform.right * playerAcceleration;
 
-            if (InputManager.JumpInput(playerId)) {
+            if (InputManager.JumpInput(playerId) && !buildMode) {
                 rb.velocity += Vector3.up * jumpHeight;
             }
 

@@ -18,6 +18,13 @@ public class PlayerUI : MonoBehaviour {
     public TextMeshProUGUI modeStatusText;
     public GameObject craftingPanel;
     public RectTransform craftingPanelButtonsNull;
+    public GameObject foodMenu;
+    public GameObject crosshair;
+
+    private void Awake() {
+        invRender.player = player;
+        invRender.pui = this;
+    }
 
     private void Update() {
         CurrentTimeText.text = C.c.timeString;
@@ -37,6 +44,15 @@ public class PlayerUI : MonoBehaviour {
 
     }
 
+    public void SetUI(bool resetUI,bool showCrosshair = true) {
+        if (resetUI) {
+            craftingPanel.SetActive(false);
+            foodMenu.SetActive(false);
+            invRender.StopAssetPreview();
+        }
+        crosshair.SetActive(showCrosshair);
+    }
+
     public void CreateInfoPopup(string str, Color col, float time = 6f) {
         var inst = Instantiate(infoPopup, infoPopup.transform.parent);
         inst.SetActive(true);
@@ -52,58 +68,8 @@ public class PlayerUI : MonoBehaviour {
         craftingPanelButtonsNull.anchoredPosition = pos;
     }
 
-    public void GenerateCraftingList() {
-        UpdateCraftingPanelScroll(true);
-        WorkBench station = player.usingAsset.model.GetComponent<WorkBench>();
-        craftingPanel.SetActive(true);
-        craftingPanel.transform.Find("Title").GetComponent<TextMeshProUGUI>().text = "Assembly Blueprints";
-        Button b = craftingPanel.GetComponentInChildren<Button>();
-        foreach(Button butt in b.transform.parent.GetComponentsInChildren<Button>()) {
-            if (butt == b) continue;
-            Destroy(butt.gameObject);
-        }
-        if (station.blueprintsUnlocked) {
-            foreach (AssetData d in C.c.data.assetData) {
-                if (d.workbenchNeeded != station.type || d.craftingMaterials.Count == 0) continue;
-                var newButton = Instantiate(b, b.transform.parent);
-                if (d.craftingOutput == 1) newButton.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = d.name;
-                else newButton.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = d.name + " (" + d.craftingOutput + ")";
-                newButton.GetComponent<CraftingButton>().craftBlueprintData = d;
-            }
-            Destroy(b.gameObject);
-        }
-        else if (C.c.data.craftingBlueprintList.Count > 0) {
-            foreach (AssetData d in C.c.data.craftingBlueprintList) {
-                if (d.workbenchNeeded != station.type) continue;
-                var newButton = Instantiate(b, b.transform.parent);
-                if (d.craftingOutput == 1) newButton.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = d.name;
-                else newButton.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = d.name + " (" + d.craftingOutput + ")";
-            }
-            Destroy(b.gameObject);
-        } else {
-            b.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = "No Assembly Blueprints";
-        }
-    }
+    
 
-    public void GenerateBreakdownList() {
-        UpdateCraftingPanelScroll(true);
-        craftingPanel.SetActive(true);
-        craftingPanel.transform.Find("Title").GetComponent<TextMeshProUGUI>().text = "Inventory List";
-        Button b = craftingPanel.GetComponentInChildren<Button>();
-        foreach (Button butt in b.transform.parent.GetComponentsInChildren<Button>()) {
-            if (butt == b) continue;
-            Destroy(butt.gameObject);
-        }
-        foreach (AssetInventorySlot d in player.inventory) {
-            if (d.amount > 0) {
-                var newButton = Instantiate(b, b.transform.parent);
-                newButton.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = d.asset.name + " (" + d.amount + ")";
-            } else {
-                var newButton = Instantiate(b, b.transform.parent);
-                newButton.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = "(EMPTY)";
-            }
-        }
-        Destroy(b.gameObject);
-    }
+    
 
 }

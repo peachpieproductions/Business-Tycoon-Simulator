@@ -35,6 +35,7 @@ public class Asset : MonoBehaviour {
     public bool physicsAsset;
     public bool selling;
     public bool forceCantSell;
+    public bool forceCantPickUp;
     public GameObject sellSymbol;
     public bool turnedOn;
     public Transform goToActivateWhenOn;
@@ -62,8 +63,7 @@ public class Asset : MonoBehaviour {
                 transform.GetComponentInChildren<WorkBench>().StartAssembling(C.c.player[0]);
                 break;
             case "Storage":
-                playerUsing = null;
-                transform.GetComponentInChildren<Storage>().Open();
+                transform.GetComponentInChildren<Storage>().Open(C.c.player[0]);
                 break;
             case "Bed":
                 transform.GetComponentInChildren<Bed>().Use(C.c.player[0]);
@@ -74,6 +74,9 @@ public class Asset : MonoBehaviour {
                 break;
             case "Chair":
                 transform.GetComponentInChildren<Chair>().Use(C.c.player[0]);
+                break;
+            case "RestaurantTable":
+                transform.GetComponentInChildren<DiningTable>().Use(C.c.player[0]);
                 break;
             default:
                 playerUsing = null;
@@ -87,10 +90,18 @@ public class Asset : MonoBehaviour {
             case "Workbench":
                 transform.GetComponentInChildren<WorkBench>().StartBreakingDown(C.c.player[0]);
                 break;
+            case "RestaurantTable":
+                playerUsing = null;
+                transform.GetComponentInChildren<DiningTable>().Serve(C.c.player[0]);
+                break;
             default:
                 playerUsing = null;
                 break;
         }
+    }
+
+    public void StopUsing() {
+        playerUsing = null;
     }
 
     public void Hovering(Player p) {
@@ -162,8 +173,10 @@ public class Asset : MonoBehaviour {
         assetName = data.name;
         useTag = data.useTag;
         physicsAsset = data.physicsAsset;
+        forceCantSell = data.cantBeSold;
         if (physicsAsset) {
             rb = model.AddComponent<Rigidbody>();
+            if (data.smallAsset) rb.collisionDetectionMode = CollisionDetectionMode.Continuous;
             rb.mass = data.mass;
         }
         if (isPlacing) {

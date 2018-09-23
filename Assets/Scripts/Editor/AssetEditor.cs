@@ -21,14 +21,17 @@ public class AssetEditor : Editor {
             asset.model.tag = "Asset";
             asset.outline = asset.model.GetComponent<Outline>();
             asset.coll = asset.model.GetComponent<Collider>();
+            if (asset.coll == null) asset.coll = asset.model.AddComponent<BoxCollider>();
             asset.overlayCanvas = asset.model.GetComponentInChildren<Canvas>();
             asset.camOverride = asset.model.transform.Find("CamOverride");
             asset.goToActivateWhenOn = asset.model.transform.Find("ActivateWhenOn");
             asset.assetName = asset.data.name;
             asset.useTag = asset.data.useTag;
             asset.physicsAsset = asset.data.physicsAsset;
+            asset.forceCantSell = asset.data.cantBeSold;
             if (asset.physicsAsset) {
                 asset.rb = asset.model.AddComponent<Rigidbody>();
+                if (asset.data.smallAsset) asset.rb.collisionDetectionMode = CollisionDetectionMode.Continuous;
                 asset.rb.mass = asset.data.mass;
             }
             asset.transform.name = asset.assetName + " Asset";

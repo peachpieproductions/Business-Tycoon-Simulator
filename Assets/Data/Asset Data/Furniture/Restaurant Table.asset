@@ -1,0 +1,49 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a3b6eac396418ab46a1449e0684acf61, type: 3}
+  m_Name: Restaurant Table
+  m_EditorClassIdentifier: 
+  type: 0
+  useTag: RestaurantTable
+  assetLevel: 2
+  baseValue: 20
+  currentValue: 16.182722
+  valueHistory:
+  - 20.363956
+  - 19.717411
+  - 18.876133
+  - 18.11782
+  - 17.24318
+  - 17.07038
+  - 16.182722
+  currentPop: 0.45364317
+  physicsAsset: 0
+  smallAsset: 0
+  mass: 1
+  liquid: 0
+  modelPrefab: {fileID: 1931843271969724, guid: 1b14926bab0bacc439d04defd0b794db,
+    type: 2}
+  modelYOffset: 0
+  miniModelScaleMultiplier: 0.3
+  invModelScaleMultiplier: 0.25
+  invModelYOffset: 0.1
+  invModelRotOffset: 0
+  craftingOutput: 1
+  cantBeSold: 1
+  craftingMaterials: []
+  craftingIngredients: []
+  breakdownMaterials:
+  - {fileID: 11400000, guid: 15a59273354d2414ea17acbe4644663b, type: 2}
+  - {fileID: 11400000, guid: 15a59273354d2414ea17acbe4644663b, type: 2}
+  - {fileID: 11400000, guid: e6e61b73832c67941b9b9140d8ee6abb, type: 2}
+  workbenchNeeded: 0
+  useable: 0
+  storageSlots: 0

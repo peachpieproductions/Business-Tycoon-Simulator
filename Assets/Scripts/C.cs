@@ -48,8 +48,8 @@ public class C : MonoBehaviour {
 
         InputManager.UpdateControllerStates();
 
-        if (data.npcsOut.Count < 3) {
-            if (Random.value < .001f) {
+        if (data.npcsOut.Count < 5) {
+            if (Random.value < .1f) { //.001f) {
                 var npc = data.npcsAtHome[Random.Range(0, data.npcsAtHome.Count)];
                 data.npcsAtHome.Remove(npc);
                 data.npcsOut.Add(npc);
@@ -84,6 +84,17 @@ public class C : MonoBehaviour {
 
     }
 
+    public Money SpawnMoney(Vector3 pos, float value) {
+        int moneyPrefabIndex = 0;
+        if (value > 50) moneyPrefabIndex = 2;
+        else if (value > 4) moneyPrefabIndex = 1;
+        
+        var money = Instantiate(C.c.data.moneyPrefabs[moneyPrefabIndex], pos +
+            new Vector3(Random.Range(-.15f, .15f), 0, Random.Range(-.15f, .15f)), Quaternion.Euler(0, Random.Range(0, 359), 0)).GetComponent<Money>();
+        money.value = value;
+        return money;
+    }
+
     public AssetData GetRandomAsset(int lvl) {
         List<AssetData> newList = new List<AssetData>();
         foreach(AssetData d in data.assetData) {
@@ -96,7 +107,7 @@ public class C : MonoBehaviour {
         var inst = Instantiate(data.assetPrefab);
         inst.Set(null, "Wooden Crate");
         inst.transform.position = deliveryZone.position;
-        //player[0].pui.CreateInfoPopup("Your Delivery, including "+player[0].upcomingDeliveries[0][0].asset.name+"s, has arrived.", Color.white, 8f);
+        player[0].pui.CreateInfoPopup("Your Delivery, including "+player[0].upcomingDeliveries[0][0].asset.name+"s, has arrived.", Color.white, 8f);
         foreach (AssetInventorySlot a in player[0].upcomingDeliveries[0]) {
             inst.GetComponentInChildren<Storage>().AddAssetToInventory(a.asset, a.amount);
             a.amount = 0;
