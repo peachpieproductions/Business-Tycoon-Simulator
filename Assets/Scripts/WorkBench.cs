@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public enum WorkbenchType { Workbench, FoodPrepTable, Grill, Oven, Toaster, Fryer }
 
@@ -30,7 +31,7 @@ public class WorkBench : MonoBehaviour {
         StartUsing();
         if (workTimer == 0) {
             breakingDown = false;
-            playerUsing.pui.GenerateCraftingList();
+            GenerateCraftingList();
         }
     }
     public void StartBreakingDown(Player p) {
@@ -38,16 +39,14 @@ public class WorkBench : MonoBehaviour {
         StartUsing();
         if (workTimer == 0) {
             breakingDown = true;
-            playerUsing.pui.GenerateBreakdownList();
+            GenerateBreakdownList();
         }
     }
 
     public void StartUsing() {
+        playerUsing.pui.invRender.UpdateAssetPreview(null);
         playerUsing.usingAsset = asset;
-        playerUsing.FreeCamToggle();
-        playerUsing.freeCamFreeRot = false;
-        Cursor.lockState = CursorLockMode.None;
-        Cursor.visible = true;
+        playerUsing.SetCameraMode(false);
     }
 
     public void Set(CraftingButton cb) {
@@ -116,7 +115,7 @@ public class WorkBench : MonoBehaviour {
                         }
                         if (!C.c.data.craftingBlueprintList.Contains(ass) && ass.craftingMaterials.Count > 0) C.c.data.craftingBlueprintList.Add(ass);
                         playerUsing.pui.invRender.UpdateInventoryRender();
-                        playerUsing.pui.GenerateBreakdownList();
+                        GenerateBreakdownList();
                         working = false;
                         workTimer = 0;
                     }
@@ -140,6 +139,62 @@ public class WorkBench : MonoBehaviour {
 
         }
 
+    }
+
+    public void GenerateCraftingList() {
+        playerUsing.pui.UpdateCraftingPanelScroll(true);
+        WorkBench station = playerUsing.usingAsset.model.GetComponent<WorkBench>();
+        playerUsing.pui.craftingPanel.SetActive(true);
+        playerUsing.pui.craftingPanel.transform.Find("Title").GetComponent<TextMeshProUGUI>().text = "Assembly Blueprints";
+        Button b = playerUsing.pui.craftingPanel.GetComponentInChildren<Button>();
+        foreach (Button butt in b.transform.parent.GetComponentsInChildren<Button>()) {
+            if (butt == b) continue;
+            Destroy(butt.gameObject);
+        }
+        if (station.blueprintsUnlocked) {
+            foreach (AssetData d in C.c.data.assetData) {
+                if (d.workbenchNeeded != station.type || d.craftingMaterials.Count == 0) continue;
+                var newButton = Instantiate(b, b.transform.parent);
+                if (d.craftingOutput == 1) newButton.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = d.name;
+                else newButton.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = d.name + " (" + d.craftingOutput + ")";
+                newButton.GetComponent<CraftingButton>().craftBlueprintData = d;
+            }
+            Destroy(b.gameObject);
+        }
+        else if (C.c.data.craftingBlueprintList.Count > 0) {
+            foreach (AssetData d in C.c.data.craftingBlueprintList) {
+                if (d.workbenchNeeded != station.type) continue;
+                var newButton = Instantiate(b, b.transform.parent);
+                if (d.craftingOutput == 1) newButton.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = d.name;
+                else newButton.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = d.name + " (" + d.craftingOutput + ")";
+            }
+            Destroy(b.gameObject);
+        }
+        else {
+            b.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = "No Assembly Blueprints";
+        }
+    }
+
+    public void GenerateBreakdownList() {
+        playerUsing.pui.UpdateCraftingPanelScroll(true);
+        playerUsing.pui.craftingPanel.SetActive(true);
+        playerUsing.pui.craftingPanel.transform.Find("Title").GetComponent<TextMeshProUGUI>().text = "Inventory List";
+        Button b = playerUsing.pui.craftingPanel.GetComponentInChildren<Button>();
+        foreach (Button butt in b.transform.parent.GetComponentsInChildren<Button>()) {
+            if (butt == b) continue;
+            Destroy(butt.gameObject);
+        }
+        foreach (AssetInventorySlot d in playerUsing.inventory) {
+            if (d.amount > 0) {
+                var newButton = Instantiate(b, b.transform.parent);
+                newButton.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = d.asset.name + " (" + d.amount + ")";
+            }
+            else {
+                var newButton = Instantiate(b, b.transform.parent);
+                newButton.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = "(EMPTY)";
+            }
+        }
+        Destroy(b.gameObject);
     }
 
 

@@ -26,10 +26,9 @@ public class Computer : MonoBehaviour {
 
     public void StartUsingComputer(Player p) {
         playerUsing = p;
-        Cursor.lockState = CursorLockMode.None;
+        p.SetCameraMode(false, false, asset.camOverride);
+        playerUsing.pui.SetUI(false, false);
         p.usingAsset = asset;
-        p.FreeCamToggle();
-        p.camOverridePos = asset.camOverride;
         UpdateComputer();
     }
 

@@ -107,11 +107,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3500966c3bb87af47bcc5eb1aed9deb7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  open: 0
   inventory:
-  - asset: {fileID: 0}
-    amount: 0
-  - asset: {fileID: 0}
-    amount: 0
   - asset: {fileID: 0}
     amount: 0
   - asset: {fileID: 0}

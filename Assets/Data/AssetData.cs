@@ -32,13 +32,17 @@ public class AssetData : ScriptableObject {
     public List<float> valueHistory = new List<float>();
     public float currentPop;
     public bool physicsAsset;
+    public bool smallAsset;
     public float mass = 1;
+    public bool liquid;
     public GameObject modelPrefab;
+    public float modelYOffset;
     public float miniModelScaleMultiplier = 1;
     public float invModelScaleMultiplier = 1;
     public float invModelYOffset;
     public float invModelRotOffset;
     public int craftingOutput = 1;
+    public bool cantBeSold;
     public List<AssetData> craftingMaterials = new List<AssetData>();
     public List<CraftingIngredient> craftingIngredients = new List<CraftingIngredient>();
     public List<AssetData> breakdownMaterials = new List<AssetData>();

@@ -23,6 +23,10 @@ public static class InputManager {
         return Input.GetKeyDown(KeyCode.R) && player == 0 || prevState[player].Buttons.Y == ButtonState.Released && state[player].Buttons.Y == ButtonState.Pressed;
     }
 
+    public static bool ToggleInventory(int player) {
+        return Input.GetKeyDown(KeyCode.Tab) && player == 0 || prevState[player].Buttons.B == ButtonState.Released && state[player].Buttons.B == ButtonState.Pressed;
+    }
+
     public static bool PickUpInput(int player) {
         return Input.GetMouseButtonDown(1) && player == 0 || prevState[player].Triggers.Left <= .7f && state[player].Triggers.Left > .7f;
     }
@@ -35,8 +39,10 @@ public static class InputManager {
         return Input.GetKeyDown(KeyCode.Space) && player == 0 || prevState[player].Buttons.A == ButtonState.Released && state[player].Buttons.A == ButtonState.Pressed;
     }
 
-    public static bool RotatePlacement(int player) {
-        return Input.GetKey(KeyCode.R) && player == 0 || state[player].Buttons.Y == ButtonState.Pressed;
+    public static float RotatePlacement(int player) {
+        if (Input.GetKey(KeyCode.R) && player == 0 || state[player].Buttons.Y == ButtonState.Pressed) return 1;
+        if (Input.GetKey(KeyCode.Q) && player == 0 || state[player].Buttons.X == ButtonState.Pressed) return -1;
+        return 0;
     }
 
     public static bool AutoSellWhilePlacing(int player) {
@@ -75,6 +81,10 @@ public static class InputManager {
             return new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
         }
         return new Vector2(state[player].ThumbSticks.Left.X, state[player].ThumbSticks.Left.Y);
+    }
+
+    public static bool AButtonHeld(int player) {
+        return state[player].Buttons.A == ButtonState.Pressed;
     }
 
 

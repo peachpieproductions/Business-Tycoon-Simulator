@@ -4,17 +4,22 @@ using UnityEngine;
 
 public class Storage : MonoBehaviour {
 
-
+    public Asset asset;
     public List<AssetInventorySlot> inventory = new List<AssetInventorySlot>();
 
-    public void Open() {
+    private void Awake() {
+        asset = GetComponentInParent<Asset>();
+    }
+
+    public void Open(Player p) {
+        p.pui.invRender.OpenStorage(this);
+    }
+
+    public bool IsEmpty() {
         foreach(AssetInventorySlot slot in inventory) {
-            if (slot.asset) {
-                C.c.player[0].AddAssetToInventory(slot.asset, slot.amount);
-            }
+            if (slot.amount > 0) return false;
         }
-        inventory.Clear();
-        C.c.player[0].pui.invRender.UpdateInventoryRender();
+        return true;
     }
 
     public bool AddAssetToInventory(AssetData asset, int amount = 1) {

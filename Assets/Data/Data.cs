@@ -9,6 +9,7 @@ public class Data : ScriptableObject {
     public Asset assetPrefab;
     public NPC npcPrefab;
     public AssetData shippingCrate;
+    public AssetData bill;
     public List<AssetData> assetData = new List<AssetData>();
     public List<NPCData> npcData = new List<NPCData>();
     public List<GameObject> prefabs = new List<GameObject>();

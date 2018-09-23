@@ -13,9 +13,7 @@ public class Chair : MonoBehaviour {
 
     public void Use(Player p) {
         p.usingAsset = asset;
-        p.FreeCamToggle();
-        p.freeCamFreeRot = true;
-        p.camOverridePos = asset.camOverride;
+        p.SetCameraMode(false, false, asset.camOverride,true);
     }
 
 }

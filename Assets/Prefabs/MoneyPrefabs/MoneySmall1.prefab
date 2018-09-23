@@ -23,7 +23,6 @@ GameObject:
   - component: {fileID: 23376878344683888}
   - component: {fileID: 65672125483894462}
   - component: {fileID: 54069350031424764}
-  - component: {fileID: 65235194004842776}
   - component: {fileID: 114258132079180812}
   m_Layer: 0
   m_Name: MoneySmall1
@@ -39,7 +38,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1215031752953626}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 23.157, y: 1.139, z: 50.315}
+  m_LocalPosition: {x: 18.664724, y: 1.1840894, z: 51.356724}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -101,18 +100,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!65 &65235194004842776
-BoxCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1215031752953626}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.2735181, y: 0.02273639, z: 0.12504923}
-  m_Center: {x: 0.00000023841858, y: 0, z: -0.000000059604645}
 --- !u!65 &65672125483894462
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -123,7 +110,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.32, y: 0.03, z: 0.14}
+  m_Size: {x: 0.32, y: 0.05, z: 0.14}
   m_Center: {x: 0.00000023841858, y: 0, z: -0.000000059604645}
 --- !u!114 &114258132079180812
 MonoBehaviour:
@@ -137,3 +124,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   value: 1
+  isTip: 0

@@ -12,29 +12,36 @@ public class CraftingButton : MonoBehaviour {
 
     private void Start() {
         pui = GetComponentInParent<PlayerUI>();
-        if (pui) craftingTable = pui.player.usingAsset.model.GetComponent<WorkBench>();
+        if (pui) {
+            craftingTable = pui.player.usingAsset.model.GetComponent<WorkBench>();
+        }
     }
 
     public void HoverButton() {
         var index = transform.GetSiblingIndex();
-        if (!craftingTable.breakingDown) {
-            if (craftBlueprintData == null && C.c.data.craftingBlueprintList.Count > 0) craftBlueprintData = C.c.data.craftingBlueprintList[index];
-            if (craftBlueprintData) {
-                string txt = "";
-                foreach (AssetData a in craftBlueprintData.craftingMaterials) {
-                    txt += "x1 " + a.name + "\n";
-                }
-                pui.craftingPanel.transform.Find("RequiredComponentsPanel").GetChild(0).GetComponent<TextMeshProUGUI>().text = txt;
-            }     
-        }
-        else {
-            if (pui && pui.player.inventory[index].amount > 0) invSlotForBreakdown = index;
-            
-        }
+        if (craftingTable) {
+            if (!craftingTable.breakingDown) {
+                if (craftBlueprintData == null && C.c.data.craftingBlueprintList.Count > 0) craftBlueprintData = C.c.data.craftingBlueprintList[index];
+                if (craftBlueprintData) {
+                    pui.invRender.UpdateAssetPreview(craftBlueprintData);
+                    string txt = "";
+                    foreach (AssetData a in craftBlueprintData.craftingMaterials) {
+                        txt += "x1 " + a.name + "\n";
+                    }
+                    pui.craftingPanel.transform.Find("RequiredComponentsPanel").GetChild(0).GetComponent<TextMeshProUGUI>().text = txt;
+                } else { pui.invRender.UpdateAssetPreview(null); }
+            }
+            else {
+                if (pui.player.inventory[index].amount > 0) {
+                    invSlotForBreakdown = index;
+                    pui.invRender.UpdateAssetPreview(pui.player.inventory[index].asset);
+                } else pui.invRender.UpdateAssetPreview(null);
+            }
+        } 
     }
 
     public void LogCraftingData() {
-        craftingTable.Set(this);
+        if (craftingTable) craftingTable.Set(this);
     }
 
 
