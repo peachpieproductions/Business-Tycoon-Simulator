@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class InventorySlotRender : MonoBehaviour {
 
@@ -10,6 +11,7 @@ public class InventorySlotRender : MonoBehaviour {
     public int slotId;
     public Transform slotRenderItem;
     public SpriteRenderer spr;
+    public TextMeshPro amountText;
 
     private void Awake() {
         spr = GetComponent<SpriteRenderer>();
@@ -23,6 +25,7 @@ public class InventorySlotRender : MonoBehaviour {
             slotId = transform.GetSiblingIndex() + 8;
             slotRenderItem = invRender.mainInvItemsParent.GetChild(slotId - 8);
         }
+        CreateAmountText();
     }
 
     private void OnEnable() {
@@ -39,19 +42,37 @@ public class InventorySlotRender : MonoBehaviour {
 
     private void OnMouseDown() {
 
-        AssetInventorySlot slot;
-        if (storage) {
-            slot = storage.inventory[slotId - 32];
-        } else {
-            slot = player.inventory[slotId];
+        if (Input.GetKey(KeyCode.LeftShift) && invRender.storageOpen) {
+            if (storage) {
+                if (player.AddAssetToInventory(invRender.currentStorageObject.inventory[slotId - 32].asset, invRender.currentStorageObject.inventory[slotId - 32].amount)) {
+                    invRender.currentStorageObject.inventory[slotId - 32].amount = 0;
+                    invRender.currentStorageObject.inventory[slotId - 32].asset = null;
+                }
+            } else {
+                if (invRender.currentStorageObject.AddAssetToInventory(player.inventory[slotId].asset, player.inventory[slotId].amount)) {
+                    player.inventory[slotId].amount = 0;
+                    player.inventory[slotId].asset = null;
+                }
+            }
+            invRender.UpdateInventoryRender();
         }
-        if (slot.amount > 0) {
-            invRender.currentDraggedItem = slotRenderItem;
-            invRender.currentSlotDraggedId = slotId;
-            slotRenderItem.localScale = Vector3.one * .8f;
-            var coll = slotRenderItem.GetChild(0).gameObject.AddComponent<BoxCollider>();
-            invRender.currentSlotDraggedYOffset = slotRenderItem.GetChild(0).transform.position.y - coll.bounds.center.y;
-            Destroy(coll);
+        else {
+            AssetInventorySlot slot;
+            if (storage) {
+                slot = storage.inventory[slotId - 32];
+            }
+            else {
+                slot = player.inventory[slotId];
+            }
+            if (slot.amount > 0) {
+                amountText.gameObject.SetActive(false);
+                invRender.currentDraggedItem = slotRenderItem;
+                invRender.currentSlotDraggedId = slotId;
+                slotRenderItem.localScale = Vector3.one * .8f;
+                var coll = slotRenderItem.GetChild(0).gameObject.AddComponent<BoxCollider>();
+                invRender.currentSlotDraggedYOffset = slotRenderItem.GetChild(0).transform.position.y - coll.bounds.center.y;
+                Destroy(coll);
+            }
         }
     }
 
@@ -61,6 +82,12 @@ public class InventorySlotRender : MonoBehaviour {
 
     private void OnMouseExit() {
         invRender.currentSlotHoverId = -1;
+    }
+
+    public void CreateAmountText() {
+        var inst = Instantiate(invRender.amountTextPrototype, transform);
+        inst.transform.localPosition = Vector3.forward * -6;
+        amountText = inst.GetComponent<TextMeshPro>();
     }
 
 

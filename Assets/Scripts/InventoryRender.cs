@@ -28,6 +28,7 @@ public class InventoryRender : MonoBehaviour {
     public Transform storageSlotsParent;
     public List<Transform> storageItems = new List<Transform>();
     public List<InventorySlotRender> storageSlots = new List<InventorySlotRender>();
+    public GameObject amountTextPrototype;
 
     public int currentSlotHoverId;
     public int currentSlotDraggedId;
@@ -172,6 +173,8 @@ public class InventoryRender : MonoBehaviour {
             }
 
             if (C.c.player[0].inventory[i].amount > 0) {
+                hotbarSlots[i].amountText.gameObject.SetActive(true);
+                hotbarSlots[i].amountText.text = C.c.player[0].inventory[i].amount.ToString();
                 hotbarItemsParent.GetChild(i).rotation = Quaternion.identity;
                 var inst = Instantiate(C.c.player[0].inventory[i].asset.modelPrefab,hotbarItems[i]);
                 inst.transform.localPosition = new Vector3 (0, C.c.player[0].inventory[i].asset.invModelYOffset, 0);
@@ -182,7 +185,7 @@ public class InventoryRender : MonoBehaviour {
                 inst.layer = 9;
                 foreach (Transform t in inst.transform) t.gameObject.layer = 9;
                 Destroy(inst.GetComponent<Outline>());
-            } 
+            } else { hotbarSlots[i].amountText.gameObject.SetActive(false); }
         }
 
         //Inventory
@@ -194,6 +197,8 @@ public class InventoryRender : MonoBehaviour {
                 }
 
                 if (C.c.player[0].inventory[i + 8].amount > 0) {
+                    mainInvSlots[i].amountText.gameObject.SetActive(true);
+                    mainInvSlots[i].amountText.text = C.c.player[0].inventory[i + 8].amount.ToString();
                     mainInvItemsParent.GetChild(i).rotation = Quaternion.identity;
                     var inst = Instantiate(C.c.player[0].inventory[i + 8].asset.modelPrefab, mainInvItems[i]);
                     inst.transform.localPosition = new Vector3(0, C.c.player[0].inventory[i + 8].asset.invModelYOffset, 0);
@@ -204,7 +209,7 @@ public class InventoryRender : MonoBehaviour {
                     inst.layer = 9;
                     foreach (Transform t in inst.transform) t.gameObject.layer = 9;
                     Destroy(inst.GetComponent<Outline>());
-                }
+                } else { mainInvSlots[i].amountText.gameObject.SetActive(false); }
             }
         }
 
@@ -219,6 +224,8 @@ public class InventoryRender : MonoBehaviour {
                 if (i < currentStorageObject.inventory.Count) {
                     storageSlots[i].gameObject.SetActive(true);
                     if (currentStorageObject.inventory[i].amount > 0) {
+                        storageSlots[i].amountText.gameObject.SetActive(true);
+                        storageSlots[i].amountText.text = currentStorageObject.inventory[i].amount.ToString();
                         storageItemsParent.GetChild(i).rotation = Quaternion.identity;
                         var inst = Instantiate(currentStorageObject.inventory[i].asset.modelPrefab, storageItems[i]);
                         inst.transform.localPosition = new Vector3(0, currentStorageObject.inventory[i].asset.invModelYOffset, 0);
@@ -229,7 +236,7 @@ public class InventoryRender : MonoBehaviour {
                         inst.layer = 9;
                         foreach (Transform t in inst.transform) t.gameObject.layer = 9;
                         Destroy(inst.GetComponent<Outline>());
-                    }
+                    } else { storageSlots[i].amountText.gameObject.SetActive(false); }
                 }
                 else storageSlots[i].gameObject.SetActive(false);
             }

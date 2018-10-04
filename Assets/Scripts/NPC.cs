@@ -183,7 +183,7 @@ public class NPC : MonoBehaviour {
                             Destroy(diningSeat.orderedModel.gameObject);
                             diningSeat.plateNull.GetChild(0).gameObject.SetActive(false);
                             diningSeat.plateNull.GetChild(1).gameObject.SetActive(true);
-                            diningSeat.dirty = true;
+                            if (!diningSeat.ordered.liquid) diningSeat.dirty = true;
                         }
                         if (timeSpentWaiting > 5 * 60) {
                             StopDining();

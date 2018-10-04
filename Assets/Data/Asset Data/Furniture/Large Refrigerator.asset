@@ -1,0 +1,41 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a3b6eac396418ab46a1449e0684acf61, type: 3}
+  m_Name: Large Refrigerator
+  m_EditorClassIdentifier: 
+  type: 0
+  useTag: Storage
+  assetLevel: 2
+  baseValue: 120
+  currentValue: 5.5456896
+  valueHistory:
+  - 4.549662
+  - 5.5456896
+  currentPop: 0.3697204
+  physicsAsset: 0
+  smallAsset: 0
+  mass: 50
+  liquid: 0
+  modelPrefab: {fileID: 1750872277854622, guid: 6306ea198cffb2d4d85dd19394b73a3f,
+    type: 2}
+  modelYOffset: 0
+  miniModelScaleMultiplier: 0.35
+  invModelScaleMultiplier: 0.6
+  invModelYOffset: 0
+  invModelRotOffset: 0
+  craftingOutput: 1
+  cantBeSold: 0
+  craftingMaterials: []
+  craftingIngredients: []
+  breakdownMaterials: []
+  workbenchNeeded: 0
+  useable: 1
+  storageSlots: 10

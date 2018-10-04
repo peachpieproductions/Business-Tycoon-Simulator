@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-public enum WorkbenchType { Workbench, FoodPrepTable, Grill, Oven, Toaster, Fryer }
+public enum WorkbenchType { Workbench, FoodPrepTable, Grill, Oven, Toaster, Fryer, coffeemaker }
 
 public class WorkBench : MonoBehaviour {
 

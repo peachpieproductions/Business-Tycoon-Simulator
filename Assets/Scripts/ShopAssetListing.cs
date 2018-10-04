@@ -19,13 +19,16 @@ public class ShopAssetListing : MonoBehaviour {
     }
 
     public void AddToCart() {
-        inCart++;
+        if (Input.GetKey(KeyCode.LeftShift)) inCart += 10;
+        else inCart++;
         assetInCart.text = inCart.ToString();
         computer.UpdateComputer();
     }
 
     public void RemoveFromCart() {
-        if (inCart > 0) inCart--;
+        if (Input.GetKey(KeyCode.LeftShift)) inCart -= 10;
+        else inCart--;
+        if (inCart < 0) inCart = 0;
         assetInCart.text = inCart.ToString();
         computer.UpdateComputer();
     }
@@ -36,16 +39,6 @@ public class ShopAssetListing : MonoBehaviour {
         computer.UpdateComputer();
     }
 
-    /*public void BuyAsset() {
-        if (Mathf.Round(computer.playerUsing.money) >= Mathf.Round(asset.currentValue)) {
-            computer.playerUsing.AddToUpcomingDelivery(asset);
-            computer.playerUsing.money -= Mathf.Round(asset.currentValue);
-            computer.playerUsing.pui.CreateInfoPopup("- $" + Mathf.Round(asset.currentValue), C.c.data.colors[1]);
-            if (computer.playerUsing.deliveryTimer <= 0) {
-                computer.playerUsing.deliveryTimer = 60 * 3;
-            }
-        }
-    }*/
 
 
 }

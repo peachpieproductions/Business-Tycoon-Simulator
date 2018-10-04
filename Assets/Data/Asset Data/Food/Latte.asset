@@ -15,11 +15,13 @@ MonoBehaviour:
   useTag: 
   assetLevel: 1
   baseValue: 7
-  currentValue: 7.6028996
+  currentValue: 6.6193686
   valueHistory:
-  - 7.6028996
-  currentPop: 0.42994773
+  - 7.6132317
+  - 6.6193686
+  currentPop: 0.44668967
   physicsAsset: 1
+  smallAsset: 0
   mass: 1
   liquid: 1
   modelPrefab: {fileID: 1115300754449222, guid: 95150b67c8185344e86a3b45c2a22d26,
@@ -36,4 +38,4 @@ MonoBehaviour:
   - {fileID: 11400000, guid: b50e5869d340d8641b17decbab79f2cb, type: 2}
   craftingIngredients: []
   breakdownMaterials: []
-  workbenchNeeded: 1
+  workbenchNeeded: 6
