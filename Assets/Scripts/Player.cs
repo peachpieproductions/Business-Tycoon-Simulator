@@ -31,6 +31,8 @@ public class Player : MonoBehaviour {
     public bool teleporting;
     public bool isSleeping;
     public bool inventoryOpen;
+    public NPC lookingAtNpc;
+    public NPC interactingWithNpc;
 
     private void Awake() {
         cam.gameObject.SetActive(true);
@@ -109,6 +111,7 @@ public class Player : MonoBehaviour {
 
         //hover assets for interaction
         assetHovering = null;
+        lookingAtNpc = null;
         RaycastHit hit;
         if (!buildMode && usingAsset == null) {
             if (Physics.Raycast(cam.transform.position + cam.transform.forward * .6f, cam.transform.forward, out hit, 2f)) {
@@ -117,6 +120,13 @@ public class Player : MonoBehaviour {
                     if (asset) {
                         assetHovering = asset;
                         asset.Hovering(this);
+                    }
+                }
+                else if (hit.transform.CompareTag("NPC")) {
+                    var npc = hit.transform.GetComponent<NPC>();
+                    if (npc) {
+                        lookingAtNpc = npc;
+                        StartCoroutine(npc.InteractWithAI());
                     }
                 }
                 else if (hit.transform.GetComponent<Interactable>()) {

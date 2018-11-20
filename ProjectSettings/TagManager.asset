@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Asset
   - Vehicle
+  - NPC
   layers:
   - Default
   - TransparentFX

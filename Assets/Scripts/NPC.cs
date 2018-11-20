@@ -7,6 +7,7 @@ using TMPro;
 public class NPC : MonoBehaviour {
 
     Animator anim;
+    Player player;
     public NPCData data;
     public List<AssetInventorySlot> inventory = new List<AssetInventorySlot>();
     public NavMeshAgent agent;
@@ -22,11 +23,15 @@ public class NPC : MonoBehaviour {
     public DiningTable.DiningSeat diningSeat;
     public DiningTable diningTable;
     public float loopDelay = .5f;
-    
+
+    CanvasGroup uiPopup;
 
     private void Start() {
         anim = GetComponent<Animator>();
         agent = GetComponent<NavMeshAgent>();
+        uiPopup = GetComponentInChildren<CanvasGroup>();
+        uiPopup.alpha = 0;
+        player = C.c.player[0];
     }
 
     private void OnEnable() {
@@ -95,6 +100,11 @@ public class NPC : MonoBehaviour {
                 transform.position = diningSeat.seatTrans.position;
                 transform.rotation = diningSeat.seatTrans.rotation;
             }
+            if (readyToCheckout) {
+                if (C.c.currentShop.npcCheckoutLine.Count > 0 && C.c.currentShop.npcCheckoutLine[0] == this) {
+                    OverrideLookAt(C.c.player[0].transform);
+                }
+            }
 
         }
 
@@ -123,6 +133,22 @@ public class NPC : MonoBehaviour {
         }
     }
 
+    public IEnumerator InteractWithAI() {
+        while(player.lookingAtNpc == this) {
+            if (uiPopup.alpha < 1) uiPopup.alpha += Time.deltaTime * .1f;
+            uiPopup.transform.LookAt(player.transform);
+            uiPopup.transform.eulerAngles = new Vector3(0, uiPopup.transform.eulerAngles.y, 0);
+
+
+            yield return null;
+        }
+
+        while (uiPopup.alpha > 0) {
+            uiPopup.alpha -= Time.deltaTime * .1f;
+            yield return null;
+        }
+    }
+
     public IEnumerator AILoop() {
 
         yield return null;
@@ -130,7 +156,7 @@ public class NPC : MonoBehaviour {
         while (true) {
 
             if (inventory[0].amount > 0 && !readyToCheckout && !goingHome) {
-                if (Random.value < .005f) {
+                if (Random.value < .01f) {
                     ReadyToCheckOut();
                     yield return null;
                 }
@@ -142,7 +168,6 @@ public class NPC : MonoBehaviour {
                     timeSpentWaiting += loopDelay;
                     if (Random.value < .01f) UpdateInWaitingLine();
                     if (C.c.currentShop.npcCheckoutLine.Count > 0 && C.c.currentShop.npcCheckoutLine[0] == this) {
-                        OverrideLookAt(C.c.player[0].transform);
                         if (C.c.currentShop.register.assetBeingSoldModel.childCount == 0) {
                             var inst = Instantiate(inventory[0].asset.modelPrefab, C.c.currentShop.register.assetBeingSoldModel);
                             var rb = inst.GetComponent<Rigidbody>(); if (rb) rb.isKinematic = true;
