@@ -15,4 +15,7 @@ MonoBehaviour:
   npcModelPrefab: {fileID: 1904580080126050, guid: c443fc2167fb1d246a7dcf4cd9be3170,
     type: 2}
   favoriteAsset: {fileID: 11400000, guid: ff97b64f9e22bb14bac457921dae91da, type: 2}
+  relationshipPercent: 50
   isFemale: 0
+  isHome: 1
+  home: {fileID: 0}

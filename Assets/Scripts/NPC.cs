@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 using TMPro;
+using UnityEngine.UI;
 
 public class NPC : MonoBehaviour {
 
@@ -24,7 +25,13 @@ public class NPC : MonoBehaviour {
     public DiningTable diningTable;
     public float loopDelay = .5f;
 
-    CanvasGroup uiPopup;
+    [Header("UI")]
+    public TextMeshProUGUI nameText;
+    public Transform statusParent;
+    public GameObject interactPanel;
+    [HideInInspector] public CanvasGroup uiPopup;
+
+    bool coroutineInteractActive;
 
     private void Start() {
         anim = GetComponent<Animator>();
@@ -38,12 +45,6 @@ public class NPC : MonoBehaviour {
         StartCoroutine(AILoop());
     }
 
-    public void UpdateInWaitingLine() {
-        if (C.c.currentShop.npcCheckoutLine.IndexOf(this) == 0) agent.SetDestination(C.c.currentShop.register.transform.position + -C.c.currentShop.register.transform.forward);
-        else agent.SetDestination(C.c.currentShop.npcCheckoutLine[C.c.currentShop.npcCheckoutLine.IndexOf(this) - 1].transform.position);
-        walkingToDestination = true;
-    }
-
     public void Set(NPCData d) {
         data = d;
         if (transform.childCount > 0) {
@@ -51,19 +52,6 @@ public class NPC : MonoBehaviour {
             var model = Instantiate(d.npcModelPrefab, transform);
             model.transform.localPosition = Vector3.zero;
         }
-    }
-
-    public void GoHome() {
-        goingHome = true;
-        readyToCheckout = false;
-        agent.SetDestination(data.home.position);
-        walkingToDestination = true;
-        timeSpentWaiting = 0;
-    }
-
-    public void OverrideLookAt(Transform lookAt) {
-        transform.forward = Vector3.Slerp(transform.forward, lookAt.position - transform.position, Time.deltaTime * 4);
-        transform.eulerAngles = new Vector3(0, transform.eulerAngles.y, 0);
     }
 
     private void Update() {
@@ -112,41 +100,47 @@ public class NPC : MonoBehaviour {
 
     }
 
-    public void ReadyToCheckOut() {
-        readyToCheckout = true;
-        C.c.currentShop.npcCheckoutLine.Add(this);
-        UpdateInWaitingLine();
-    }
-
-    public void StopDining() {
-        diningTable.ResetSeat(diningSeat);
-        diningSeat = null;
-        diningTable = null;
-        dining = false;
-        anim.SetBool("Sitting", false);
-
-        if (owedAmount > 0) {
-            AddAssetToInventory(C.c.data.bill);
-            ReadyToCheckOut();
-        } else {
-            GoHome();
-        }
-    }
-
     public IEnumerator InteractWithAI() {
-        while(player.lookingAtNpc == this) {
-            if (uiPopup.alpha < 1) uiPopup.alpha += Time.deltaTime * .1f;
-            uiPopup.transform.LookAt(player.transform);
-            uiPopup.transform.eulerAngles = new Vector3(0, uiPopup.transform.eulerAngles.y, 0);
 
+        if (coroutineInteractActive) yield break;
+        else coroutineInteractActive = true;
 
+        UpdateUI();
+
+        while(player.lookingAtNpc == this && player.interactingWithNpc == null) {
+            if (uiPopup.alpha < 1) uiPopup.alpha += Time.deltaTime * 10f;
+            UILookAtPlayer(player);
+
+            if (InputManager.InteractInput(0)) {
+                interactPanel.gameObject.SetActive(true);
+                player.interactingWithNpc = this;
+                uiPopup.alpha = 1;
+                agent.isStopped = true;
+            }
+
+            yield return null;
+        }
+
+        while (player.interactingWithNpc == this) {
+            if (InputManager.Cancel(0)) {
+                player.interactingWithNpc = null;
+            }
+            if (InputManager.JumpInput(0)) { //start Talking
+                
+            }
+            OverrideLookAt(C.c.player[0].transform);
+            UILookAtPlayer(player);
             yield return null;
         }
 
         while (uiPopup.alpha > 0) {
-            uiPopup.alpha -= Time.deltaTime * .1f;
+            uiPopup.alpha -= Time.deltaTime * 10f;
             yield return null;
         }
+
+        interactPanel.SetActive(false);
+        agent.isStopped = false;
+        coroutineInteractActive = false;
     }
 
     public IEnumerator AILoop() {
@@ -266,6 +260,21 @@ public class NPC : MonoBehaviour {
 
     }
 
+    public void UpdateUI() {
+        nameText.text = data.name;
+        statusParent.GetComponentInChildren<Image>().gameObject.SetActive(false);
+        if (data.relationshipPercent < 20) statusParent.Find("StatusHate").gameObject.SetActive(true); 
+        else if (data.relationshipPercent < 40) statusParent.Find("StatusDislike").gameObject.SetActive(true); 
+        else if (data.relationshipPercent < 60) statusParent.Find("StatusNeutral").gameObject.SetActive(true); 
+        else if (data.relationshipPercent < 85) statusParent.Find("StatusLike").gameObject.SetActive(true); 
+        else statusParent.Find("StatusLove").gameObject.SetActive(true); 
+    }
+
+    public void UILookAtPlayer(Player p) {
+        uiPopup.transform.LookAt(p.transform);
+        uiPopup.transform.eulerAngles = new Vector3(0, uiPopup.transform.eulerAngles.y, 0);
+    }
+
     public bool AddAssetToInventory(AssetData asset, int amount = 1) {
         bool placedAsset = false;
         foreach (AssetInventorySlot slot in inventory) { //find existing asset stack
@@ -288,6 +297,44 @@ public class NPC : MonoBehaviour {
         return placedAsset;
     }
 
+    public void ReadyToCheckOut() {
+        readyToCheckout = true;
+        C.c.currentShop.npcCheckoutLine.Add(this);
+        UpdateInWaitingLine();
+    }
 
+    public void StopDining() {
+        diningTable.ResetSeat(diningSeat);
+        diningSeat = null;
+        diningTable = null;
+        dining = false;
+        anim.SetBool("Sitting", false);
+
+        if (owedAmount > 0) {
+            AddAssetToInventory(C.c.data.bill);
+            ReadyToCheckOut();
+        } else {
+            GoHome();
+        }
+    }
+
+    public void GoHome() {
+        goingHome = true;
+        readyToCheckout = false;
+        agent.SetDestination(data.home.position);
+        walkingToDestination = true;
+        timeSpentWaiting = 0;
+    }
+
+    public void OverrideLookAt(Transform lookAt) {
+        transform.forward = Vector3.Slerp(transform.forward, lookAt.position - transform.position, Time.deltaTime * 4);
+        transform.eulerAngles = new Vector3(0, transform.eulerAngles.y, 0);
+    }
+
+    public void UpdateInWaitingLine() {
+        if (C.c.currentShop.npcCheckoutLine.IndexOf(this) == 0) agent.SetDestination(C.c.currentShop.register.transform.position + -C.c.currentShop.register.transform.forward);
+        else agent.SetDestination(C.c.currentShop.npcCheckoutLine[C.c.currentShop.npcCheckoutLine.IndexOf(this) - 1].transform.position);
+        walkingToDestination = true;
+    }
 
 }

@@ -84,13 +84,16 @@ public class Player : MonoBehaviour {
 
     private void Update() {
 
-        if (Input.GetKeyDown(KeyCode.Alpha9)) {
+        MoveAndLook();
+
+        //DEBUG CODE
+        /*if (Input.GetKeyDown(KeyCode.Alpha9)) {
             foreach (AssetInventorySlot s in inventory) {
                 s.asset = C.c.data.assetData[Random.Range(0, C.c.data.assetData.Count)];
                 s.amount = 10;
             }
             pui.invRender.UpdateInventoryRender();
-        }
+        }*/
 
         //virtual mouse with controller
         if (Cursor.lockState == CursorLockMode.None) {
@@ -98,7 +101,7 @@ public class Player : MonoBehaviour {
             if (InputManager.JumpInput(playerId)) { HardwareCursor.LeftClick(); }
         }
 
-        MoveAndLook();
+        
 
         //deliveries
         if (deliveryTimer > 0) {
@@ -133,6 +136,12 @@ public class Player : MonoBehaviour {
                     if (InputManager.InteractInput(playerId)) hit.transform.GetComponent<Interactable>().Use();
                 }
             }
+        }
+
+        //Interacting with NPC
+        if (interactingWithNpc) {
+            rb.velocity = Vector3.zero;
+            cam.LookAt(interactingWithNpc.interactPanel.transform);
         }
 
         //build mode
