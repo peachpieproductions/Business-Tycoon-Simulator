@@ -8,6 +8,7 @@ using TMPro;
 public class TextVariant {
     [TextArea(1, 10)]
     public string text;
+    public NPCData npc;
     //public ConversationNodeData.Emotion emotion;
 }
 
