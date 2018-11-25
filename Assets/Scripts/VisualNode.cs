@@ -20,6 +20,8 @@ public enum Comparison {
 [ExecuteInEditMode]
 public class VisualNode : MonoBehaviour {
 
+    public bool rootNode;
+    public string rootNodeName;
     public List<TextVariant> text = new List<TextVariant>();
     public ConversationNodeData.Emotion emotion;
     public bool response;
@@ -54,6 +56,7 @@ public class VisualNode : MonoBehaviour {
             GetComponent<SpriteRenderer>().color = nodeColorOverride;
         } else {
             if (response) GetComponent<SpriteRenderer>().color = new Color(.7f, 1f, 1f);
+            else if (rootNode) GetComponent<SpriteRenderer>().color = new Color(.7f, 1f, .7f);
             else GetComponent<SpriteRenderer>().color = Color.white;
         }
 
@@ -79,6 +82,12 @@ public class VisualNode : MonoBehaviour {
             titleText.text = NodeVisualTitle;
             if (nodeNote != "") noteText.text = "Note: " + nodeNote;
             else noteText.text = "";
+        }
+        if (data) {
+            data.responses.Clear();
+            data.responseTo.Clear();
+            foreach (VisualNode vn in responses) { if (vn) data.responses.Add(vn.data); else responses.Remove(vn); }
+            foreach (VisualNode vn in responseTo) { if (vn) data.responseTo.Add(vn.data); else responseTo.Remove(vn); }
         }
     }
 

@@ -95,7 +95,7 @@ public class VisualNodeEditor : Editor {
         if (node.text.Count > 0) node.text[0].text = EditorGUILayout.TextArea(node.text[0].text, GUILayout.MinHeight(EditorGUIUtility.singleLineHeight * 5), GUILayout.MaxWidth(Screen.width - 40));
 
         EditorGUILayout.BeginHorizontal();
-        EditorGUILayout.LabelField("Required Rel", GUILayout.Width(96));
+        EditorGUILayout.LabelField("Required Relation", GUILayout.Width(96));
         node.relPercentCompare = (Comparison) EditorGUILayout.EnumPopup(node.relPercentCompare);
         node.relationshipPercReq = EditorGUILayout.FloatField(node.relationshipPercReq);
         EditorGUILayout.EndHorizontal();
@@ -129,8 +129,6 @@ public class VisualNodeEditor : Editor {
     private void OnSceneGUI() {
 
         VisualNode node = (VisualNode)target;
-
-        
 
         if (Event.current.type == EventType.KeyDown) {
 

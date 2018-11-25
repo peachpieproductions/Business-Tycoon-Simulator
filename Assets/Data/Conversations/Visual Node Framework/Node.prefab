@@ -452,18 +452,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d87ade8895d574d43b3459ec3419a4c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rootNode: 0
+  rootNodeName: 
   text:
   - text: Hello, how are you?
+    npc: {fileID: 0}
   emotion: 0
   response: 0
-  responses:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  responses: []
   responseTo: []
   nodeColorOverride: {r: 1, g: 1, b: 1, a: 1}
   NodeVisualTitle: 
@@ -473,7 +469,7 @@ MonoBehaviour:
   showEditingHud: 1
   relPercentCompare: 0
   relationshipPercReq: 90
-  data: {fileID: 11400000, guid: ce435f295a2c5124d9e010364c90700f, type: 2}
+  data: {fileID: 0}
   nodeText: {fileID: 114418512684993656}
   titleText: {fileID: 114532538080256632}
   noteText: {fileID: 114868015512853374}
