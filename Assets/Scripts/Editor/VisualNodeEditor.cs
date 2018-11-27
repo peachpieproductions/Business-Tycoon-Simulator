@@ -8,8 +8,6 @@ using UnityEditorInternal;
 [CustomEditor(typeof(VisualNode))]
 public class VisualNodeEditor : Editor {
 
-    
-
     public GameObject CreateNewResponseNode(VisualNode node) {
         var inst = node.nodeManager.CreateNewNode();
         inst.transform.position = node.transform.position + Vector3.right * 5;
@@ -41,8 +39,45 @@ public class VisualNodeEditor : Editor {
     }
 
     public override void OnInspectorGUI() {
-
+        
         VisualNode node = (VisualNode)target;
+
+        if (node.nodeColorOverride != Color.white) {
+            node.GetComponent<SpriteRenderer>().color = node.nodeColorOverride;
+        } else {
+            if (node.response) node.GetComponent<SpriteRenderer>().color = new Color(.7f, 1f, 1f);
+            else if (node.rootNode) node.GetComponent<SpriteRenderer>().color = new Color(.7f, 1f, .7f);
+            else node.GetComponent<SpriteRenderer>().color = Color.white;
+        }
+
+        if (node.nodeIconSprite) { node.nodeIcon.sprite = node.nodeIconSprite; node.nodeIcon.color = Color.white; } else {
+            if (node.emotion == ConversationNodeData.Emotion.Nice) { node.nodeIcon.sprite = node.nodeManager.emotionIcons[0]; node.nodeIcon.color = new Color(.7f, 1f, .7f); } 
+            else if (node.emotion == ConversationNodeData.Emotion.Mean) { node.nodeIcon.sprite = node.nodeManager.emotionIcons[1]; node.nodeIcon.color = new Color(1f, .8f, .8f); } 
+            else node.nodeIcon.sprite = null;
+        }
+
+        if (node.relationshipPercReq > 0) {
+            if (node.relPercentCompare == Comparison.GreaterThan) node.relationshipReqText.text = "> ";
+            else node.relationshipReqText.text = "< ";
+            node.relationshipReqText.text += node.relationshipPercReq;
+        } else node.relationshipReqText.text = "";
+
+        if (node.text.Count > 0) {
+            if (node.text[0].text != "") node.nodeText.text = node.text[0].text;
+            else node.nodeText.text = "(New Node)";
+            if (node.data) {
+                node.data.text = node.text;
+            }
+            node.titleText.text = node.NodeVisualTitle;
+            if (node.nodeNote != "") node.noteText.text = "Note: " + node.nodeNote;
+            else node.noteText.text = "";
+        }
+        if (node.data) {
+            node.data.responses.Clear();
+            node.data.responseTo.Clear();
+            foreach (VisualNode vn in node.responses) { if (vn) node.data.responses.Add(vn.data); else node.responses.Remove(vn); }
+            foreach (VisualNode vn in node.responseTo) { if (vn) node.data.responseTo.Add(vn.data); else node.responseTo.Remove(vn); }
+        }
 
         GUI.backgroundColor = new Color(.7f, 1f, 1f);
         if (GUILayout.Button("Create New Response")) {
@@ -110,10 +145,12 @@ public class VisualNodeEditor : Editor {
 
         GUI.backgroundColor = new Color(1f, .6f, .6f);
         if (GUILayout.Button("DESTROY w/ DATA")) {
-            var path = AssetDatabase.GetAssetPath(node.data);
-            AssetDatabase.DeleteAsset(path);
-            AssetDatabase.SaveAssets();
-            AssetDatabase.Refresh();
+            if (node.data) {
+                var path = AssetDatabase.GetAssetPath(node.data);
+                AssetDatabase.DeleteAsset(path);
+                AssetDatabase.SaveAssets();
+                AssetDatabase.Refresh();
+            }
 
             DestroyImmediate(node.gameObject);
         }
@@ -129,7 +166,7 @@ public class VisualNodeEditor : Editor {
     private void OnSceneGUI() {
 
         VisualNode node = (VisualNode)target;
-
+        
         if (Event.current.type == EventType.KeyDown) {
 
             var ray = HandleUtility.GUIPointToWorldRay(Event.current.mousePosition).origin;

@@ -52,43 +52,7 @@ public class VisualNode : MonoBehaviour {
 
     private void Update() {
 
-        if (nodeColorOverride != Color.white) {
-            GetComponent<SpriteRenderer>().color = nodeColorOverride;
-        } else {
-            if (response) GetComponent<SpriteRenderer>().color = new Color(.7f, 1f, 1f);
-            else if (rootNode) GetComponent<SpriteRenderer>().color = new Color(.7f, 1f, .7f);
-            else GetComponent<SpriteRenderer>().color = Color.white;
-        }
-
-        if (nodeIconSprite) { nodeIcon.sprite = nodeIconSprite; nodeIcon.color = Color.white; }
-        else {
-            if (emotion == ConversationNodeData.Emotion.Nice) { nodeIcon.sprite = nodeManager.emotionIcons[0]; nodeIcon.color = new Color(.7f, 1f, .7f); }
-            else if (emotion == ConversationNodeData.Emotion.Mean) { nodeIcon.sprite = nodeManager.emotionIcons[1]; nodeIcon.color = new Color(1f, .8f, .8f); }
-            else nodeIcon.sprite = null;
-        }
-
-        if (relationshipPercReq > 0) {
-            if (relPercentCompare == Comparison.GreaterThan) relationshipReqText.text = "> ";
-            else relationshipReqText.text = "< ";
-            relationshipReqText.text += relationshipPercReq;
-        } else relationshipReqText.text = "";
-
-        if (text.Count > 0) {
-            if (text[0].text != "") nodeText.text = text[0].text;
-            else nodeText.text = "(New Node)";
-            if (data) {
-                data.text = text;
-            }
-            titleText.text = NodeVisualTitle;
-            if (nodeNote != "") noteText.text = "Note: " + nodeNote;
-            else noteText.text = "";
-        }
-        if (data) {
-            data.responses.Clear();
-            data.responseTo.Clear();
-            foreach (VisualNode vn in responses) { if (vn) data.responses.Add(vn.data); else responses.Remove(vn); }
-            foreach (VisualNode vn in responseTo) { if (vn) data.responseTo.Add(vn.data); else responseTo.Remove(vn); }
-        }
+        
     }
 
     
